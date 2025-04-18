@@ -1,0 +1,226 @@
+@charset "UTF-8";
+@font-face { font-family: 'Wii NTLG PGothic JPN Regular'; src: url('../font/font.ttf'); };
+@font-face { font-family: 'Catmoji'; src: url("/font/catmoji.ttf"); }
+.catmoji_TXT { font-family: 'Catmoji' !important; }
+
+body {
+    background-image: url('/images/background.gif');
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+* {
+    font-family: 'Wii NTLG PGothic JPN Regular' !important;
+    color: #FFFFFF;
+}
+.small {
+    font-size: small;
+}
+.medium {
+    font-size: medium;
+}
+.header {
+    color: yellow;
+}
+.btn {
+    position: absolute;
+    width: 901px;
+    height: 150px;
+    z-index: 1;
+    left: 530px;
+    top: 262px;
+}
+.btns {
+    position: fixed;
+    width: 679px;
+    height: 94px;
+    z-index: 4;
+    left: 635px;
+    top: 142px
+}
+.visited {
+    color: purple;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.link {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.large {
+    font-size: 20px;
+}
+.pointer {
+    cursor:pointer;
+}
+.greenTxt {
+    color: greenyellow;
+}
+.redTxt {
+    color: red;
+}
+.noscripterr {
+    border: red;
+    width: 500px;
+    height: 300px;
+    background-color: black;
+}
+.btnTxt {
+    color: black;
+    font-size: 16px;
+}
+.warnContainer {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(22, 22, 22);
+    left: 0;
+    right: 0;
+    top: 0px;
+    border: 0px;
+    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
+    z-index: 19;
+    overflow: hidden;
+}
+.HSWindow {
+    position: relative;
+    vertical-align: middle;
+    border: 20px rgb(152, 152, 160);
+    width: 50vw;
+    height: 50vh;
+    z-index: 20;
+}
+.Header {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.hsTitle {
+    position: relative;
+    top: 40px;
+    vertical-align: center;
+    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
+    font-size: 20px;
+    color: #ffffff;
+}
+.hsBody {
+    position: relative;
+    vertical-align: center;
+    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
+    color: #FFFFFF;
+}
+.initSettings {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+body::-webkit-scrollbar {
+    width: 52px;
+}
+body::-webkit-scrollbar-button:single-button:vertical:decrement {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_up.png")
+}
+body::-webkit-scrollbar-button:single-button:vertical:increment {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_down.png");
+}
+body::-webkit-scrollbar-thumb:vertical {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/scroll_bar.png");
+}
+body::-webkit-scrollbar-track:vertical {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/scroll_base.png");
+}
+body::-webkit-scrollbar-button:single-button:vertical:increment:active {
+    width: 52px !important;
+    height: 52px !important;
+    background: url("../scrollBar/h/arrow_down_pressed.png");
+    background-size: cover;
+}
+body::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+    width: 52px !important;
+    height: 52px !important;
+    background: url("../scrollBar/h/arrow_up_pressed.png");
+    background-size: cover;
+}
+body::-webkit-scrollbar-corner {
+    width: 40px;
+    height: 40px;
+}
+body::-webkit-scrollbar:horizontal {
+    width: auto;
+    height: 15px;
+}
+body::-webkit-scrollbar-track:horizontal {
+    background: url("../scrollBar/v/center-center.png");
+    width: auto;
+    height: 15px;
+}
+body::-webkit-scrollbar-thumb:horizontal {
+    background: url("../scrollBar/v/Bg.png");
+}
+body::-webkit-scrollbar-button:single-button:horizontal:increment {
+    background-color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    background-size: fill;
+}
+body::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    background-color: #FFFFFF;
+    width: 40px;
+    height: 40px;
+    background-size: fill;
+}
+/* btn */
+button {
+    background-color: #FFFFFF;
+    border: 2px solid #34beed;
+    color: #323232;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Wii NTLG PGothic Regular', 'Wii NTLG PGothic JPN Regular', 'Wii NTLG Gothic Latin Regular', 'Wii NTLG PGothic Latin Regular', 'Comic Sans MS' sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+  
+button:hover {
+    background-color: #a5aaef;
+    color: #323232;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+button:active {
+    background-color: #a5aaef;
+    color: #323232;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: translateY(2px);
+}
+#Spinner {
+    animation: spinner 1.3s infinite ;
+    transition:.3s ease-in-out;
+    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.11));
+}
+.loadicon {
+    display: none;
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: 99;
+}
+.ring {
+    display: flex;
+    width: 40px;
+    height: 40px;
+}

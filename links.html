@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/main.js"></script>
+    <script>var snd = new webSound();</script>
+    <script src="js/swapImg.js"></script>
+    <title>links</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta property="og:title" content="links - idkwhereisthissite">
+    <meta property="og:description" content="idkwh's silly website">
+    <style>
+        body {
+            background-image: url("images/background.gif");
+        }
+        .homeBtn {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            z-index: 3;
+            left: 923px;
+            top: 362px;
+            cursor: pointer;
+        }
+        .HomeBTN {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="loadicon" class="loadicon">
+        <img src="/images/wiiloading.gif" class="ring" id="wiiring">
+    </div>
+    <div align="center">
+        <h1 class="header">links</h1>
+        <a onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = 'index.html' }, 550);"
+            onmouseover="snd.playSE(1)">
+            <img class="HomeBTN" src="images/homebutton.gif" onmouseover="snd.playSE(1)"
+                onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = 'index.html' }, 550);">
+        </a>
+        <br><br>
+        <span class="medium">here are some links</span>
+        <br><br>
+        <a class="link medium" onmouseover="snd.playSE(1)" title="yt channel" id="ytlink"
+            onclick="snd.Load();snd.playSE(15);changelink('ytlink');setTimeout(() => { window.location.href = 'yt.html' }, 550);">youtube
+            channel</a>
+        <br><br>
+        <a id="githublink" class="link medium" onmouseover="snd.playSE(1)"
+            onclick="snd.Load();snd.playSE(15);changelink('githublink');setTimeout(() => { window.location.href = 'https://github.com/idkwhere1sthisname' }, 550);"
+            title="github">github</a>
+        <br><br>
+        <a id="pronounsPage" class="link medium" onmouseover="snd.playSE(1)"
+            onclick="snd.Load();snd.playSE(15);setTimeout(() => { window.location.href = 'https://en.pronouns.page/@idkwh'; }, 550);changelink('pronounsPage')">pronouns.page</a>
+        <br><br>
+        <img src="images/under-construction2.gif" width="100px" height="100px" ondblclick="snd.playSound(7)"
+            title="under construction...">
+        <br><br><br>
+        <div class="small">
+            <span class="small">
+                <a class="link small" id="rblxlink" onmouseover="snd.playSE(1)"
+                    onclick="snd.Load();snd.playSE(15);changelink('rblxlink');setTimeout(() => { window.location.href = 'https://www.roblox.com/users/3962819055/profile' }, 550);">roblox
+                    (old)</a>
+            </span>
+        </div>
+    </div>
+</body>
+</html>

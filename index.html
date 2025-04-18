@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta property="og:title" content="idkwhereisthissite">
+    <meta property="og:description" content="idkwh's silly website">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <script src="js/swapImg.js"></script>
+    <script src="js/main.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script>
+        let snd = new webSound();
+    </script>
+    <link rel="stylesheet" href="css/main.css">
+    <title>idkwhereisthissite</title>
+    <style>
+        body {
+            background-image: url("images/background.gif");
+        }
+
+        .site {
+            cursor: pointer;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .okBtn:focus~.nsTag {
+            display: none;
+        }
+
+        .LARGEST {
+            font-size: 40px;
+        }
+
+        center {
+            /* doesnt center anything now */
+            align-items: left;
+            align-self: right;
+            align-content: right;
+            vertical-align: bottom;
+        }
+
+        iframe {
+            background: url(//incr.easrng.net/bg.gif)
+        }
+
+        #bgmplayer {
+            transition: .3s ease-in-out;
+            opacity: 30%;
+            position: fixed;
+            bottom: 3px;
+            border: 2px solid #34BEED;
+            left: 3px;
+            float: left;
+            width: 160px;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        #bgmplayer:hover {
+            opacity: 50%;
+            transition: .3s ease-in-out;
+            height: 100px;
+            width: 200px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body onload="snd.stopLoad();dispMsg();">
+    <div id="loadicon" class="loadicon" style="display: none; position:absolute">
+        <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
+    </div>
+    <div align="center">
+        <div id="main">
+            <h1 class="header Header" ondblclick="snd.playSE(2)">idkwhereisthissite</h1>
+            <p class="medium">welcome to my little hideout, theres pretty much nothing here :P<span id="Obj"></span></p>
+            <!--[if IE 8]>
+            <br /><br /><p>why are you using internet explorer</p>
+            <![endif]-->
+            <a href="contact.html" onclick="snd.Load()">
+                <img border="0" id="img3" src="interactivebuttons/button3A.jpg" height="20" width="100" alt="contact"
+                    fp-style="fp-btn: Metal Rectangle 2" fp-title="contact"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img3',/*url*/'interactivebuttons/button3B.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img3',/*url*/'interactivebuttons/button3A.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img3',/*url*/'interactivebuttons/button3C.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img3',/*url*/'interactivebuttons/button3B.jpg')"></a><a
+                href="links.html" onclick="snd.Load();"><img border="0" id="img5" src="interactivebuttons/button32.jpg" height="20"
+                    width="100" alt="links"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img5',/*url*/'interactivebuttons/button31.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img5',/*url*/'interactivebuttons/button32.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img5',/*url*/'interactivebuttons/button2A1.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img5',/*url*/'interactivebuttons/button31.jpg')"
+                    fp-style="fp-btn: Metal Rectangle 7; fp-font: Comic Sans MS" fp-title="links"></a><a
+                href="yt.html"><img border="0" id="img1" src="interactivebuttons/button28.jpg" height="20" width="100"
+                    alt="youtube channel" fp-style="fp-btn: Metal Rectangle 3" fp-title="youtube channel" onclick="snd.Load();"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'interactivebuttons/button29.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img1',/*url*/'interactivebuttons/button28.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img1',/*url*/'interactivebuttons/button2A.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img1',/*url*/'interactivebuttons/button29.jpg')"></a></p>
+            <a href="about-me.html">
+                <img border="0" id="img4" src="interactivebuttons/button17.jpg" height="20" width="100" alt="about me"
+                    fp-style="fp-btn: Metal Rectangle 1" fp-title="about me" onclick="snd.Load()"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img4',/*url*/'interactivebuttons/button18.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img4',/*url*/'interactivebuttons/button17.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img4',/*url*/'interactivebuttons/button19.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img4',/*url*/'interactivebuttons/button18.jpg')"></a><a
+                href="projects.html"><img border="0" id="img6" src="interactivebuttons/button1.jpg"
+                    height="20" width="100" alt="projects" fp-style="fp-btn: Metal Rectangle 8" fp-title="projects"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img6',/*url*/'interactivebuttons/button2.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img6',/*url*/'interactivebuttons/button1.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img6',/*url*/'interactivebuttons/button3.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img6',/*url*/'interactivebuttons/button2.jpg')"></a><a
+                href="faq.html"><img border="0" id="img2" src="interactivebuttons/button2E.jpg" height="20" width="100" onclick="snd.Load();"
+                    alt="faq" fp-style="fp-btn: Metal Rectangle 4; fp-font: Comic Sans MS; fp-font-color-press: #800080"
+                    fp-title="faq"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img2',/*url*/'interactivebuttons/button2F.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,/*id*/'img2',/*url*/'interactivebuttons/button2E.jpg')"
+                    onmousedown="FP_swapImg(1,0,/*id*/'img2',/*url*/'interactivebuttons/button30.jpg')"
+                    onmouseup="FP_swapImg(0,0,/*id*/'img2',/*url*/'interactivebuttons/button2F.jpg')"></a><a
+                href="credits.html"><img src="interactivebuttons/button69.jpg" id="img69" onclick="snd.Load();"
+                    onmouseover="FP_swapImg(1,0,'img69', 'interactivebuttons/button420.jpg');snd.playSE(1)"
+                    onmouseout="FP_swapImg(0,0,'img69', 'interactivebuttons/button69.jpg')"
+                    onmousedown="FP_swapImg(1,0,'img69','interactivebuttons/button6A.jpg')"
+                    onmouseup="FP_swapImg(0,0, 'img69', 'interactivebuttons/button6A.jpg')"></a>
+        </div>
+        <br>
+        <div align="center" valign="center">
+            <a href="res://ieframe.dll/acr_error.htm" style="text-decoration: none">
+                <img border="0" src="buttons/iexplorer.gif" title="wanna see something cool (ie only) (pls use firefox)"
+                    width="88" height="31">
+            </a>
+            <img border="0" src="buttons/imissxp.gif" width="88" height="31">
+            <a href="https://neocities.org/" style="text-decoration: none">
+                <img border="0" src="buttons/neocities3.gif" width="97" height="31">
+            </a>
+            <a href="https://tag.rc24.xyz" style="text-decoration: none">
+                <img border="0" src="buttons/riitag.png" title="its down atm lmfao" width="88" height="31">
+            </a>
+            <a href="https://www.mozilla.org/firefox/new" style="text-decoration:none">
+                <img border="0" src="buttons/firefoxget.gif" title="based browser!" width="88" height="31">
+            </a>
+            <a href="https://discord.gg/hc4Pu55xHz" style="text-decoration:none">
+                <img border="0" src="buttons/wii_super_cool.png" title="join for free robux" width="88" height="31">
+            </a>
+            <a href="https://wiimmfi.de" style="text-decoration:none">
+                <img border="0" src="buttons/wiimmfi.png" width="88" height="31">
+            </a>
+            <img border="0" src="buttons/gothtml.gif" width="88" height="31">
+            <img border="0" src="buttons/4x3_fade.gif" width="88" height="31">
+            <br>
+            <img border="0" src="buttons/made_with_windows.gif" width="88" height="31">
+            <img border="0" src="buttons/msfrontpage.gif" width="88" height="31">
+            <img border="0" src="buttons/y2ks.gif" width="88" height="31">
+            <img border="0" src="buttons/xp.gif" width="88" height="31">
+            <img border="0" src="buttons/98plus.gif" width="88" height="31">
+            <a href="https://wii.com" style="text-decoration:none">
+                <img border="0" src="buttons/wii.gif" width="88" height="31">
+            </a>
+            <img border="0" src="buttons/directxnow.gif" width="88" height="31">
+            <img border="0" src="buttons/winxp.gif" width="88" height="31">
+            <img border="0" src="buttons/bestviewedcomp.gif" width="88" height="31">
+            <br>
+            <img border="0" src="buttons/office97.gif" width="88" height="31">
+            <img border="0" src="buttons/clickhere_red.gif" width="88" height="31" onclick="jumpTo('https://youtu.be/xvFZjo5PgG0?si=4Q5dgK2HcpEyQfG_')" style="cursor:pointer;text-decoration:none">
+            <img border="0" src="buttons/clickhere_blue.gif" width="88" class="site" height="31" onclick="snd.playSE(14)">
+            <img border="0" src="buttons/click_here.gif" width="88" height="31" class="site" onclick="snd.playSE(14)">
+            <img border="0" src="buttons/mswin98_89.gif" width="88" height="31">
+            <a href="about:Blank" style="text-decoration: none">
+                <img border="0" src="buttons/adobe_get_flash_player.gif" title="totally doesnt redirect to about:blank"
+                    width="88" height="31">
+            </a>
+            <img border="0" src="buttons/microsoft.gif" width="88" height="31">
+            <img border="0" src="buttons/html.gif" width="88" height="31">
+            <img border="0" src="buttons/msfrontpageani.gif" width="88" height="31">
+            <img border="0" src="buttons/anythingbutchrome.gif" title="(ew chromium)" width="88" height="31">
+            <br>
+            <img border="0" src="buttons/colon3.png" title=":3" width="88"
+                onclick="javascript:window.location.href = 'https://http.cat/404'" class="pointer" height="31">
+            <img border="0" src="buttons/winmediaplayer.gif" width="89" height="32">
+            <img border="0" src="buttons/winnt.gif" width="100" height="31">
+            <img border="0" src="buttons/800x600a.gif" width="88" height="31">
+            <img border="0" src="buttons/minecraft.gif" width="88" height="31">
+            <img border="0" src="buttons/winxp2.gif" width="88" height="31" alt="window xp">
+            <img src="buttons/idkwh.ct8.pl.gif" width="88" height="31" border="0" onmouseover="snd.playSE(1)"
+                onclick="snd.Load();setTimeout(() => {snd.playSE(13)}, 4200); setTimeout(() => {window.location.reload();}, 5200);"
+                alt="idkwh.ct8.pl" class="site" title="feel free to put this button on your website!!">
+            <iframe src="//incr.easrng.net/badge?key=idkwh"
+                title="increment badge" width="88" height="31"
+                frameborder="0">
+            </iframe>
+            <a href="https://html.spec.whatwg.org/multipage/" onmouseover="snd.playSE(1)" style="text-decoration: none">
+                <img src="images/html-5.gif" width="88" height="31" title="based">
+            </a>
+            <img src="images/kris-where-tf.webp" width="88" height="31"><br>
+            <img src="images/wii-shop.gif" width="88" height="31" onclick="jumpTo('https://oss-auth.shop.wii.com/oss/serv/W_01.jsp')">
+            <img src="buttons/nowar.png" width="88" height="31" />
+            <img src="images/i-have-autism.webp" width="88" height="31" title="yippe :3">
+            <img src="images/mysql5.gif" width="88" height="31" title="sqlite is better though (me from the future says nvm)">
+            <img src="images/valid-rss.gif" width="88" height="31" title=":checkmark:">
+            <img src="images/roblox.webp" width="88" height="31" title="RòBL0X">
+            <img src="images/vs-code.gif" width="88" height="31">
+            <img src="buttons/w7-boot.gif" width="88" height="31" style="text-decoration:none"/><a href="javascript:jumpTo('https://github.com/idkwhere1sthisname')" onmouseover="snd.playSE(1)" style="text-decoration: none">
+                <img src="buttons/github.png" width="88" height="31" />
+            </a><br/><img src="buttons/gamecube.png" width="88" height="31" />
+            <img src="buttons/wii2.png" width="88" height="31" />
+            <a href="javascript:jumpTo('https://www.oracle.com/java/technologies/downloads/')" style="text-decoration:none" onmouseover="snd.playSE(1)">
+              <img src="buttons/java_green_button.gif" width="88" height="31" />
+            </a>
+            <p>fun fact i may have added too many of these buttons</p>
+            <br /><br />
+            <p>also check out these cool sites!</p>
+            <a href="javascript:jumpTo('https://chrisplayzyt.github.io', 'url')" onmouseover="snd.playSE(1)" style="text-decoration: none;">
+                <img src="buttons/chrisplayzyt.github.io.png" width="88" height="31">
+            </a><a href="javascript:jumpTo('https://gemdation.com')" onmouseover="snd.playSE(1)">
+                <img src="buttons/gemdation.com.gif" width="88" height="31" /></a><a href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none" onmouseover="snd.playSE(1)">
+                <img border="0" src="buttons/emsite.png" width="88" height="31">
+            </a><a href="javascript:jumpTo('https://your2slow.github.io')" onmouseover="snd.playSE(1)">
+                <img src="buttons/ezgif-2eb8057e700d39.gif" width="88" height="31"/>
+            </a>
+            <br /><br />
+            <span class="small">(<a onclick="jumpTo('contact.html')" style="color: blue; text-decoration:underline;cursor:pointer" onmouseover="snd.playSE(1)">contact</a> me if youd like your button to appear here!)</span>
+        </div>
+        <noscript id="noscriptTag">
+            <div align="center" class="noscripterror nsTag">
+                <div class="noscripterr" id="nojs">
+                    <h1 class="redTxt">warning! javascript is disabled.</h1>
+                    <span class="medium">no cool effects without it :(</span>
+                    <br><br>
+                    <a href="https://www.enable-javascript.com/" target="_blank">
+                        <button align="center" type="button" class="btnTxt">how to enable javascript</button>
+                    </a>
+                    <div id="okBtn">
+                        <button type="button" class="okBtn" tabindex="0">Hide</button>
+                    </div>
+                </div>
+            </div>
+        </noscript>
+    </div>
+    <div id="bgmplayer">
+        <h2 style="height:20px; margin-top:0px;">BGM player</h2>
+        <a href="javascript:playBGM();" id="shopbgmselector" style="text-decoration:none;"><button id="shopbgm">play BGM</button></a>
+    </div>
+</body>
+</html>

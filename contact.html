@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <title>contact</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta property="og:title" content="contact - idkwhereisthissite">
+    <meta property="og:description" content="idkwh's silly website">
+    <script src="js/swapImg.js"></script>
+    <style>
+        body {
+            background-image: url('images/aboutmebg.gif') !important;
+        };
+        .homeBtn {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            z-index: 2;
+            left: 933px;
+            top: 227px;
+        }
+        .homeBTN {
+            cursor: pointer;
+        }
+    </style>
+    <script src="js/main.js"></script>
+    <script>var snd = new webSound();</script>
+</head>
+<body>
+    <div id="loadicon" class="loadicon">
+        <img src="/images/wiiloading.gif" class="ring" id="wiiring">
+    </div>
+    <div align="center">
+        <h1 class="header">how to contact</h1>
+        <a onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = 'index.html'; }, 550);">
+            <img class="homeBTN" onmouseover="snd.playSE(1)" src="images/homebutton.gif" width="37" height="37">
+        </a>
+        <br><br>
+        <h3>contact via</h3>
+        <a href="mailto:hellothisisuport77967966868@gmail.com" id="mailContainer">
+            <button type="button" title="mail" onmouseover="snd.playSE(1)" onclick="snd.playSE(15)">mail</button>
+        </a>
+        <br><br>
+        <a onclick="snd.playSE(15);changelink('discordContainer');copy();" id="discordContainer" class="link">
+            <button type="button" title="discord" onmouseover="snd.playSE(1)">discord</button>
+        </a>
+    </div>
+</body>
+</html>

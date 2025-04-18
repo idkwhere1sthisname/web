@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/main.js"></script>
+    <script>var snd = new webSound();</script>
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/main.css">
+    <title>faq</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta property="og:title" content="faq - idkwhereisthissite">
+    <meta property="og:description" content="idkwh's silly website">
+    <style>
+        body {
+            background-image: url('images/faqbg.gif');
+        }
+        img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="snd.stopLoad();">
+    <div id="loadicon" class="loadicon">
+        <img src="/images/wiiloading.gif" class="ring" id="wiiring">
+    </div>
+    <div align="center">
+        <h1 class="header Header" ondblclick="snd.playSE(13)">frequently asked questions</h1>
+        <div>
+            <span class="large redTxt">Q: </span><span class="medium">where do you live?</span>
+            <br>
+            <span class="large greenTxt">A: </span><span class="medium">in my house</span>
+            <br><br>
+            <span class="large redTxt">Q: </span><span class="medium">what is your real name?</span>
+            <br>
+            <span class="large greenTxt">A: </span><span class="medium">idk</span>
+            <br><br>
+            <span class="large redTxt">Q: </span><span class="medium">with what did you write this website?</span>
+            <br>
+            <span class="large greenTxt">A: </span><span class="medium"> this time, i used visual studio code</span>
+            <br><br><br>
+            <img src="images/homebutton.gif" width="37" height="37" onmouseover="snd.playSE(1)" onclick="snd.Load();setTimeout(() => { window.location.href = 'index.html' }, 550)">
+        </div>
+    </div>
+</body>
+</html>
