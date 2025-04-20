@@ -2,12 +2,12 @@
 <browserconfig>
   <msapplication>
     <tile>
-      <square70x70logo src="remindmel8r" />
-      <square150x150logo src="remindmel8r" />
-      <wide310x150logo src="remindmel8r" />
-      <square310x310logo src="remindmel8r" />
+      <square70x70logo src="/images/Tile-70x70.png" />
+      <square150x150logo src="/images/Tile-150x150.png" />
+      <wide310x150logo src="/images/Tile-310x150.png" />
+      <square310x310logo src="/images/Tile-310x310.png" />
+      <TileImage src="/images/Tile-150x150.png" />
       <TileColor>#1b2eff</TileColor>
-      <TileImage src="remindmel8r" />
     </tile>
   </msapplication>
 </browserconfig>
