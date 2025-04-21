@@ -160,20 +160,20 @@ function getMusic() {
     const date = getFormattedDate();
 
     if (date === "0401") {
-        return "/bgm/Secret.mp3";
+        return "/BGM/Secret.mp3";
     }
 
     switch (date) {
         case "0327":
-            return "/bgm/eshop2011.wav";
+            return "/BGM/eshop2011.wav";
         case "0130":
-            return "/bgm/wsc.mp3";
+            return "/BGM/wsc.mp3";
         case "0727":
-            return "/bgm/ww.mp3";
+            return "/BGM/ww.mp3";
         case "0331":
-            return "/bgm/dsshop.mp3";
+            return "/BGM/dsshop.mp3";
         default:
-            return "/bgm/bgm.mp3";
+            return "/BGM/bgm.mp3";
     }
 }
 
