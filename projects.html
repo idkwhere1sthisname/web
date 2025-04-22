@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
+    <script src="js/swapImg.js" loading="lazy"></script>
 	<meta name="robots" content="index, follow" />
 	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
 	<meta name="msapplication-TileColor" content="#1b2eff" />
@@ -15,11 +16,11 @@
 	<meta name="generator" content="Visual Studio Code" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
+	<meta name="twitter:title" content="projects - idkwhereisthissite" />
 	<meta name="twitter:description" content="idkwh's silly website" />
 	<meta name="twitter:creator" content="@idkwherenamenew" />
 	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="idkwhereisthissite" />
+	<meta name="title" content="projects - idkwhereisthissite" />
 	<meta name="description" content="idkwh's silly website" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -34,19 +35,6 @@
             background-image: url('images/projectsbg.gif');
         }
     </style>
-    <script type="text/javascript">
-        // <![CDATA[
-        function jumpTo(item, type = "url") {
-            if (type == "url") {
-                snd.playSE(15);
-                snd.Load();
-                setTimeout(() => {
-                    window.location.href = item;
-                }, 550)
-            }
-        }
-        // ]]>
-    </script>
 </head>
 <body>
     <div id="loadicon" class="loadicon">
@@ -54,16 +42,16 @@
       </div>
     <div align="center">
         <h1 class="header">projects</h1>
-        <a onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = '/'; }, 550);" style="cursor: pointer;">
+        <a onclick="jumpTo('showIndex', null)" style="cursor: pointer;">
             <img class="homeBTN" onmouseover="snd.playSE(1)" src="images/homebutton.gif" width="37" height="37"/>
         </a><br/><br/>
         <span class="large">a list of projects i was involved in <span class="catmoji_TXT">🤑</span></span>
         <br/><br/>
         <div class="proj">
-            <h1 class="hdr"><span class="catmoji_TXT">🟩</span>&nbsp;<a hreflang="en" href="javascript:jumpTo('https://wiimart.org', 'url')" style="color: blue;">WiiMart</a></h1>
-            <span style="font-size: medium;">WiiMart is an active Wii Shop revival</span><br/><br/>
+            <h1 class="hdr"><span class="catmoji_TXT">🟩</span>&nbsp;<a hreflang="en" href="javascript:jumpTo('https://wiimart.org')" onmouseover="snd.playSE(1)" style="color: blue;">WiiMart</a></h1>
+            <span class="medium">WiiMart is an active Wii Shop revival</span><br/><br/>
             <h1 class="hdr"><span class="catmoji_TXT">🟥</span>&NonBreakingSpace;<abbr title="Yet another Wii Shop Channel">YaWSC</abbr></h1>
-            <span style="font-size: medium;">My attempt at reviving the Wii Shop, failed<span class="small">(not because of drama)</span></span>
+            <span class="medium">My attempt at reviving the Wii Shop, failed<span class="small">(not because of drama)</span></span>
         </div>
     </div>
 </body>

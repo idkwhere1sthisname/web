@@ -20,11 +20,11 @@
 	<meta name="generator" content="Visual Studio Code" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
+	<meta name="twitter:title" content="contact - idkwhereisthissite" />
 	<meta name="twitter:description" content="idkwh's silly website" />
 	<meta name="twitter:creator" content="@idkwherenamenew" />
 	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="idkwhereisthissite" />
+	<meta name="title" content="contact - idkwhereisthissite" />
 	<meta name="description" content="idkwh's silly website" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
     <meta property="og:title" content="contact - idkwhereisthissite">
@@ -55,17 +55,17 @@
     </div>
     <div align="center">
         <h1 class="header">how to contact</h1>
-        <a onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = '/'; }, 550);">
-            <img class="homeBTN" onmouseover="snd.playSE(1)" src="images/homebutton.gif" width="37" height="37">
+        <a onclick="jumpTo('showIndex', null);" onmouseover="snd.playSE(1)">
+            <img class="homeBTN" src="images/homebutton.gif" width="37" height="37">
         </a>
         <br><br>
         <h3>contact via</h3>
-        <a href="mailto:hellothisisuport77967966868@gmail.com" id="mailContainer">
+        <a onclick="jumpTo('mailto:hellothisisuport77967966868@gmail.com')" id="mailContainer">
             <button type="button" title="mail" onmouseover="snd.playSE(1)" onclick="snd.playSE(15)">mail</button>
         </a>
         <br><br>
-        <a onclick="snd.playSE(15);changelink('discordContainer');copy();" id="discordContainer" class="link">
-            <button type="button" title="discord" onmouseover="snd.playSE(1)">discord</button>
+        <a onclick="snd.playSE(15);" id="discordContainer" class="link">
+            <button type="button" title="discord" onmouseover="snd.playSE(1)" onclick="copy();">discord</button>
         </a>
     </div>
 </body>

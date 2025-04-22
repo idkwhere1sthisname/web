@@ -161,6 +161,12 @@ function jumpTo(item, type = "url") {
         setTimeout(() => {
             window.location.href='/';
         }, 550);
+    } else if (type == "successBtn") {
+        snd.playSE(13);
+        snd.Load();
+        setTimeout(() => {
+            window.location.href = item;
+        }, 550);
     }
 }
 

@@ -14,11 +14,11 @@
 	<meta name="generator" content="Visual Studio Code" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
+	<meta name="twitter:title" content="links - idkwhereisthissite" />
 	<meta name="twitter:description" content="idkwh's silly website" />
 	<meta name="twitter:creator" content="@idkwherenamenew" />
 	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="idkwhereisthissite" />
+	<meta name="title" content="links - idkwhereisthissite" />
 	<meta name="description" content="idkwh's silly website" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
     <script src="js/main.js"></script>
@@ -54,33 +54,32 @@
     </div>
     <div align="center">
         <h1 class="header">links</h1>
-        <a onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = '/' }, 550);"
+        <a onclick="jumpTo('showIndex', null)"
             onmouseover="snd.playSE(1)">
-            <img class="HomeBTN" src="images/homebutton.gif" onmouseover="snd.playSE(1)"
-                onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = '/' }, 550);">
+            <img class="HomeBTN" src="images/homebutton.gif" onmouseover="snd.playSE(1)"/>
         </a>
-        <br><br>
+        <br /><br />
         <span class="medium">here are some links</span>
         <br><br>
         <a class="link medium" onmouseover="snd.playSE(1)" title="yt channel" id="ytlink"
-            onclick="snd.Load();snd.playSE(15);changelink('ytlink');setTimeout(() => { window.location.href = 'yt' }, 550);">youtube
+            onclick="jumpTo('yt');changelink('ytlink')">youtube
             channel</a>
         <br><br>
         <a id="githublink" class="link medium" onmouseover="snd.playSE(1)"
-            onclick="snd.Load();snd.playSE(15);changelink('githublink');setTimeout(() => { window.location.href = 'https://github.com/idkwhere1sthisname' }, 550);"
+            onclick="jumpTo('https://github.com/idkwhere1sthisname');changelink('githublink');"
             title="github">github</a>
         <br><br>
-        <a id="pronounsPage" class="link medium" onmouseover="snd.playSE(1)"
-            onclick="snd.Load();snd.playSE(15);setTimeout(() => { window.location.href = 'https://en.pronouns.page/@idkwh'; }, 550);changelink('pronounsPage')">pronouns.page</a>
-        <br><br>
         <img src="images/under-construction2.gif" width="100px" height="100px" ondblclick="snd.playSound(7)"
-            title="under construction...">
+            title="under construction..." />
         <br><br><br>
         <div class="small">
             <span class="small">
                 <a class="link small" id="rblxlink" onmouseover="snd.playSE(1)"
-                    onclick="snd.Load();snd.playSE(15);changelink('rblxlink');setTimeout(() => { window.location.href = 'https://www.roblox.com/users/3962819055/profile' }, 550);">roblox
-                    (old)</a>
+                    onclick="changelink('rblxlink');jumpTo('https://www.roblox.com/users/3962819055/profile')">
+                    roblox(old)
+                </a>
+                <br /><br />
+                <a id="pronounsPage" class="link small" onmouseover="snd.playSE(1)" onclick="jumpTo('https://en.pronouns.page/@idkwh');changelink('pronounsPage')">pronouns.page</a>
             </span>
         </div>
     </div>

@@ -21,14 +21,14 @@
 	<meta name="generator" content="Visual Studio Code" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
+	<meta name="twitter:title" content="about - idkwhereisthissite" />
 	<meta name="twitter:description" content="idkwh's silly website" />
 	<meta name="twitter:creator" content="@idkwherenamenew" />
 	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="idkwhereisthissite" />
+	<meta name="title" content="about - idkwhereisthissite" />
 	<meta name="description" content="idkwh's silly website" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
-    <meta property="og:title" content="about me - idkwhereisthissite">
+    <meta property="og:title" content="about - idkwhereisthissite">
     <meta property="og:description" content="idkwh's silly website">
     <style>
         body {
@@ -39,7 +39,7 @@
         }
     </style>
 </head>
-<body onload="snd.stopLoad()">
+<body onload="snd.stopLoad();playBGM();">
     <div id="loadicon" class="loadicon">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
@@ -55,8 +55,8 @@
         <br>
         <span class="medium">pc specs: 8gb ram, amd ryzen 7 4000 x64 with integrated radeon graphics, 500gb ssd</span>
         <br><br>
-        <a onmouseover="snd.playSE(1)" onclick="snd.Load();">
-            <img id="homeBtn" src="images/homebutton.gif" onmouseover="snd.playSE(1)" onclick="snd.playSE(10);setTimeout(() => { window.location.href = '/' }, 550);" width="37" height="37">
+        <a onmouseover="snd.playSE(1)" onclick="jumpTo('showIndex', null);">
+            <img id="homeBtn" src="images/homebutton.gif" onmouseover="snd.playSE(1)" width="37" height="37" />
         </a>
     </div>
 </body>
