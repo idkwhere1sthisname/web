@@ -130,6 +130,8 @@ body::-webkit-scrollbar-thumb:vertical {
     width: 52px;
     height: 52px;
     background: url("../scrollBar/h/scroll_bar.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 body::-webkit-scrollbar-track:vertical {
     width: 52px;

@@ -104,8 +104,6 @@ class webSound {
     }
     stopLoad() {
         var loadingsfx = new Audio("BGM/load.wav");
-        loadingsfx.play();
-        loadingsfx.loop=false;
         document.getElementById("loadicon").style.display="none";
         loadingsfx.pause();
     }
@@ -146,6 +144,23 @@ function jumpTo(item, type = "url") {
        setTimeout(() => {
             window.location.reload();            
        }, 550)
+    } else if (type == null && item == "showBack") {
+        snd.playSE(10);
+        snd.Load();
+        setTimeout(() => {
+            const prev = document.referrer;
+            if (prev) {
+                history.back();
+            } else {
+                window.location.href='/';
+            }
+        }, 550);
+    } else if (type == null && item == "showIndex") {
+        snd.playSE(10);
+        snd.Load();
+        setTimeout(() => {
+            window.location.href='/';
+        }, 550);
     }
 }
 

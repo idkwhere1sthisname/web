@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-us">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title>404</title>
+    <meta property="og:title" content="credits - idkwhereisthissite">
+    <meta property="og:description" content="epic fail">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
+	<meta name="robots" content="index, follow" />
+	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+	<meta name="msapplication-TileColor" content="#1b2eff" />
+	<meta property="og:image" content="/images/twitter-cardImg.png" />
+	<meta property="og:image:width" content="800" />
+	<meta property="og:image:height" content="600" />
+	<meta property="og:type" content="website" />
+	<meta name="generator" content="Visual Studio Code" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
+	<meta name="twitter:title" content="idkwhereisthissite" />
+	<meta name="twitter:description" content="epic fail" />
+	<meta name="twitter:creator" content="@idkwherenamenew" />
+	<meta name="twitter:site" content="@idkwherenamenew" />
+	<meta name="title" content="404 Not Found" />
+	<meta name="description" content="epic fail" />
+	<meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="js/swapImg.js"></script>
+    <script src="js/main.js"></script>
+    <script>let snd = new webSound();</script>
+</head>
+<body>
+    <div id="loadicon" class="loadicon" style="position: absolute; top:0;left:0">
+        <img src="/images/wiiloading.gif" class="ring" id="wiiring" />
+    </div>
+    <div align="center">
+        <h1 class="header Header" onmouseover="document.getElementById('desc').style.fontFamily = 'Wii NTLG PGothic Regular';" onmouseout="document.getElementById('desc').style.fontFamily = 'timesnewroman';">404 - not found</h1>
+        <span style="font-family: timesnewroman;font-size:26px; user-select:none" id="desc">The requested resource was not found.</span>
+        <br /><br />
+        <button type="button" onmouseover="snd.playSE(1)" onclick="jumpTo('showBack', null)" id="backbtn">back</button><span id="nbspspan" style="user-select: none;">&nbsp;&nbsp;</span><button type="button" onclick="jumpTo('showIndex', null)" onmouseover="snd.playSE(1)">index</button>
+    </div>
+</body>
+</html>

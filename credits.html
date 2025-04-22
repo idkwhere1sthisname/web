@@ -162,29 +162,6 @@
             transform: translateY(2px);
         }
     </style>
-    <script type="text/javascript">
-        function jumpTo(item, type = "url") {
-            if (type == "url") {
-                snd.playSE(15);
-                snd.Load();
-                setTimeout(() => {
-                    window.location.href = item;
-                }, 550)
-            } else if (type == "reload" && item == null) {
-               snd.playSE(15);
-               snd.Load();
-               setTimeout(() => {
-                    window.location.reload();            
-               }, 550)
-            } /*else if (type == "replace" {
-               snd.playSE(15);
-               snd.Load();
-               setTimeout(() => {
-                    window.location.replace =  (item);
-               }, 550)
-            }*/
-        }
-    </script>
 </head>
 
 <body>
@@ -216,7 +193,7 @@
         </div>
         <br>
         <button type="button" onmouseover="snd.playSE(1)"
-            onclick="jumpTo('/')">index</button>
+            onclick="jumpTo('showBack', null)">index</button>
         <input type="reset" onmouseover="snd.playSE(1)"
             onclick="jumpTo(null, 'reload')" />
     </div>
