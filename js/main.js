@@ -42,6 +42,8 @@ function getCookie(name) {
     return null;
 }
 
+var loadingsfx = new Audio("BGM/load.wav");
+
 class webSound {
     constructor() { };
     playSound(id) {
@@ -95,15 +97,13 @@ class webSound {
         SE.play();
     }
     Load() {
-        var loadingsfx = new Audio("BGM/load.wav");
         document.getElementById("loadicon").style.display="block";
-        //setTimeout(this.stopLoad,2000);
+        setInterval(() => { this.stopLoad(); },5000);
         loadingsfx.play();
         loadingsfx.loop=true;
         loadingsfx.currentTime = 0;
     }
     stopLoad() {
-        var loadingsfx = new Audio("BGM/load.wav");
         document.getElementById("loadicon").style.display="none";
         loadingsfx.pause();
     }

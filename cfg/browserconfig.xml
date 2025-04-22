@@ -6,8 +6,7 @@
       <square150x150logo src="/images/Tile-150x150.png" />
       <wide310x150logo src="/images/Tile-310x150.png" />
       <square310x310logo src="/images/Tile-310x310.png" />
-      <TileImage src="/images/Tile-150x150.png" />
-      <TileColor>#1b2eff</TileColor>
+      <TileColor>#1B2EFF</TileColor>
     </tile>
   </msapplication>
 </browserconfig>

@@ -121,11 +121,13 @@ body::-webkit-scrollbar-button:single-button:vertical:decrement {
     height: 52px;
     background: url("../scrollBar/h/arrow_up.png")
 }
+
 body::-webkit-scrollbar-button:single-button:vertical:increment {
     width: 52px;
     height: 52px;
     background: url("../scrollBar/h/arrow_down.png");
 }
+
 body::-webkit-scrollbar-thumb:vertical {
     width: 52px;
     height: 52px;
