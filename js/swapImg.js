@@ -25,7 +25,7 @@ function FP_getObjectByID(id, o) {//v1.0
     return null;
 }
 
-function FP_swapImgRestore() {//v6.9
+function FP_swapImgRestore() {//v1.1
     var doc = document, i, img;
     if (doc.$imgSwaps) {
         for (i = 0; i < doc.$imgSwaps.length; i++) {

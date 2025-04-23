@@ -91,8 +91,33 @@
             overflow: auto;
         }
     </style>
+    <script type="text/javascript">
+        function initPageCommon() {
+            const path = "/interactivebuttons/button"; // yes im lazy
+
+            // mouseover, mouseup
+            FP_preloadImgs(path+'3B.jpg');
+            FP_preloadImgs(path+'29.jpg');
+            FP_preloadImgs(path+'31.jpg');
+            FP_preloadImgs(path+'3F.jpg');
+            FP_preloadImgs(path+'18.jpg');
+            FP_preloadImgs(path+'2.jpg');
+            FP_preloadImgs(path+'2F.jpg');
+            FP_preloadImgs(path+'420.jpg');
+
+            // mousedown
+            FP_preloadImgs(path+'3C.jpg');
+            FP_preloadImgs(path+'2A1.jpg');
+            FP_preloadImgs(path+'2A.jpg');
+            FP_preloadImgs(path+'3D.jpg');
+            FP_preloadImgs(path+'19.jpg');
+            FP_preloadImgs(path+'3.jpg');
+            FP_preloadImgs(path+'30.jpg');
+            FP_preloadImgs(path+'6A.jpg');
+        }
+    </script>
 </head>
-<body onload="snd.stopLoad();dispMsg();">
+<body onload="initPageCommon();snd.stopLoad();dispMsg();">
     <div id="loadicon" class="loadicon" style="display: none; position:absolute">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
     </div>
