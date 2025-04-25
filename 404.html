@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="en-us">
+<html prefix="og: http://ogp.me/ns#" lang="en-us" xml:lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="Content-Language" content="en" />
@@ -15,6 +15,7 @@
 	<meta name="msapplication-TileColor" content="#1b2eff" />
 	<meta property="og:image" content="/images/twitter-cardImg.png" />
 	<meta property="og:image:width" content="800" />
+    <base href="https://idkwhereisthis.name" target="_self" />
 	<meta property="og:image:height" content="600" />
     <meta name="HandheldFriendly" content="true"/> 
 	<meta property="og:type" content="website" />
@@ -33,16 +34,22 @@
     <script src="js/swapImg.js"></script>
     <script src="js/main.js"></script>
     <script>let snd = new webSound();</script>
+    <style>
+        button[data-type="back"] {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
 </head>
 <body>
     <div id="loadicon" class="loadicon" style="position: absolute; top:0;left:0">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" />
     </div>
     <div align="center">
-        <h1 class="header Header" onmouseover="document.getElementById('desc').style.fontFamily = 'Wii NTLG PGothic Regular';" onmouseout="document.getElementById('desc').style.fontFamily = 'timesnewroman';">404 - not found</h1>
-        <span style="font-family: timesnewroman;font-size:26px; user-select:none" id="desc">The requested resource was not found.</span>
+        <h1 class="header Header" onmouseover="document.getElementById('desc').style.fontFamily = 'timesnewroman';" onmouseout="document.getElementById('desc').style.fontFamily = 'Wii NTLG PGothic Regular';">404 - not found</h1>
+        <span style="font-family: 'Wii NTLG PGothic Regular';font-size:26px; user-select:none" id="desc">The requested resource was not found.</span>
         <br /><br />
-        <button type="button" onmouseover="snd.playSE(1)" onclick="jumpTo('showBack', null)" id="backbtn">back</button><span id="nbspspan" style="user-select: none;">&nbsp;&nbsp;</span><button type="button" onclick="jumpTo('showIndex', null)" onmouseover="snd.playSE(1)">index</button>
+        <button type="button" data-type="back" onmouseover="snd.playSE(1)" onclick="jumpTo('showBack', null)" id="backbtn">back</button><span id="nbspspan" style="user-select: none;">&nbsp;&nbsp;</span><button type="button" onclick="jumpTo('showIndex', null)" data-type="back" onmouseover="snd.playSE(1)">index</button>
     </div>
 </body>
 </html>
