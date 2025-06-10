@@ -29,7 +29,6 @@
 	<meta name="title" content="404 Not Found" />
 	<meta name="description" content="epic fail" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="css/main.css" />
     <script src="js/swapImg.js"></script>
     <script src="js/main.js"></script>
@@ -40,8 +39,14 @@
             user-select: none;
         }
     </style>
+    <script>
+        function initPageCommon() {
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+        }
+    </script>
 </head>
-<body>
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon" style="position: absolute; top:0;left:0">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" />
     </div>

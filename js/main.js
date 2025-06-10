@@ -12,7 +12,7 @@ function copy() {
 
     navigator.clipboard.writeText(text).then(() => {
         alert(alertMsg);
-    }).catch (err => {
+    }).catch(err => {
         alert(errMsg);
     });
 };
@@ -34,7 +34,7 @@ function setCookie(name, value, days) {
 function getCookie(name) {
     var nameEQ = name + "=";
     var ca = document.cookie.split(';');
-    for(var i=0; i < ca.length; i++) {
+    for (var i = 0; i < ca.length; i++) {
         var c = ca[i];
         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
@@ -56,7 +56,7 @@ class webSound {
         var SE_Init = 11;
         var SE_Back2 = 12;
         var SE_OldOK = 13;
-        var SE_Error = 14;    
+        var SE_Error = 14;
         let SE = new Audio('sound/' + id + '.mp3');
         SE.play();
     }
@@ -92,19 +92,19 @@ class webSound {
         var SE_Back2 = 12;
         var SE_OldOK = 13;
         var SE_Error = 14;
-    
+
         let SE = new Audio('/sound/' + id + '.wav');
         SE.play();
     }
     Load() {
-        document.getElementById("loadicon").style.display="block";
-        setInterval(() => { this.stopLoad(); },5000);
+        document.getElementById("loadicon").style.display = "block";
+        setInterval(() => { this.stopLoad(); }, 5000);
         loadingsfx.play();
-        loadingsfx.loop=true;
+        loadingsfx.loop = true;
         loadingsfx.currentTime = 0;
     }
     stopLoad() {
-        document.getElementById("loadicon").style.display="none";
+        document.getElementById("loadicon").style.display = "none";
         loadingsfx.pause();
     }
     playDSCameraTutorialBGM() {
@@ -127,7 +127,7 @@ class webSound {
     play3DSLockedBannerSND() {
         let aud = new Audio("/BGM/3dslockedBanner.mp3");
         aud.play();
-        aud.loop=true;
+        aud.loop = true;
     }
 }
 
@@ -139,11 +139,11 @@ function jumpTo(item, type = "url") {
             window.location.href = item;
         }, 550)
     } else if (type == "reload" && item == null) {
-       snd.playSE(15);
-       snd.Load();
-       setTimeout(() => {
-            window.location.reload();            
-       }, 550)
+        snd.playSE(15);
+        snd.Load();
+        setTimeout(() => {
+            window.location.reload();
+        }, 550)
     } else if (type == null && item == "showBack") {
         snd.playSE(10);
         snd.Load();
@@ -152,14 +152,14 @@ function jumpTo(item, type = "url") {
             if (prev) {
                 history.back();
             } else {
-                window.location.href='/';
+                window.location.href = '/';
             }
         }, 550);
     } else if (type == null && item == "showIndex") {
         snd.playSE(10);
         snd.Load();
         setTimeout(() => {
-            window.location.href='/';
+            window.location.href = '/';
         }, 550);
     } else if (type == "successBtn") {
         snd.playSE(13);
@@ -252,6 +252,27 @@ function pauseBGM() {
     document.getElementById("shopbgm").innerHTML = "play BGM";
 }
 
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
     localStorage.setItem("bgmlooppoint", bgm.currentTime);
 };
+
+
+function initFavicon(PATH, frames, interval) {
+    let uacheck = navigator.userAgent.toLowerCase().includes("firefox");
+    let ico = document.querySelector("link[rel='icon']") || document.createElement("link");
+    ico.rel = "icon";
+    ico.type = "image/x-icon"
+
+    if (!uacheck) {
+        var i = 0;
+        setInterval(() => {
+            ico.href = `${PATH}frame_${i % frames}.png`;
+            i++;
+        }, interval);
+    } else {
+        ico.href = "/images/favicon_ani.gif";
+        ico.type = "image/gif";
+    }
+
+    document.head.appendChild(ico);
+}

@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @font-face { font-family: 'Wii NTLG PGothic JPN Regular'; src: url('../font/font.ttf'); };
 @font-face { font-family: 'Catmoji'; src: url("/font/catmoji.ttf"); }
+@font-face { font-family: "LCFont"; src: url("/font/LCFont.ttf"); }
+
 .catmoji_TXT { font-family: 'Catmoji' !important; }
 
 body {
@@ -113,21 +115,43 @@ body {
     cursor: pointer;
     color: #FFFFFF;
 }
+
+/* General scrollbar size (52px) */
 body::-webkit-scrollbar {
     width: 52px;
 }
+
+/* up button on vertical scrollbar */
 body::-webkit-scrollbar-button:single-button:vertical:decrement {
     width: 52px;
     height: 52px;
     background: url("../scrollBar/h/arrow_up.png")
 }
 
+/* down button on vertical scrollbar */
 body::-webkit-scrollbar-button:single-button:vertical:increment {
     width: 52px;
     height: 52px;
     background: url("../scrollBar/h/arrow_down.png");
 }
 
+/* hover event for down button on vertical scrollbar */
+body::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_down_hover.png") no-repeat;
+    background-size: cover;
+}
+
+/* hover event for the up button on vertical scrollbar */
+body::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_up_hover.png");
+    background-size: cover;
+}
+
+/* vertical scrollbar body */
 body::-webkit-scrollbar-thumb:vertical {
     width: 52px;
     height: 52px;
@@ -135,27 +159,71 @@ body::-webkit-scrollbar-thumb:vertical {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* disabled state for up button on vertical scrollbar */
+body::-webkit-scrollbar-button:single-button:vertical:decrement:disabled {
+    width: 52px !important;
+    height: 52px !important;
+    background: url("../scrollBar/h/arrow_up_disabled.png") !important;
+    background-size: cover;
+}
+
+/* disabled state for down button on vertical scrollbar */
+body::-webkit-scrollbar-button:single-button:vertical:increment:disabled {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_down_disabled.png");
+    background-size: cover;
+}
+
+/* disabled state for down button on vertical scrollbar while pressed */
+body::-webkit-scrollbar-button:single-button:vertical:increment:disabled:pressed {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_down_disabled_pressed.png");
+    background-size: cover;
+}
+
+/* disabled state for up button on vertical scrollbar while pressed */
+body::-webkit-scrollbar-button:single-button:vertical:decrement:disabled:pressed {
+    width: 52px;
+    height: 52px;
+    background: url("../scrollBar/h/arrow_up_disabled_pressed.png");
+    background-size: cover;
+}
+
+/*===========================================================================================================*/
+
+/* Vertical scrollbar track */
 body::-webkit-scrollbar-track:vertical {
     width: 52px;
     height: 52px;
     background: url("../scrollBar/h/scroll_base.png");
 }
+
+/* arrow down pressed on vertical scrollbar */
 body::-webkit-scrollbar-button:single-button:vertical:increment:active {
     width: 52px !important;
     height: 52px !important;
     background: url("../scrollBar/h/arrow_down_pressed.png");
     background-size: cover;
 }
+
+/* arrow up pressed on vertical scrollbar */
 body::-webkit-scrollbar-button:single-button:vertical:decrement:active {
     width: 52px !important;
     height: 52px !important;
     background: url("../scrollBar/h/arrow_up_pressed.png");
     background-size: cover;
 }
+
+/* scrollbar corner */
 body::-webkit-scrollbar-corner {
     width: 40px;
     height: 40px;
 }
+
+/* horizontal scrollbar */
 body::-webkit-scrollbar:horizontal {
     width: auto;
     height: 15px;

@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
 	<meta name="robots" content="index, follow" />
 	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
 	<meta name="msapplication-TileColor" content="#1b2eff" />
@@ -42,14 +41,20 @@
         }
         img { cursor: pointer; }
     </style>
+    <script>
+        function initPageCommon() {
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+        }
+    </script>
 </head>
-<body>
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
     <div align="center">
         <h1 class="header">youtube channel</h1>
-        <img src="images/homebutton.gif" onmouseover="snd.playSE(1)" onclick="snd.Load();snd.playSE(10);setTimeout(() => { window.location.href = '/'},550)">
+        <img src="images/homebutton.gif" onmouseover="snd.playSE(1)" onclick="jumpTo('/')">
         <br><br>
         <div>
             <span class="medium">i also have a youtube channel</span>

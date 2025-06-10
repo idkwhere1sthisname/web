@@ -13,7 +13,7 @@
 	<meta name="msapplication-TileColor" content="#1b2eff" />
 	<meta property="og:image" content="/images/twitter-cardImg.png" />
 	<meta property="og:image:width" content="800" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta property="og:image:height" content="600" />
 	<meta property="og:type" content="website" />
     <base href="https://idkwhereisthis.name" target="_self" />
@@ -28,7 +28,6 @@
 	<meta name="title" content="credits - idkwhereisthissite" />
 	<meta name="description" content="idkwh's silly website" />
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="js/swapImg.js"></script>
     <script src="js/main.js"></script>
     <script>let snd = new webSound();</script>
@@ -165,9 +164,14 @@
             transform: translateY(2px);
         }
     </style>
+    <script>
+        function initPageCommon() {
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+        }
+    </script>
 </head>
-
-<body>
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon" style="display: none; position:absolute">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
     </div>

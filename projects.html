@@ -37,8 +37,14 @@
             background-image: url('images/projectsbg.gif');
         }
     </style>
+    <script>
+        function initPageCommon() {
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+        }
+    </script>
 </head>
-<body>
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
       </div>

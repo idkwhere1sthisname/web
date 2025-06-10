@@ -27,13 +27,18 @@
 	<meta name="keywords" content="idkwhereisthisname, idkwh" />
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <script src="js/swapImg.js" loading="lazy"></script>
     <script src="js/main.js"></script>
     <script>let snd = new webSound();</script>
     <link rel="stylesheet" href="css/main.css" />
+    <script>
+        function initPageCommon() {
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+        }
+    </script>
 </head>
-<body onload="snd.stopLoad();">
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon" style="display: none; position:absolute">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
     </div>

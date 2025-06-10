@@ -1,37 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" prefix="og: http://ogp.me/ns#" xml:lang="en" version="5">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
     <base href="https://idkwhereisthis.name" target="_self" />
-	<meta name="robots" content="index, follow" />
-	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
-	<meta name="msapplication-TileColor" content="#1b2eff" />
-	<meta property="og:image" content="/images/twitter-cardImg.png" />
-	<meta property="og:image:width" content="800" />
-	<meta property="og:image:height" content="600" />
-	<meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    <meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#1b2eff" />
+    <meta property="og:image" content="/images/twitter-cardImg.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:type" content="website" />
     <meta property="og:title" content="idkwhereisthissite" />
-	<meta name="generator" content="Visual Studio Code" />
-	<meta name="twitter:card" content="summary_large_image" />
-    <meta name="HandheldFriendly" content="true"/> 
-	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
-	<meta name="twitter:description" content="idkwh's silly website" />
-	<meta name="twitter:creator" content="@idkwherenamenew" />
-	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="idkwhereisthissite" />
-	<meta name="description" content="idkwh's silly website" />
-	<meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta name="generator" content="Visual Studio Code" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="twitter:image" content="/images/twitter-cardImg.png" />
+    <meta name="twitter:title" content="idkwhereisthissite" />
+    <meta name="twitter:description" content="idkwh's silly website" />
+    <meta name="twitter:creator" content="@idkwherenamenew" />
+    <meta name="twitter:site" content="@idkwherenamenew" />
+    <meta name="title" content="idkwhereisthissite" />
+    <meta name="description" content="idkwh's silly website" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
     <script src="js/swapImg.js"></script>
     <script src="js/main.js"></script>
     <script>let snd = new webSound();</script>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
     <title>idkwhereisthissite</title>
     <style>
         body {
@@ -94,32 +93,39 @@
         }
     </style>
     <script type="text/javascript">
-        function initPageCommon() {
+        function initPage() {
             const path = "/interactivebuttons/button"; // yes im lazy
 
             // mouseover, mouseup
-            FP_preloadImgs(path+'3B.jpg');
-            FP_preloadImgs(path+'29.jpg');
-            FP_preloadImgs(path+'31.jpg');
-            FP_preloadImgs(path+'3F.jpg');
-            FP_preloadImgs(path+'18.jpg');
-            FP_preloadImgs(path+'2.jpg');
-            FP_preloadImgs(path+'2F.jpg');
-            FP_preloadImgs(path+'420.jpg');
+            FP_preloadImgs(path + '3B.jpg');
+            FP_preloadImgs(path + '29.jpg');
+            FP_preloadImgs(path + '31.jpg');
+            FP_preloadImgs(path + '3F.jpg');
+            FP_preloadImgs(path + '18.jpg');
+            FP_preloadImgs(path + '2.jpg');
+            FP_preloadImgs(path + '2F.jpg');
+            FP_preloadImgs(path + '420.jpg');
 
             // mousedown
-            FP_preloadImgs(path+'3C.jpg');
-            FP_preloadImgs(path+'2A1.jpg');
-            FP_preloadImgs(path+'2A.jpg');
-            FP_preloadImgs(path+'3D.jpg');
-            FP_preloadImgs(path+'19.jpg');
-            FP_preloadImgs(path+'3.jpg');
-            FP_preloadImgs(path+'30.jpg');
-            FP_preloadImgs(path+'6A.jpg');
+            FP_preloadImgs(path + '3C.jpg');
+            FP_preloadImgs(path + '2A1.jpg');
+            FP_preloadImgs(path + '2A.jpg');
+            FP_preloadImgs(path + '3D.jpg');
+            FP_preloadImgs(path + '19.jpg');
+            FP_preloadImgs(path + '3.jpg');
+            FP_preloadImgs(path + '30.jpg');
+            FP_preloadImgs(path + '6A.jpg');
+        }
+
+        function initPageCommon() {
+            initPage();
+            initFavicon("/images/favicon/", 19, 500);
+            snd.stopLoad();
+            dispMsg();
         }
     </script>
 </head>
-<body onload="initPageCommon();snd.stopLoad();dispMsg();">
+<body onload="initPageCommon();">
     <div id="loadicon" class="loadicon" style="display: none; position:absolute">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
     </div>
@@ -130,48 +136,51 @@
             <!--[if IE 8]>
             <br /><br /><p>why are you using internet explorer</p>
             <![endif]-->
-            <a onclick="jumpTo('contact')">
+            <a onclick="jumpTo('contact')" style="cursor: pointer;">
                 <img border="0" id="img3" src="interactivebuttons/button3A.jpg" height="20" width="100" alt="contact"
                     onmouseover="FP_swapImg(1,0,/*id*/'img3',/*url*/'interactivebuttons/button3B.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img3',/*url*/'interactivebuttons/button3A.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img3',/*url*/'interactivebuttons/button3C.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img3',/*url*/'interactivebuttons/button3B.jpg')"></a><a
-                    onclick="jumpTo('links');"><img border="0" id="img5" src="interactivebuttons/button32.jpg" height="20"
-                    width="100" alt="links"
+                onclick="jumpTo('links');" style="cursor: pointer;"><img border="0" id="img5"
+                    src="interactivebuttons/button32.jpg" height="20" width="100" alt="links"
                     onmouseover="FP_swapImg(1,0,/*id*/'img5',/*url*/'interactivebuttons/button31.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img5',/*url*/'interactivebuttons/button32.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img5',/*url*/'interactivebuttons/button2A1.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img5',/*url*/'interactivebuttons/button31.jpg')"></a><a
-                onclick="jumpTo('yt')"><img border="0" id="img1" src="interactivebuttons/button28.jpg" height="20" width="100"
-                    alt="youtube channel"
+                onclick="jumpTo('yt')" style="cursor: pointer;"><img border="0" id="img1"
+                    src="interactivebuttons/button28.jpg" height="20" width="100" alt="youtube channel"
                     onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'interactivebuttons/button29.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img1',/*url*/'interactivebuttons/button28.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img1',/*url*/'interactivebuttons/button2A.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img1',/*url*/'interactivebuttons/button29.jpg')"></a><a
-                onclick="jumpTo('codes')"><img border="0" id="img0" src="interactivebuttons/button3E.jpg"
+                onclick="jumpTo('codes')" style="cursor: pointer;"><img border="0" id="img0"
+                    src="interactivebuttons/button3E.jpg"
                     onmouseover="FP_swapImg(1,0,'img0','interactivebuttons/button3F.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(1,0,'img0','interactivebuttons/button3E.jpg')"
                     onmousedown="FP_swapImg(1,0,'img0', 'interactivebuttons/button3D.jpg')"
                     onmouseup="FP_swapImg(1,0,'img0','interactivebuttons/button3E.jpg')" /></a></p>
-            <a onclick="jumpTo('about-me')">
+            <a onclick="jumpTo('about-me')" style="cursor: pointer;">
                 <img border="0" id="img4" src="interactivebuttons/button17.jpg" height="20" width="100" alt="about me"
                     onclick="snd.Load()"
                     onmouseover="FP_swapImg(1,0,/*id*/'img4',/*url*/'interactivebuttons/button18.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img4',/*url*/'interactivebuttons/button17.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img4',/*url*/'interactivebuttons/button19.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img4',/*url*/'interactivebuttons/button18.jpg')"></a><a
-                    onclick="jumpTo('projects')"><img border="0" id="img6" src="interactivebuttons/button1.jpg"
-                    height="20" width="100" alt="projects" onmouseover="FP_swapImg(1,0,/*id*/'img6',/*url*/'interactivebuttons/button2.jpg');snd.playSE(1)"
+                onclick="jumpTo('projects')"><img border="0" id="img6" src="interactivebuttons/button1.jpg" height="20"
+                    width="100" alt="projects"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img6',/*url*/'interactivebuttons/button2.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img6',/*url*/'interactivebuttons/button1.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img6',/*url*/'interactivebuttons/button3.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img6',/*url*/'interactivebuttons/button2.jpg')"></a><a
-                    onclick="jumpTo('faq')"><img border="0" id="img2" src="interactivebuttons/button2E.jpg" height="20" width="100"
-                    alt="faq" onmouseover="FP_swapImg(1,0,/*id*/'img2',/*url*/'interactivebuttons/button2F.jpg');snd.playSE(1)"
+                onclick="jumpTo('faq')" style="cursor: pointer;"><img border="0" id="img2"
+                    src="interactivebuttons/button2E.jpg" height="20" width="100" alt="faq"
+                    onmouseover="FP_swapImg(1,0,/*id*/'img2',/*url*/'interactivebuttons/button2F.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,/*id*/'img2',/*url*/'interactivebuttons/button2E.jpg')"
                     onmousedown="FP_swapImg(1,0,/*id*/'img2',/*url*/'interactivebuttons/button30.jpg')"
                     onmouseup="FP_swapImg(0,0,/*id*/'img2',/*url*/'interactivebuttons/button2F.jpg')"></a><a
-                    onclick="jumpTo('credits')"><img src="interactivebuttons/button69.jpg" id="img69"
-                    onmouseover="FP_swapImg(1,0,'img69', 'interactivebuttons/button420.jpg');snd.playSE(1)"
+                onclick="jumpTo('credits')" style="cursor: pointer;"><img src="interactivebuttons/button69.jpg"
+                    id="img69" onmouseover="FP_swapImg(1,0,'img69', 'interactivebuttons/button420.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(0,0,'img69', 'interactivebuttons/button69.jpg')"
                     onmousedown="FP_swapImg(1,0,'img69','interactivebuttons/button6A.jpg')"
                     onmouseup="FP_swapImg(0,0, 'img69', 'interactivebuttons/button6A.jpg')"></a>
@@ -214,8 +223,11 @@
             <img border="0" src="buttons/bestviewedcomp.gif" width="88" height="31">
             <br>
             <img border="0" src="buttons/office97.gif" width="88" height="31">
-            <img border="0" src="buttons/clickhere_red.gif" width="88" height="31" onclick="jumpTo('https://youtu.be/xvFZjo5PgG0?si=4Q5dgK2HcpEyQfG_', 'successBtn')" style="cursor:pointer;text-decoration:none">
-            <img border="0" src="buttons/clickhere_blue.gif" width="88" class="site" height="31" onclick="snd.playSE(14)">
+            <img border="0" src="buttons/clickhere_red.gif" width="88" height="31"
+                onclick="jumpTo('https://youtu.be/xvFZjo5PgG0?si=4Q5dgK2HcpEyQfG_', 'successBtn')"
+                style="cursor:pointer;text-decoration:none">
+            <img border="0" src="buttons/clickhere_blue.gif" width="88" class="site" height="31"
+                onclick="snd.playSE(14)">
             <img border="0" src="buttons/click_here.gif" width="88" height="31" class="site" onclick="snd.playSE(14)">
             <img border="0" src="buttons/mswin98_89.gif" width="88" height="31">
             <a href="about:Blank" style="text-decoration: none">
@@ -237,43 +249,52 @@
             <img src="buttons/idkwh.gif" width="88" height="31" border="0" onmouseover="snd.playSE(1)"
                 onclick="snd.Load();setTimeout(() => {snd.playSE(13)}, 4200); setTimeout(() => {window.location.reload();}, 5200);"
                 alt="idkwh.ct8.pl" class="site" title="feel free to put this button on your website!!">
-            <iframe src="//incr.easrng.net/badge?key=idkwh"
-                title="increment badge" width="88" height="31"
+            <iframe src="//incr.easrng.net/badge?key=idkwh" title="increment badge" width="88" height="31"
                 frameborder="0">
             </iframe>
             <a href="https://html.spec.whatwg.org/multipage/" onmouseover="snd.playSE(1)" style="text-decoration: none">
                 <img src="images/html-5.gif" width="88" height="31" title="based">
             </a>
             <img src="images/kris-where-tf.webp" width="88" height="31"><br>
-            <img src="images/wii-shop.gif" width="88" height="31" onclick="jumpTo('https://oss-auth.shop.wii.com/oss/serv/W_01.jsp')">
+            <img src="images/wii-shop.gif" width="88" height="31"
+                onclick="jumpTo('https://oss-auth.shop.wii.com/oss/serv/W_01.jsp')">
             <img src="buttons/nowar.png" width="88" height="31" />
             <img src="images/i-have-autism.webp" width="88" height="31" title="yippe :3">
-            <img src="images/mysql5.gif" width="88" height="31" title="sqlite is better though (me from the future says nvm)">
+            <img src="images/mysql5.gif" width="88" height="31"
+                title="sqlite is better though (me from the future says nvm)">
             <img src="images/valid-rss.gif" width="88" height="31" title=":checkmark:">
             <img src="images/roblox.webp" width="88" height="31" title="RòBL0X">
             <img src="images/vs-code.gif" width="88" height="31">
-            <img src="buttons/w7-boot.gif" width="88" height="31" style="text-decoration:none"/><a href="javascript:jumpTo('https://github.com/idkwhere1sthisname')" onmouseover="snd.playSE(1)" style="text-decoration: none">
+            <img src="buttons/w7-boot.gif" width="88" height="31" style="text-decoration:none" /><a
+                href="javascript:jumpTo('https://github.com/idkwhere1sthisname')" onmouseover="snd.playSE(1)"
+                style="text-decoration: none">
                 <img src="buttons/github.png" width="88" height="31" />
-            </a><br/><img src="buttons/gamecube.png" width="88" height="31" />
+            </a><br /><img src="buttons/gamecube.png" width="88" height="31" />
             <img src="buttons/wii2.png" width="88" height="31" />
-            <a href="javascript:jumpTo('https://www.oracle.com/java/technologies/downloads/')" style="text-decoration:none" onmouseover="snd.playSE(1)">
-              <img src="buttons/java_green_button.gif" width="88" height="31" />
+            <a href="javascript:jumpTo('https://www.oracle.com/java/technologies/downloads/')"
+                style="text-decoration:none" onmouseover="snd.playSE(1)">
+                <img src="buttons/java_green_button.gif" width="88" height="31" />
             </a>
-	        <img src="buttons/ezgif.com-resize.gif" title="So Retro!" style="cursor:pointer;" onclick="snd.playSE(2)" />
-	        <img src="buttons/chicken-jockey.gif" title="CHICKEN JOCKEY" />
+            <img src="buttons/ezgif.com-resize.gif" title="So Retro!" style="cursor:pointer;" onclick="snd.playSE(2)" />
+            <img src="buttons/chicken-jockey.gif" title="CHICKEN JOCKEY" />
             <p>fun fact i may have added too many of these buttons</p>
             <br /><br />
             <p>also check out these cool sites!</p>
-            <a href="javascript:jumpTo('https://chrisplayzwii.github.io', 'url')" onmouseover="snd.playSE(1)" style="text-decoration: none;">
+            <a href="javascript:jumpTo('https://chrisplayzwii.github.io', 'url')" onmouseover="snd.playSE(1)"
+                style="text-decoration: none;">
                 <img src="buttons/chrisplayzwii.github.io.png" width="88" height="31">
             </a><a href="javascript:jumpTo('https://gemdation.com')" onmouseover="snd.playSE(1)">
-                <img src="buttons/gemdation.com.gif" width="88" height="31" /></a><a href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none" onmouseover="snd.playSE(1)">
+                <img src="buttons/gemdation.com.gif" width="88" height="31" /></a><a
+                href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none"
+                onmouseover="snd.playSE(1)">
                 <img border="0" src="buttons/emsite.png" width="88" height="31">
             </a><a href="javascript:jumpTo('https://your2slow.github.io')" onmouseover="snd.playSE(1)">
-                <img src="buttons/ezgif-2eb8057e700d39.gif" width="88" height="31"/>
+                <img src="buttons/ezgif-2eb8057e700d39.gif" width="88" height="31" />
             </a>
             <br /><br />
-            <span class="small">(<a onclick="jumpTo('contact')" style="color: blue; text-decoration:underline;cursor:pointer" onmouseover="snd.playSE(1)">contact</a> me if youd like your button to appear here!)</span>
+            <span class="small">(<a onclick="jumpTo('contact')"
+                    style="color: blue; text-decoration:underline;cursor:pointer"
+                    onmouseover="snd.playSE(1)">contact</a> me if youd like your button to appear here!)</span>
             <br /><br /><br />
         </div>
         <noscript id="noscriptTag">
@@ -294,7 +315,9 @@
     </div>
     <div id="bgmplayer">
         <h2 style="height:20px; margin-top:0px;">BGM player</h2>
-        <a href="javascript:playBGM();" id="shopbgmselector" style="text-decoration:none;"><button id="shopbgm">play BGM</button></a>
+        <a href="javascript:playBGM();" id="shopbgmselector" style="text-decoration:none;"><button id="shopbgm">play
+                BGM</button></a>
     </div>
 </body>
+
 </html>
