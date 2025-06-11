@@ -1,7 +1,19 @@
 @charset "UTF-8";
-@font-face { font-family: 'Wii NTLG PGothic JPN Regular'; src: url('../font/font.ttf'); }
-@font-face { font-family: 'Catmoji'; src: url("/font/cat.ttf"); }
-@font-face { font-family: "LCFontR"; src: url("/font/LCFont.ttf"); }
+
+@font-face {
+    font-family: 'Wii NTLG PGothic JPN Regular';
+    src: url('../font/font.ttf');
+}
+
+@font-face {
+    font-family: 'Catmoji';
+    src: url("/font/cat.ttf");
+}
+
+@font-face {
+    font-family: "LCFontR";
+    src: url("/font/LCFont.ttf");
+}
 
 .catmoji_TXT {
     font-family: 'Catmoji' !important;
@@ -17,15 +29,6 @@
 
 .medium {
     font-size: large;
-}
-
-code {
-    color: teal;
-}
-
-.header {
-    font-size: 50px;
-    color: yellow;
 }
 
 .btn {
@@ -326,17 +329,6 @@ button:active {
     height: 40px;
 }
 
-button {
-    background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
-    border: 3px solid #041c20;
-    border-radius: 6px;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-    cursor: pointer;
-}
-
 button:hover {
     background: linear-gradient(to bottom, #c0c4c8, #e4e8e0);
 }
@@ -357,9 +349,34 @@ button:active {
         overflow-x: hidden;
     }
 
+    .header {
+        font-size: 50px;
+        color: yellow;
+    }
+
     code.nzonenotice {
         color: white;
     }
+
+    .Credit {
+        color: #FFFFFF;
+    }
+
+    button {
+        background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
+        border: 3px solid #041c20;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+    }
+
+    code {
+        color: springgreen;
+    }
+
 }
 
 @media (prefers-color-scheme: light) {
@@ -374,7 +391,32 @@ button:active {
         color: #000000;
     }
 
-    code.nzonenotice {
-        color: black;
+    .header {
+        font-size: 50px;
+        color: blue;
     }
+
+    code.nzonenotice {
+        color: #000000;
+    }
+
+    .Credit {
+        color: #000000
+    }
+    
+    button {
+        background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
+        border: 3px solid #323232;
+        border-radius: 6px;
+        padding: 10px 20px;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+        cursor: pointer;
+    }
+
+    code {
+        color: purple;
+    }
+
 }
