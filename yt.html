@@ -33,9 +33,6 @@
     <script src="js/main.js"></script>
     <script>var snd = new webSound();</script>
     <style>
-        body {
-            background-image: url('images/ytwallpaper.gif');
-        }
         .yt1 {
             position: absolute; width: 176px; height: 158px; z-index: 1; left: 436px; top: 82px
         }
@@ -53,14 +50,15 @@
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
     <div align="center">
-        <h1 class="header">youtube channel</h1>
-        <img src="images/homebutton.gif" onmouseover="snd.playSE(1)" onclick="jumpTo('/')">
+        <span class="header">youtube channel</span>
         <br><br>
         <div>
-            <span class="medium">i also have a youtube channel</span>
-            <br>
-            <span class="medium">check it <a hreflang="X-Default" class="link" onmouseover="snd.playSE(1)" onclick="snd.Load();snd.playSE(15);setTimeout(() => { window.location.href = 'https://www.youtube.com/channel/UC3IL0b1yqcimDNNGxSRxDkA'}, 550)">out</a></span>
+            <span class="large">i also have a youtube channel</span>
+            <br><br/>
+            <span class="large">check it <a hreflang="X-Default" class="link" onmouseover="snd.playSE(1)" onclick="jumpTo('https://www.youtube.com/channel/UC3IL0b1yqcimDNNGxSRxDkA')">out</a></span>
         </div>
+        <br/><br/>
+        <img src="images/homebutton.gif" onmouseover="snd.playSE(1)" onclick="jumpTo('/')">
     </div>
 </body>
 </html>

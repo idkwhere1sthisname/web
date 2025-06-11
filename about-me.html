@@ -1,71 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
     <script>var snd = new webSound();</script>
     <title>about me</title>
     <meta name="robots" content="index, follow" />
-	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
-	<meta name="msapplication-TileColor" content="#1b2eff" />
-	<meta property="og:image" content="/images/twitter-cardImg.png" />
-	<meta property="og:image:width" content="800" />
-	<meta property="og:image:height" content="600" />
-    <meta name="HandheldFriendly" content="true"/> 
-	<meta property="og:type" content="website" />
-	<meta name="generator" content="Visual Studio Code" />
+    <meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#1b2eff" />
+    <meta property="og:image" content="/images/twitter-cardImg.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta property="og:type" content="website" />
+    <meta name="generator" content="Visual Studio Code" />
     <base href="https://idkwhereisthis.name" target="_self" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="about - idkwhereisthissite" />
-	<meta name="twitter:description" content="idkwh's silly website" />
-	<meta name="twitter:creator" content="@idkwherenamenew" />
-	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="about - idkwhereisthissite" />
-	<meta name="description" content="idkwh's silly website" />
-	<meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/images/twitter-cardImg.png" />
+    <meta name="twitter:title" content="about - idkwhereisthissite" />
+    <meta name="twitter:description" content="idkwh's silly website" />
+    <meta name="twitter:creator" content="@idkwherenamenew" />
+    <meta name="twitter:site" content="@idkwherenamenew" />
+    <meta name="title" content="about - idkwhereisthissite" />
+    <meta name="description" content="idkwh's silly website" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
     <meta property="og:title" content="about - idkwhereisthissite">
     <meta property="og:description" content="idkwh's silly website">
     <style>
         body {
             background-image: url('images/aboutmebg.gif');
         }
+
         #homeBtn {
             cursor: pointer;
         }
     </style>
     <script>
+    function initClock() {
+        function checkTime(i) {
+            return i < 10 ? "0" + i : i;
+        }
+
+        function startClockcmn() {
+            var el = document.getElementById("clockTextPlaceholder");
+            if (el) {
+                const t = new Date();
+                const opt = {
+                    timeZone: "Europe/Berlin",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                    year: "numeric",
+                    month: "2-digit",
+                    day: "2-digit"
+                };
+                const formatter = new Intl.DateTimeFormat("en-GB", opt);
+                el.innerHTML = formatter.format(t);
+                setTimeout(initClock, 1000);
+            }
+        }
+
+        startClockcmn();
+    }
+
         function initPageCommon() {
+            initClock();
+            var played = "false";
+            document.getElementById("clockTextPlaceholder").addEventListener("click", function() {
+                if (played == "false") {
+                    snd.playSound("tick");
+                    document.getElementById("clockTextPlaceholder").style.cursor = "unset";
+                    played = "true";
+                }
+            })
             initFavicon("/images/favicon/", 19, 500);
             snd.stopLoad();
             playBGM();
         }
     </script>
 </head>
-<body onload="initPageCommon();">
+
+<body onload="initClock();initPageCommon();">
     <div id="loadicon" class="loadicon">
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
     <div align="center">
-        <h1 class="header">about me</h1>
-        <span>hi! i'm a person who is interested in old tech and programming!</span>
+        <span class="header">about me</span><br/><br/>
+        <span class="large">hi! i'm a person who is interested in old tech and programming!</span>
+        <br><br/>
+        <span class="greenTxt large">loves: PHP, minecraft, wii (u), old pcs</span>
         <br>
-        <span class="greenTxt">loves: PHP, minecraft, wii (u), old pcs</span>
+        <span class="redTxt large">hates: C++, Java, self</span>
+        <br><br/>
+        <span class="large">i own a wii, a wii u, a switch, a ps4, a dsi, an o3ds, an o2ds and a dsi xl!!</span>
         <br>
-        <span class="redTxt">hates: C++, Java, self</span>
+        <span class="large">pc specs: 8gb ram, amd ryzen 7 4000 x64 with integrated radeon graphics, 500gb ssd</span>
         <br>
-        <span class="medium">i own a wii, a wii u, a switch, a ps4, a dsi, an o3ds, an o2ds and a dsi xl!!</span>
-        <br>
-        <span class="medium">pc specs: 8gb ram, amd ryzen 7 4000 x64 with integrated radeon graphics, 500gb ssd</span>
-        <br><br>
+        <span class="large">it's currently <span id="clockTextPlaceholder" style="cursor:pointer"></span> for me.</span>
+        <br/><br/>
         <a onmouseover="snd.playSE(1)" onclick="jumpTo('showIndex', null);">
             <img id="homeBtn" src="images/homebutton.gif" onmouseover="snd.playSE(1)" width="37" height="37" />
         </a>
     </div>
 </body>
+
 </html>

@@ -36,7 +36,7 @@
         #container {
             width: 400px;
             height: 400px;
-            border: 1px dotted #34BEED;
+            border: 2px solid #34beed;
             background-color: transparent;
             overflow-y: hidden;
             overflow-x: hidden;
@@ -176,33 +176,38 @@
         <img src="/images/wiiloading.gif" class="ring" id="wiiring" alt="">
     </div>
     <div align="center">
-        <h1 class="header">credits</h1>
+        <span class="header">credits</span>
     </div>
     <br>
     <div align="center">
         <div id="container">
             <marquee id="mq" direction="down" behavior="slide" scrollamount="3" loop="1" height="100%">
-                <h2 class="Credit"><a class="link" onmouseover="snd.playSE(1)" href="javascript:snd.playSE(4)">You</a>
+                <h2 class="Credit large"><a class="link" onmouseover="snd.playSE(1)" href="javascript:snd.playSE(4)">You</a>
                 </h2>
-                <span class="Credit medium">for visiting this website :3</span>
+                <span class="Credit large">for visiting this website :3</span>
                 <h2 class="Credit"><a class="link" onmouseover="snd.playSE(1)"
                         href="javascript:jumpTo('https://nintendo.com/')">Nintendo</a>
                 </h2>
-                <span class="Credit medium">for most of the sound effects, the wii shop scrollbar and the
+                <span class="Credit large">for most of the sound effects, the wii shop scrollbar and the
                     <code>Wii NTLG PGothic JPN Regular</code> font</span>
-                <h2 class="Credit"><a class="link" onmouseover="snd.playSE(1)"
+                <h2 class="Credit large"><a class="link" onmouseover="snd.playSE(1)"
                         href="javascript:jumpTo('https://chrisplayzwii.github.io')">ChrisPlayzWii</a>
                 </h2>
-                <span class="Credit medium">wii shop scrollbar idea and some css</span>
+                <span class="Credit large">wii shop scrollbar idea and some css</span>
                 <br><br>
-                <sub class="Credit">there will probably be more credits soon probably</sub>
+                <sub class="Credit smallv2">there will probably be more credits soon probably</sub>
             </marquee>
+        </div>
+        <br/><br/>
+        <div id="lcfnotice_nzone">
+            <img src="images/LCFont.png" id="lcflogo" /><br />
+                <code class="nzonenotice">This product uses the LC Font by Sharp<br/>Corporation. LCFONT, LC Font and the LC logo<br/>mark are trademarks of Sharp Corporation.</code>
+                <br /><i class="smallv2" style="color: brown;">/ref</i>
         </div>
         <br>
         <button type="button" onmouseover="snd.playSE(1)"
             onclick="jumpTo('showIndex', null)">index</button>
-        <input type="reset" onmouseover="snd.playSE(1)"
-            onclick="jumpTo(null, 'reload')" />
+        <button type="button" onclick="jumpTo(null, 'reload')">reload</button>
     </div>
 </body>
 

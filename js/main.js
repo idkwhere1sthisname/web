@@ -58,7 +58,12 @@ class webSound {
         var SE_OldOK = 13;
         var SE_Error = 14;
         let SE = new Audio('sound/' + id + '.mp3');
-        SE.play();
+        if (id == "tick") {
+            SE.play();
+            SE.loop=true;
+        } else {
+            SE.play();
+        }
     }
     playBGM(path) {
         let bgmPath = path

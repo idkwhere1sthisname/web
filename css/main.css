@@ -1,28 +1,33 @@
 @charset "UTF-8";
-@font-face { font-family: 'Wii NTLG PGothic JPN Regular'; src: url('../font/font.ttf'); };
-@font-face { font-family: 'Catmoji'; src: url("/font/catmoji.ttf"); }
-@font-face { font-family: "LCFont"; src: url("/font/LCFont.ttf"); }
+@font-face { font-family: 'Wii NTLG PGothic JPN Regular'; src: url('../font/font.ttf'); }
+@font-face { font-family: 'Catmoji'; src: url("/font/cat.ttf"); }
+@font-face { font-family: "LCFontR"; src: url("/font/LCFont.ttf"); }
 
-.catmoji_TXT { font-family: 'Catmoji' !important; }
+.catmoji_TXT {
+    font-family: 'Catmoji' !important;
+}
 
-body {
-    background-image: url('/images/background.gif');
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-* {
-    font-family: 'Wii NTLG PGothic JPN Regular';
-    color: #FFFFFF;
-}
 .small {
-    font-size: small;
-}
-.medium {
     font-size: medium;
 }
+
+.smallv2 {
+    font-size: small;
+}
+
+.medium {
+    font-size: large;
+}
+
+code {
+    color: teal;
+}
+
 .header {
+    font-size: 50px;
     color: yellow;
 }
+
 .btn {
     position: absolute;
     width: 901px;
@@ -31,6 +36,7 @@ body {
     left: 530px;
     top: 262px;
 }
+
 .btns {
     position: fixed;
     width: 679px;
@@ -39,38 +45,47 @@ body {
     left: 635px;
     top: 142px
 }
+
 .visited {
     color: purple;
     text-decoration: underline;
     cursor: pointer;
 }
+
 .link {
     color: blue;
     text-decoration: underline;
     cursor: pointer;
 }
+
 .large {
     font-size: 20px;
 }
+
 .pointer {
-    cursor:pointer;
+    cursor: pointer;
 }
+
 .greenTxt {
     color: greenyellow;
 }
+
 .redTxt {
     color: red;
 }
+
 .noscripterr {
     border: red;
     width: 500px;
     height: 300px;
     background-color: black;
 }
+
 .btnTxt {
     color: black;
     font-size: 16px;
 }
+
 .warnContainer {
     position: absolute;
     width: 100vw;
@@ -84,6 +99,7 @@ body {
     z-index: 19;
     overflow: hidden;
 }
+
 .HSWindow {
     position: relative;
     vertical-align: middle;
@@ -92,11 +108,13 @@ body {
     height: 50vh;
     z-index: 20;
 }
+
 .Header {
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
 }
+
 .hsTitle {
     position: relative;
     top: 40px;
@@ -105,12 +123,14 @@ body {
     font-size: 20px;
     color: #ffffff;
 }
+
 .hsBody {
     position: relative;
     vertical-align: center;
     font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
     color: #FFFFFF;
 }
+
 .initSettings {
     cursor: pointer;
     color: #FFFFFF;
@@ -228,58 +248,66 @@ body::-webkit-scrollbar:horizontal {
     width: auto;
     height: 15px;
 }
+
 body::-webkit-scrollbar-track:horizontal {
     background: url("../scrollBar/v/center-center.png");
     width: auto;
     height: 15px;
 }
+
 body::-webkit-scrollbar-thumb:horizontal {
     background: url("../scrollBar/v/Bg.png");
 }
+
 body::-webkit-scrollbar-button:single-button:horizontal:increment {
     background-color: #FFFFFF;
     width: 40px;
     height: 40px;
     background-size: fill;
 }
+
 body::-webkit-scrollbar-button:single-button:horizontal:decrement {
     background-color: #FFFFFF;
     width: 40px;
     height: 40px;
     background-size: fill;
 }
-/* btn */
+
+/* btn 
 button {
-    background-color: #FFFFFF;
+    background-color: gray;
     border: 2px solid #34beed;
     color: #323232;
     padding: 10px 20px;
-    font-size: 14px;
-    font-family: 'Wii NTLG PGothic Regular', 'Wii NTLG PGothic JPN Regular', 'Wii NTLG Gothic Latin Regular', 'Wii NTLG PGothic Latin Regular', 'Comic Sans MS' sans-serif;
+    font-size: 22px;
+    font-family: "LCFontR";
     text-align: center;
     text-decoration: none;
     display: inline-block;
     border-radius: 4px;
     transition: all 0.3s ease;
 }
-  
+*/
+
 button:hover {
     background-color: #a5aaef;
     color: #323232;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-  
+
 button:active {
     background-color: #a5aaef;
     color: #323232;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(2px);
 }
+
 #Spinner {
-    animation: spinner 1.3s infinite ;
-    transition:.3s ease-in-out;
+    animation: spinner 1.3s infinite;
+    transition: .3s ease-in-out;
     filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.11));
 }
+
 .loadicon {
     display: none;
     width: 40px;
@@ -291,8 +319,62 @@ button:active {
     overflow-y: hidden;
     z-index: 99;
 }
+
 .ring {
     display: flex;
     width: 40px;
     height: 40px;
+}
+
+button {
+    background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
+    border: 3px solid #041c20;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #c0c4c8, #e4e8e0);
+}
+
+button:active {
+    background: linear-gradient(to bottom, #ececec, #e4e4e4);
+}
+
+@media (prefers-color-scheme: dark) {
+    * {
+        font-family: "LCFontR" !important;
+        color: #FFFFFF;
+    }
+
+    body {
+        background-image: url("/images/back_dark.png") !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    code.nzonenotice {
+        color: white;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-image: url('/images/back.png') !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    * {
+        font-family: 'LCFontR' !important;
+        color: #000000;
+    }
+
+    code.nzonenotice {
+        color: black;
+    }
 }

@@ -15,7 +15,7 @@
 	<meta property="og:image:height" content="600" />
 	<meta property="og:type" content="website" />
 	<meta name="generator" content="Visual Studio Code" />
-	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:card" content="summary_faqitem_image" />
 	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
 	<meta name="twitter:title" content="faq - idkwhereisthissite" />
 	<meta name="twitter:description" content="idkwh's silly website" />
@@ -32,11 +32,12 @@
     <meta property="og:title" content="faq - idkwhereisthissite">
     <meta property="og:description" content="idkwh's silly website">
     <style>
-        body {
-            background-image: url('images/faqbg.gif');
-        }
         img {
             cursor: pointer;
+        }
+
+        .faqitem {
+            font-size: 24px;
         }
     </style>
     <script>
@@ -51,19 +52,19 @@
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
     <div align="center">
-        <h1 class="header Header" ondblclick="snd.playSE(13)">frequently asked questions</h1>
+        <span class="header Header" ondblclick="snd.playSE(13)">frequently asked questions</span><br/><br/>
         <div>
-            <span class="large redTxt">Q: </span><span class="medium">where do you live?</span>
+            <span class="faqitem redTxt">Q: </span><span class="faqitem">where do you live?</span>
             <br>
-            <span class="large greenTxt">A: </span><span class="medium">in my house</span>
+            <span class="faqitem greenTxt">A: </span><span class="faqitem">in my house</span>
             <br><br>
-            <span class="large redTxt">Q: </span><span class="medium">what is your real name?</span>
+            <span class="faqitem redTxt">Q: </span><span class="faqitem">what is your real name?</span>
             <br>
-            <span class="large greenTxt">A: </span><span class="medium">idk</span>
+            <span class="faqitem greenTxt">A: </span><span class="faqitem">idk</span>
             <br><br>
-            <span class="large redTxt">Q: </span><span class="medium">with what did you write this website?</span>
+            <span class="faqitem redTxt">Q: </span><span class="faqitem">with what did you write this website?</span>
             <br>
-            <span class="large greenTxt">A: </span><span class="medium"> this time, i used visual studio code</span>
+            <span class="faqitem greenTxt">A: </span><span class="faqitem"> this time, i used visual studio code</span>
             <br><br><br>
             <img src="images/homebutton.gif" width="37" height="37" onmouseover="snd.playSE(1)" onclick="jumpTo('showIndex', null);">
         </div>

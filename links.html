@@ -33,9 +33,6 @@
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
     <meta property="og:description" content="idkwh's silly website">
     <style>
-        body {
-            background-image: url("images/background.gif");
-        }
         .homeBtn {
             position: absolute;
             width: 100px;
@@ -61,13 +58,9 @@
         <img src="/images/wiiloading.gif" class="ring" id="wiiring">
     </div>
     <div align="center">
-        <h1 class="header">links</h1>
-        <a onclick="jumpTo('showIndex', null)"
-            onmouseover="snd.playSE(1)">
-            <img class="HomeBTN" src="images/homebutton.gif" onmouseover="snd.playSE(1)"/>
-        </a>
+        <span class="header medium">links</span>
         <br /><br />
-        <span class="medium">here are some links</span>
+        <span class="large">here are some links</span>
         <br><br>
         <a class="link medium" onmouseover="snd.playSE(1)" title="yt channel" id="ytlink"
             onclick="jumpTo('yt');changelink('ytlink')">youtube
@@ -77,19 +70,21 @@
             onclick="jumpTo('https://github.com/idkwhere1sthisname');changelink('githublink');"
             title="github">github</a>
         <br><br>
-        <img src="images/under-construction2.gif" width="100px" height="100px" ondblclick="snd.playSound(7)"
-            title="under construction..." />
-        <br><br><br>
-        <div class="small">
-            <span class="small">
-                <a class="link small" id="rblxlink" onmouseover="snd.playSE(1)"
+        <div class="medium">
+            <span class="medoum">
+                <a class="link medium" id="rblxlink" onmouseover="snd.playSE(1)"
                     onclick="changelink('rblxlink');jumpTo('https://www.roblox.com/users/3962819055/profile')">
                     roblox(old)
                 </a>
                 <br /><br />
-                <a id="pronounsPage" class="link small" onmouseover="snd.playSE(1)" onclick="jumpTo('https://en.pronouns.page/@idkwh');changelink('pronounsPage')">pronouns.page</a>
+                <a id="pronounsPage" class="link medium" onmouseover="snd.playSE(1)" onclick="jumpTo('https://en.pronouns.page/@idkwh');changelink('pronounsPage')">pronouns.page</a>
             </span>
         </div>
+        <br /><br />
+        <a onclick="jumpTo('showIndex', null)"
+            onmouseover="snd.playSE(1)">
+            <img class="HomeBTN" src="images/homebutton.gif" onmouseover="snd.playSE(1)"/>
+        </a>
     </div>
 </body>
 </html>
