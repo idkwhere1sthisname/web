@@ -50,9 +50,11 @@
         function startClockcmn() {
             var el = document.getElementById("clockTextPlaceholder");
             if (el) {
+                el.style.color = "turquoise";
+                el.style.fontWeight = "bold";
                 const t = new Date();
                 const opt = {
-                    timeZone: "Europe/Berlin",
+                    timeZone: "Europe/Rome",
                     hour: "2-digit",
                     minute: "2-digit",
                     second: "2-digit",
@@ -71,11 +73,12 @@
 
         function initPageCommon() {
             initClock();
+            var elem = document.getElementById("clockTextPlaceholder");
             var played = "false";
-            document.getElementById("clockTextPlaceholder").addEventListener("click", function() {
+            elem.addEventListener("click", function() {
                 if (played == "false") {
                     snd.playSound("tick");
-                    document.getElementById("clockTextPlaceholder").style.cursor = "unset";
+                    elem.style.cursor = "unset";
                     played = "true";
                 }
             })
@@ -102,9 +105,9 @@
         <br>
         <span class="large">pc specs: 8gb ram, amd ryzen 7 4000 x64 with integrated radeon graphics, 500gb ssd</span>
         <br>
-        <span class="large">it's currently <span id="clockTextPlaceholder" style="cursor:pointer"></span> for me.</span>
+        <span class="large">it's currently <span id="clockTextPlaceholder" style="cursor: pointer"></span> for me.</span>
         <br/><br/>
-        <a onmouseover="snd.playSE(1)" onclick="jumpTo('showIndex', null);">
+        <a onclick="jumpTo('showIndex', null);">
             <img id="homeBtn" src="images/homebutton.gif" onmouseover="snd.playSE(1)" width="37" height="37" />
         </a>
     </div>

@@ -42,7 +42,7 @@ function getCookie(name) {
     return null;
 }
 
-var loadingsfx = new Audio("BGM/load.wav");
+var loadingsfx = new Audio("/BGM/load.wav");
 
 class webSound {
     constructor() { };
@@ -99,6 +99,7 @@ class webSound {
         var SE_Error = 14;
 
         let SE = new Audio('/sound/' + id + '.wav');
+        SE.volume = 1;
         SE.play();
     }
     Load() {
@@ -136,19 +137,21 @@ class webSound {
     }
 }
 
+var cmn_timeout = 1550;
+
 function jumpTo(item, type = "url") {
     if (type == "url") {
         snd.playSE(15);
         snd.Load();
         setTimeout(() => {
             window.location.href = item;
-        }, 550)
+        }, cmn_timeout)
     } else if (type == "reload" && item == null) {
         snd.playSE(15);
         snd.Load();
         setTimeout(() => {
             window.location.reload();
-        }, 550)
+        }, cmn_timeout)
     } else if (type == null && item == "showBack") {
         snd.playSE(10);
         snd.Load();
@@ -159,19 +162,19 @@ function jumpTo(item, type = "url") {
             } else {
                 window.location.href = '/';
             }
-        }, 550);
+        }, cmn_timeout);
     } else if (type == null && item == "showIndex") {
         snd.playSE(10);
         snd.Load();
         setTimeout(() => {
             window.location.href = '/';
-        }, 550);
+        }, cmn_timeout);
     } else if (type == "successBtn") {
         snd.playSE(13);
         snd.Load();
         setTimeout(() => {
             window.location.href = item;
-        }, 550);
+        }, cmn_timeout);
     }
 }
 

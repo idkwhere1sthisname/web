@@ -40,7 +40,12 @@
         }
     </style>
     <script>
+        function initPage() {
+            snd.playSE("err");
+        }
+
         function initPageCommon() {
+            initPage();
             initFavicon("/images/favicon/", 19, 500);
             snd.stopLoad();
         }
