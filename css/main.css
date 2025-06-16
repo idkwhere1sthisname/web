@@ -426,3 +426,23 @@ button:active {
     }
 
 }
+#bgmplayer {
+    transition: .3s ease-in-out;
+    opacity: 30%;
+    position: fixed;
+    bottom: 3px;
+    border: 2px solid #34BEED;
+    left: 3px;
+    float: left;
+    width: 160px;
+    height: 40px;
+    overflow: hidden;
+}
+
+#bgmplayer:hover {
+    opacity: 50%;
+    transition: .3s ease-in-out;
+    height: 100px;
+    width: 200px;
+    overflow: auto;
+}

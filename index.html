@@ -69,26 +69,10 @@
         iframe {
             background: url(//incr.easrng.net/bg.gif)
         }
-
-        #bgmplayer {
-            transition: .3s ease-in-out;
-            opacity: 30%;
-            position: fixed;
-            bottom: 3px;
-            border: 2px solid #34BEED;
-            left: 3px;
-            float: left;
-            width: 160px;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        #bgmplayer:hover {
-            opacity: 50%;
-            transition: .3s ease-in-out;
-            height: 100px;
-            width: 200px;
-            overflow: auto;
+        feGaussianBlur {
+            display: none;
+            visibility:hidden;
+            opacity: 0;
         }
     </style>
     <script type="text/javascript">
@@ -161,7 +145,7 @@
                     onmouseover="FP_swapImg(1,0,'img0','interactivebuttons/button3F.jpg');snd.playSE(1)"
                     onmouseout="FP_swapImg(1,0,'img0','interactivebuttons/button3E.jpg')"
                     onmousedown="FP_swapImg(1,0,'img0', 'interactivebuttons/button3D.jpg')"
-                    onmouseup="FP_swapImg(1,0,'img0','interactivebuttons/button3E.jpg')" /></a></p>
+                    onmouseup="FP_swapImg(1,0,'img0','interactivebuttons/button3E.jpg')" /></a><p></p><feGaussianBlur></feGaussianBlur>
             <a onclick="jumpTo('about')" style="cursor: pointer;">
                 <img border="0" id="img4" src="interactivebuttons/button17.jpg" height="20" width="100" alt="about me"
                     onclick="snd.Load()"
