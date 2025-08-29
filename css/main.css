@@ -51,7 +51,7 @@ a:hover {
     min-width: 620px
 }
 
-.tile-list div[role=list] {
+.tile-list {
     align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +62,7 @@ a:hover {
     margin-bottom: 6px
 }
 
-.tile-list-sidebar div[role=list] div.tile:last-child {
+.tile-list-sidebar div.tile:last-child {
     margin-bottom: 0
 }
 
@@ -194,15 +194,6 @@ a:hover {
     margin-top: 10px
 }
 
-.tile-article {
-    background-color: var(--light-gray-bg-color);
-    transition: .2s ease
-}
-
-.tile-article:hover {
-    background-color: #b2b2b2
-}
-
 .tile-header {
     height: 50px;
     position: relative;
@@ -227,36 +218,6 @@ input {
 .tile-image {
     height: 100%;
     width: 100%
-}
-
-.tile-face-1:hover,
-.tile-face-2:hover {
-    box-shadow: 0 0 0 2px gray
-}
-
-.tile-face-1:active,
-.tile-face-2:active {
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 0 gray
-}
-
-.tile-face-1 {
-    animation: spin1 40s ease infinite;
-    transform: perspective(900px) rotateX(0deg);
-    -webkit-transform: perspective(900px) rotateX(0deg);
-    z-index: 200
-}
-
-.tile-face-1,
-.tile-face-2 {
-    background: var(--accent-color)
-}
-
-.tile-face-2 {
-    animation: spin2 40s ease infinite;
-    transform: perspective(900px) rotateX(90deg);
-    -webkit-transform: perspective(900px) rotateX(90deg);
-    z-index: 100
 }
 
 .tile-animated-text {
