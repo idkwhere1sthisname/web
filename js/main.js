@@ -50,20 +50,6 @@ function initClock() {
     startClockcmn();
 }
 
-function initPageCommon() {
-    initClock();
-    var elem = document.getElementById("clockTextPlaceholder");
-    var played = "false";
-    elem.addEventListener("click", function () {
-        if (played == "false") {
-            snd.playSound("tick");
-            elem.style.cursor = "unset";
-            played = "true";
-        }
-    })
-    initFavicon("/images/favicon/", 19, 500);
-}
-
 function initFavicon(PATH, frames, interval) {
     let uacheck = navigator.userAgent.toLowerCase().includes("firefox");
     let ico = document.querySelector("link[rel='icon']") || document.createElement("link");
