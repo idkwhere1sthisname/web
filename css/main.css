@@ -1,448 +1,673 @@
 @charset "UTF-8";
 
+/*#region -----------------------Font Definitions-----------------------*/
 @font-face {
-    font-family: 'Wii NTLG PGothic JPN Regular';
-    src: url('../font/font.ttf');
-}
-
-@font-face {
-    font-family: 'Catmoji';
     src: url("/font/cat.ttf");
+    font-family: "Catmoji";
 }
 
 @font-face {
-    font-family: "LCFontR";
-    src: url("/font/LCFont.ttf");
+    src: url("/font/KTV_NORMAL.ttf");
+    font-family: "FONT_KTV_NORMAL";
 }
 
-.catmoji_TXT {
-    font-family: 'Catmoji' !important;
+@font-face {
+    src: url("/font/KTV_NARROW.ttf");
+    font-family: "FONT_KTV_NARROW";
 }
 
-.br {
-    margin: 10px !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+/*#endregion -----------------------Font Definitions-----------------------*/
+
+/*#region -----------------------C# style regions (VSC Compatible)----------------------- */
+:root {
+    --accent-color: #238e9a;
+    --light-gray-bg-color: #cbcbcb;
+    --body-bg-color: #e5e5e5
 }
 
-.small {
-    font-size: medium;
+body {
+    background-color: var(--body-bg-color);
+    font-family: Segoe UI, Frutiger, Frutiger Linotype, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
+    margin: 0
 }
 
-.smallv2 {
-    font-size: small;
+a,
+a:visited {
+    color: var(--accent-color)
 }
 
-.medium {
-    font-size: large;
+a,
+a:hover,
+a:visited {
+    text-decoration: none
 }
 
-.btn {
+a:hover {
+    color: #8a8a8a
+}
+
+.tile-list {
+    margin-left: 10px;
+    min-width: 620px
+}
+
+.tile-list div[role=list] {
+    align-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 620px
+}
+
+.tile-list-sidebar {
+    margin-bottom: 6px
+}
+
+.tile-list-sidebar div[role=list] div.tile:last-child {
+    margin-bottom: 0
+}
+
+.sidebar-container {
+    float: right;
+    width: 100%;
+}
+
+@media screen and (max-width:950px) {
+    .tile-list {
+        margin-left: 0;
+        min-width: 100%
+    }
+}
+
+@media screen and (max-width:950px) and (min-width:521px) {
+    .tile-list {
+        margin-left: 0;
+        min-width: 100%
+    }
+}
+
+@media screen and (min-width:1290px) {
+
+    .tile-list {
+        min-width: 930px
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .tiles {
+        flex-direction: column;
+    }
+
+    .sidebar-tile {
+        width: 90% !important;
+        max-width: 500px;
+        min-height: 80px;
+    }
+
+    .sidebar-tile img {
+        width: auto;
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .sidebar-tile-wide {
+        width: 90% !important;
+    }
+
+    .sidebar-tile-medium {
+        width: 90% !important;
+    }
+
+    .sidebar-tile-face {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 67.5px;
+        height: 67.5px;
+        flex-shrink: 0;
+    }
+
+    .sidebar-tile-face img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        display: block;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
+@media screen and (min-width:1600px) {
+
+    .tile-list {
+        min-width: 1240px
+    }
+}
+
+.header {
+    display: block;
+    font-size: 20pt;
+    font-weight: 300;
+    margin: 10px 10px 20px;
+    color: #000
+}
+
+.header.inline {
+    display: block;
+    font-size: 30pt;
+    font-weight: 300;
+    margin: 14px 10px 20px;
+    color: #000
+}
+
+.header.main {
+    display: inline-block;
+    font-size: 30pt;
+    font-weight: 300;
+    margin: 10px 10px 20px;
+    color: #000
+}
+
+.header strong {
+    font-weight: 600
+}
+
+.tile-top>div:nth-child(2)>p:first-child>a:first-child>img:first-child {
+    margin-top: -16px
+}
+
+.tile {
+    background-color: var(--accent-color);
+    height: 300px;
+    margin: 0 10px 10px 0;
+    width: 300px
+}
+
+.tile a {
+    text-decoration: none
+}
+
+.tile-top {
+    margin-top: 10px
+}
+
+.tile-article {
+    background-color: var(--light-gray-bg-color);
+    transition: .2s ease
+}
+
+.tile-article:hover {
+    background-color: #b2b2b2
+}
+
+.tile-header {
+    height: 50px;
+    position: relative;
+    width: 300px
+}
+
+.tile-content {
+    height: 250px;
+    width: 300px
+}
+
+input {
+    border-radius: 0
+}
+
+.sidebar a:hover,
+.sidebar a:link,
+.sidebar a:visited {
+    color: #fff
+}
+
+.tile-image {
+    height: 100%;
+    width: 100%
+}
+
+.tile-face-1:hover,
+.tile-face-2:hover {
+    box-shadow: 0 0 0 2px gray
+}
+
+.tile-face-1:active,
+.tile-face-2:active {
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 0 gray
+}
+
+.tile-face-1 {
+    animation: spin1 40s ease infinite;
+    transform: perspective(900px) rotateX(0deg);
+    -webkit-transform: perspective(900px) rotateX(0deg);
+    z-index: 200
+}
+
+.tile-face-1,
+.tile-face-2 {
+    background: var(--accent-color)
+}
+
+.tile-face-2 {
+    animation: spin2 40s ease infinite;
+    transform: perspective(900px) rotateX(90deg);
+    -webkit-transform: perspective(900px) rotateX(90deg);
+    z-index: 100
+}
+
+.tile-animated-text {
+    display: block;
+    line-height: 20px;
+    max-height: 120px;
+    overflow: hidden;
+    top: 10px
+}
+
+.tile-animated-text,
+.tile-icon-text {
+    color: #fff;
+    left: 10px;
+    position: absolute
+}
+
+.tile-icon-text {
+    bottom: 10px;
+    font-size: 12px
+}
+
+.sidebar-tile {
+    flex: 0 0 auto;
+    background: var(--accent-color);
+    float: left;
+    margin: 0 10px 10px 0;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow .3s, transform .3s
+}
+
+.sidebar-tile:active {
+    transform: scale(.95)
+}
+
+.sidebar-tile-medium {
+    height: 145px;
+    width: 145px
+}
+
+.sidebar-tile-wide {
+    height: 145px;
+    width: 300px
+}
+
+.sidebar-tile-small {
+    height: 67.5px;
+    width: 67.5px
+}
+
+.sidebar-tile-face-image {
+    position: absolute
+}
+
+.sidebar-tile-face {
+    position: relative
+}
+
+.sidebar-tile-face-fulltext {
+    bottom: 10px;
+    left: 10px;
     position: absolute;
-    width: 901px;
-    height: 150px;
-    z-index: 1;
-    left: 530px;
-    top: 262px;
+    right: 10px;
+    top: 10px
 }
 
-.btns {
-    position: fixed;
-    width: 679px;
-    height: 94px;
-    z-index: 4;
-    left: 635px;
-    top: 142px
+.sidebar-tile-bottom-left-text {
+    bottom: 10px;
+    font-size: 12px;
+    left: 10px;
+    position: absolute;
+    color: white;
 }
 
-.visited {
-    color: purple;
-    text-decoration: underline;
+.sidebar-tile-bottom-right-icon {
+    bottom: 0;
+    height: 35px;
+    position: absolute;
+    right: 0;
+    width: 35px
+}
+
+.sidebar-tile-hover-border {
+    position: absolute;
+    top: 0
+}
+
+.sidebar-tile-peek {
+    animation: sidebar-tile-peek-animation 20s ease infinite;
+    color: #fff;
+    height: 290px;
+    position: relative;
+    transition: transform 1s
+}
+
+@keyframes sidebar-tile-peek-animation {
+    0% {
+        transform: translate(0)
+    }
+
+    10% {
+        transform: translateY(-145px)
+    }
+
+    60% {
+        transform: translateY(-145px)
+    }
+
+    70% {
+        transform: translate(0)
+    }
+}
+
+@keyframes sidebar-tile-slideshow-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1.5)
+    }
+
+    17.143% {
+        opacity: 1;
+        transform: scale(1.5)
+    }
+
+    20% {
+        opacity: 0;
+        transform: scale(2)
+    }
+
+    97.14% {
+        opacity: 0;
+        transform: scale(1)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5)
+    }
+}
+
+.content {
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+    color: #000;
+}
+
+#contentspan {
+    position: relative;
+    margin: 10px 10px 20px;
+    color: #000;
+}
+
+.hdr-cnt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.backarrow {
     cursor: pointer;
+    background-image: url("/images/backarr_dleft_dark.svg");
+    width: 48px;
+    height: 48px;
+    display: inline-block;
 }
 
-.link {
-    color: blue;
-    text-decoration: underline;
-    cursor: pointer;
+/*#region -----------------------Basic-----------------------*/
+.green {
+    color: green;
 }
 
-.large {
-    font-size: 20px;
-}
-
-.pointer {
-    cursor: pointer;
-}
-
-.greenTxt {
-    color: greenyellow;
-}
-
-.redTxt {
+.red {
     color: red;
 }
 
-.noscripterr {
-    border: red;
-    width: 500px;
-    height: 300px;
-    background-color: black;
+.catmoji {
+    font-family: 'Catmoji';
 }
 
-.btnTxt {
-    color: black;
-    font-size: 16px;
+.KTV_Dialog_Fnt {
+    font-family: "FONT_KTV_NARROW";
 }
 
-.warnContainer {
-    position: absolute;
+.KTV_Warn_Fnt {
+    font-family: "FONT_KTV_NORMAL";
+}
+
+.text {
+    color: #000
+}
+
+/*#endregion -----------------------Basic-----------------------*/
+
+.clock {
+    color: #34beed;
+}
+
+#mq {
+    background-color: #000;
+    border: 1px dotted #34beed;
+    width: 400px;
+    height: 400px;
+}
+
+.credit {
+    color: #FFF
+}
+
+@media (prefers-color-scheme:dark) {
+    body {
+        background: #2b2b2b
+    }
+
+    .header {
+        color: #FFF;
+    }
+
+    .content {
+        color: #FFF;
+    }
+
+    .header.inline {
+        color: #FFF;
+    }
+
+    .backarrow {
+        background-image: url("/images/backarr_dleft_light.svg");
+    }
+
+    .header.main {
+        color: #FFF
+    }
+
+    .green {
+        color: greenyellow;
+    }
+
+    .clock {
+        color: #35beed
+    }
+
+    #mq {
+        background-color: #FFF;
+        border: 1px solid #35BEED;
+    }
+
+    .credit {
+        color: #000
+    }
+
+    .text {
+        color: #FFF
+    }
+}
+
+/*#endregion-----------------------C# style regions (VSC Compatible)-----------------------*/
+.item {
+    font-size: 20px;
+}
+
+.item02 {
+    font-size: 25px;
+}
+
+.about,
+.faq,
+.links,
+.other,
+.projects,
+.buttons,
+.codes,
+.main,
+.contact,
+.credits {
+    margin-top: 20px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.tiles {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1240px;
+    position: relative;
+    margin: auto auto 0 auto;
+    /* top, right, bottom, left */
+    width: 100%;
+}
+
+/*#region -----------------------KTV Dialog-----------------------*/
+/* A certain dialog from a Wii VODF service, recreated in CSS/jQuery */
+
+.dialogdiv {
+    position: fixed;
+    top: -500px;
+    left: 50%;
+    user-select: none;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 800px;
+    z-index: 99999999;
+    display: none;
+}
+
+.gradientforktvdialog {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(22, 22, 22);
-    left: 0;
-    right: 0;
-    top: 0px;
-    border: 0px;
-    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
-    z-index: 19;
-    overflow: hidden;
-}
-
-.HSWindow {
-    position: relative;
-    vertical-align: middle;
-    border: 20px rgb(152, 152, 160);
-    width: 50vw;
-    height: 50vh;
-    z-index: 20;
-}
-
-.Header {
-    cursor: pointer;
-    -webkit-user-select: none;
     user-select: none;
+    -webkit-user-drag: none;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    z-index: 9999998;
 }
 
-.hsTitle {
-    position: relative;
-    top: 40px;
-    vertical-align: center;
-    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
-    font-size: 20px;
-    color: #ffffff;
-}
 
-.hsBody {
-    position: relative;
-    vertical-align: center;
-    font-family: 'Wii NTLG PGothic Regular', 'Comic Sans MS' !important;
-    color: #FFFFFF;
-}
-
-.initSettings {
-    cursor: pointer;
-    color: #FFFFFF;
-}
-
-/* General scrollbar size (52px) */
-body::-webkit-scrollbar {
-    width: 52px;
-}
-
-/* up button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:decrement {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_up.png")
-}
-
-/* down button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:increment {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_down.png");
-}
-
-/* hover event for down button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:increment:hover {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_down_hover.png") no-repeat;
-    background-size: cover;
-}
-
-/* hover event for the up button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_up_hover.png");
-    background-size: cover;
-}
-
-/* vertical scrollbar body */
-body::-webkit-scrollbar-thumb:vertical {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/scroll_bar.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* disabled state for up button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:decrement:disabled {
-    width: 52px !important;
-    height: 52px !important;
-    background: url("../scrollBar/h/arrow_up_disabled.png") !important;
-    background-size: cover;
-}
-
-/* disabled state for down button on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:increment:disabled {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_down_disabled.png");
-    background-size: cover;
-}
-
-/* disabled state for down button on vertical scrollbar while pressed */
-body::-webkit-scrollbar-button:single-button:vertical:increment:disabled:pressed {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_down_disabled_pressed.png");
-    background-size: cover;
-}
-
-/* disabled state for up button on vertical scrollbar while pressed */
-body::-webkit-scrollbar-button:single-button:vertical:decrement:disabled:pressed {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/arrow_up_disabled_pressed.png");
-    background-size: cover;
-}
-
-/*===========================================================================================================*/
-
-/* Vertical scrollbar track */
-body::-webkit-scrollbar-track:vertical {
-    width: 52px;
-    height: 52px;
-    background: url("../scrollBar/h/scroll_base.png");
-}
-
-/* arrow down pressed on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:increment:active {
-    width: 52px !important;
-    height: 52px !important;
-    background: url("../scrollBar/h/arrow_down_pressed.png");
-    background-size: cover;
-}
-
-/* arrow up pressed on vertical scrollbar */
-body::-webkit-scrollbar-button:single-button:vertical:decrement:active {
-    width: 52px !important;
-    height: 52px !important;
-    background: url("../scrollBar/h/arrow_up_pressed.png");
-    background-size: cover;
-}
-
-/* scrollbar corner */
-body::-webkit-scrollbar-corner {
-    width: 40px;
-    height: 40px;
-}
-
-/* horizontal scrollbar */
-body::-webkit-scrollbar:horizontal {
-    width: auto;
-    height: 15px;
-}
-
-body::-webkit-scrollbar-track:horizontal {
-    background: url("../scrollBar/v/center-center.png");
-    width: auto;
-    height: 15px;
-}
-
-body::-webkit-scrollbar-thumb:horizontal {
-    background: url("../scrollBar/v/Bg.png");
-}
-
-body::-webkit-scrollbar-button:single-button:horizontal:increment {
-    background-color: #FFFFFF;
-    width: 40px;
-    height: 40px;
-    background-size: fill;
-}
-
-body::-webkit-scrollbar-button:single-button:horizontal:decrement {
-    background-color: #FFFFFF;
-    width: 40px;
-    height: 40px;
-    background-size: fill;
-}
-
-/* btn 
-button {
-    background-color: gray;
-    border: 2px solid #34beed;
-    color: #323232;
-    padding: 10px 20px;
-    font-size: 22px;
-    font-family: "LCFontR";
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-}
-*/
-
-button:hover {
-    background-color: #a5aaef;
-    color: #323232;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-button:active {
-    background-color: #a5aaef;
-    color: #323232;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(2px);
-}
-
-#Spinner {
-    animation: spinner 1.3s infinite;
-    transition: .3s ease-in-out;
-    filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.11));
-}
-
-.loadicon {
-    display: none;
-    width: 40px;
-    height: 40px;
+.ktvdialog_container {
     position: fixed;
-    top: 8px;
-    left: 8px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    z-index: 99;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 100vh;
+    z-index: 99999999;
+    box-sizing: border-box;
+    background: transparent;
+    display: block;
+    transform: translate(-50%, -150%);
+    transition: transform 0.3s ease;
 }
 
-.ring {
-    display: flex;
-    width: 40px;
-    height: 40px;
-}
 
-button:hover {
-    background: linear-gradient(to bottom, #c0c4c8, #e4e8e0);
-}
-
-button:active {
-    background: linear-gradient(to bottom, #ececec, #e4e4e4);
-}
-
-@media (prefers-color-scheme: dark) {
-    * {
-        font-family: "LCFontR" !important;
-        color: #FFFFFF;
-    }
-
-    body {
-        background-image: url("/images/back_dark.png") !important;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    .header {
-        font-size: 50px;
-        color: yellow;
-    }
-
-    code.nzonenotice {
-        color: white;
-    }
-
-    .Credit {
-        color: #FFFFFF;
-    }
-
-    button {
-        background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
-        border: 3px solid #041c20;
-        border-radius: 6px;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: black;
-        cursor: pointer;
-    }
-
-    code {
-        color: springgreen;
-    }
-
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        background-image: url('/images/back.png') !important;
-        overflow-y: auto;
-        overflow-x: hidden;
-    }
-
-    * {
-        font-family: 'LCFontR' !important;
-        color: #000000;
-    }
-
-    .header {
-        font-size: 50px;
-        color: blue;
-    }
-
-    code.nzonenotice {
-        color: #000000;
-    }
-
-    .Credit {
-        color: #000000
-    }
-    
-    button {
-        background: linear-gradient(to bottom, #e8e4e4, #c4c4c4);
-        border: 3px solid #323232;
-        border-radius: 6px;
-        padding: 10px 20px;
-        font-size: 18px;
-        font-weight: bold;
-        color: black;
-        cursor: pointer;
-    }
-
-    code {
-        color: purple;
-    }
-
-}
-#bgmplayer {
-    transition: .3s ease-in-out;
-    opacity: 30%;
-    position: fixed;
-    bottom: 3px;
-    border: 2px solid #34BEED;
-    left: 3px;
-    float: left;
-    width: 160px;
-    height: 40px;
-    overflow: hidden;
-}
-
-#bgmplayer:hover {
-    opacity: 50%;
-    transition: .3s ease-in-out;
-    height: 100px;
-    width: 200px;
+.ktvdialog {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     overflow: auto;
+    display: block;
+}
+
+.ktvdialog_text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'FONT_KTV_NARROW';
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: #65768d;
+    user-select: none;
+    font-weight: 600;
+}
+
+.ktvdialog_button {
+    position: absolute;
+    bottom: clamp(2vh, 50%, 8vh);
+    left: 52%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10000000000;
+    width: 248px;
+    height: 98px;
+    background-image: url("/images/dialogbtn.png");
+}
+
+.ktvdialog_button span {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+    line-height: 1.2;
+    pointer-events: none;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.ktvdialog_button:hover {
+    width: 248px;
+    height: 98px;
+    background-image: url("/images/dialogbtn_hover.png");
+    z-index: 10000000001;
+}
+
+/*#endregion -----------------------KTV Dialog-----------------------*/
+
+.btns {
+    position: relative;
+    bottom: 0;
+    width: 50%;
+    margin-left: 30px;
+    height: 100%;
 }

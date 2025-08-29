@@ -1,61 +1,180 @@
 <!DOCTYPE html>
-<html prefix="og: http://ogp.me/ns#" lang="en-us" xml:lang="en">
+<html prefix="og: http://ogp.me/ns#" lang="en-us" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" version="-//IETF//DTD HTML 2.0//EN">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Language" content="en" />
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
-    <title>404</title>
-    <meta property="og:title" content="404 - idkwhereisthissite">
-    <meta property="og:description" content="epic fail">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
-    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
-	<meta name="robots" content="index, follow" />
-	<meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="msapplication-TileColor" content="#1b2eff" />
-	<meta property="og:image" content="/images/twitter-cardImg.png" />
-	<meta property="og:image:width" content="800" />
-    <base href="https://idkwhereisthis.name" target="_self" />
-	<meta property="og:image:height" content="600" />
-    <meta name="HandheldFriendly" content="true"/> 
-	<meta property="og:type" content="website" />
-	<meta name="generator" content="Visual Studio Code" />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:image" content="/images/twitter-cardImg.png" />
-	<meta name="twitter:title" content="idkwhereisthissite" />
-	<meta name="twitter:description" content="epic fail" />
-	<meta name="twitter:creator" content="@idkwherenamenew" />
-	<meta name="twitter:site" content="@idkwherenamenew" />
-	<meta name="title" content="404 Not Found" />
-	<meta name="description" content="epic fail" />
-	<meta name="keywords" content="idkwhereisthisname, idkwh" />
-    <link rel="stylesheet" href="css/main.css" />
-    <script src="js/swapImg.js"></script>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#1b2eff" />
+    <meta property="og:image" content="/images/Tile-310x150.png" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="idkwhereisthis.name" />
+    <meta name="generator" content="Visual Studio Code" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="twitter:image" content="/images/Tile-310x150.png" />
+    <meta name="twitter:title" content="idkwhereisthis.name" />
+    <meta name="twitter:description" content="epic fail" />
+    <meta name="title" content="idkwhereisthis.name" />
+    <meta name="description" content="epic fail" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <script type="text/javascript" language="JavaScript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
-    <script>let snd = new webSound();</script>
-    <style>
-        button[data-type="back"] {
-            -webkit-user-select: none;
-            user-select: none;
-        }
-    </style>
-    <script>
-        function initPageCommon() {
-            snd.plaYSE("err");
-            initFavicon("/images/favicon/", 19, 500);
-            snd.stopLoad();
+    <title>idkwhereisthis.name</title>
+    <style type="text/css">body { background-image: url("/images/404_BG.png") !important; background-repeat: no-repeat; }</style>
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <script type="text/javascript">function initPgCmn() { initFavicon('/images/favicon/', 19, 500); initClock(); }</script>
+    <audio id="dialogsnd" src="sound/save_amp.wav" preload="auto" style="display: none;"></audio>
+    <audio id="hvrsnd" src="sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="sound/sel.wav" preload="auto" style="display: none;"></audio>
+    <script type="text/javascript">
+        function initPgCmn() { initFavicon("/images/favicon/", 19, 200); initClock(); };
+        $(document).ready(function () {
+            var $dialog = $('.ktvdialog_container');
+            var $overlay = $('.gradientforktvdialog');
+            var dialogSnd = document.getElementById("dialogsnd");
+
+            $overlay.fadeIn(300, function () {
+                dialogSnd.play();
+                $dialog.css('transform', 'translate(-50%, -50%)');
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function slideToIndex(e) {
+            e.preventDefault();
+
+            var $dialog = $('.ktvdialog_container');
+            var $overlay = $('.gradientforktvdialog');
+
+            $dialog.css('transform', 'translate(-50%, -150%)');
+            document.getElementById("selsnd").play();
+
+            setTimeout(function () {
+                $dialog.hide();
+                $overlay.fadeOut(600);
+
+                window.location.href = '/';
+            }, 600);
         }
     </script>
 </head>
-<body onload="initPageCommon();">
-    <div id="loadicon" class="loadicon" style="position: absolute; top:0;left:0">
-        <img src="/images/wiiloading.gif" class="ring" id="wiiring" />
+<body onload="initPgCmn();">
+    <div class="gradientforktvdialog"></div>
+    <div class="ktvdialog_container">
+        <img src="images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text">An error has occurred while<br/>trying to find or navigate to<br/>this page.<br/><br/>HTTP 404</div>
+        <a href="/" class="ktvdialog_button" onclick="slideToIndex(event);" onmouseover="document.getElementById('hvrsnd').currentTime=0;document.getElementById('hvrsnd').play();" onmouseout="document.getElementById('hvrsnd').stop;">
+            <span>Return to<BR/>Index</span>
+        </a>
     </div>
-    <div align="center">
-        <span class="header Header">404 - not found</span><br/><br/>
-        <span style="font-size:26px; user-select:none" id="desc">The requested resource was not found.</span>
-        <br /><br />
-        <button type="button" data-type="back" onmouseover="snd.playSE(1)" onclick="jumpTo('showBack', null)" id="backbtn">back</button><span id="nbspspan" style="user-select: none;">&nbsp;&nbsp;</span><button type="button" onclick="jumpTo('showIndex', null)" data-type="back" onmouseover="snd.playSE(1)">index</button>
-    </div>
+        <noscript>
+        <style>
+            .ktvdialog_container {
+                display: none !important;
+            }
+
+            .noscript_dialog_container {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 80vw;
+                max-width: 900px;
+                height: 80vh;
+                max-height: 100vh;
+                z-index: 99999999;
+                box-sizing: border-box;
+                background: transparent;
+                display: block;
+                /* No animation, so no transform or transition */
+                transform: translate(-50%, -50%);
+            }
+
+            .noscript_dialog_image {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                overflow: auto;
+                display: block;
+            }
+
+            .noscript_dialog_text {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                text-align: center;
+                font-weight: normal;
+                font-family: 'FONT_KTV_NARROW';
+                font-size: 24px;
+                letter-spacing: 0.05em;
+                color: #65768d;
+                user-select: none;
+                font-weight: 600;
+            }
+
+            .noscript_dialog_button {
+                position: absolute;
+                bottom: clamp(2vh, 50%, 8vh);
+                left: 52%;
+                transform: translateX(-50%);
+                padding: 10px 20px;
+                display: block;
+                font-size: 16px;
+                font-family: 'FONT_KTV_NARROW', sans-serif;
+                font-weight: 700;
+                background-repeat: no-repeat;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                user-select: none;
+                z-index: 10000000000;
+                width: 248px;
+                height: 98px;
+                background-image: url("/images/dialogbtn.png");
+            }
+
+            .noscript_dialog_button span {
+                position: absolute;
+                top: 40%;
+                left: 43%;
+                transform: translate(-50%, -50%);
+                font-family: 'FONT_KTV_NARROW', sans-serif;
+                font-weight: 700;
+                font-size: 26px;
+                color: white;
+                line-height: 1.2;
+                pointer-events: none;
+                text-align: center;
+                white-space: pre-line;
+            }
+
+            .noscript_dialog_button:hover {
+                width: 248px;
+                height: 98px;
+                background-image: url("/images/dialogbtn_hover.png");
+                z-index: 10000000001;
+            }
+        </style>
+        <div class="noscript_dialog_container">
+            <img src="images/Dialog.png" class="noscript_dialog_image" draggable="false" />
+            <div class="noscript_dialog_text">
+                An error has occurred while trying to<br/>navigate to this page.<br /><br />
+                Please enable JavaScript.<br/><br/>
+                no cool effects without that :(
+            </div>
+            <a href="https://www.enable-javascript.com/" class="noscript_dialog_button">
+                <span>Learn how<br />to</span>
+            </a>
+        </div>
+    </noscript>
 </body>
 </html>
