@@ -25,7 +25,7 @@
     <meta name="description" content="epic fail" />
     <meta name="keywords" content="idkwhereisthisname, idkwh" />
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     <script type="text/javascript" language="JavaScript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
     <title>idkwhereisthis.name</title>
@@ -70,7 +70,7 @@
 <body onload="initPgCmn();">
     <div class="gradientforktvdialog"></div>
     <div class="ktvdialog_container">
-        <img src="images/Dialog.png" class="ktvdialog" draggable="false" />
+        <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
         <div class="ktvdialog_text">An error has occurred while<br/>trying to find or navigate to<br/>this page.<br/><br/>HTTP 404</div>
         <a href="/" class="ktvdialog_button" onclick="slideToIndex(event);" onmouseover="document.getElementById('hvrsnd').currentTime=0;document.getElementById('hvrsnd').play();" onmouseout="document.getElementById('hvrsnd').stop;">
             <span>Return to<BR/>Index</span>
@@ -94,7 +94,6 @@
                 box-sizing: border-box;
                 background: transparent;
                 display: block;
-                /* No animation, so no transform or transition */
                 transform: translate(-50%, -50%);
             }
 
@@ -167,7 +166,7 @@
             }
         </style>
         <div class="noscript_dialog_container">
-            <img src="images/Dialog.png" class="noscript_dialog_image" draggable="false" />
+            <img src="/images/Dialog.png" class="noscript_dialog_image" draggable="false" />
             <div class="noscript_dialog_text">
                 An error has occurred while trying to<br/>navigate to this page.<br /><br />
                 Please enable JavaScript.<br/><br/>
