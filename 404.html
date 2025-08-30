@@ -30,9 +30,9 @@
     <script type="text/javascript" language="JavaScript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/js/main.js"></script>
     <title>idkwhereisthis.name</title>
-    <style type="text/css">body { background-image: url("/images/404_BG.png") !important; background-repeat: no-repeat; }</style>
+    <style type="text/css">body { background-color:#28394c !important; }</style>
     <link rel="stylesheet" href="/css/main.css" type="text/css" />
-    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto" style="display: none;"></audio>
+    <audio id="dialogsnd" src="/sound/ktv_popup.wav" preload="auto" style="display: none;"></audio>
     <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
     <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
     <script type="text/javascript">
@@ -69,7 +69,8 @@
     </script>
 </head>
 <body onload="initPgCmn();">
-    <div class="gradientforktvdialog"></div>
+    <div class="gradientforktvdialog" id="gradientktv"></div>
+    <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
     <div class="ktvdialog_container">
         <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
         <div class="ktvdialog_text">An error has occurred while<br/>trying to find or navigate to<br/>this page.<br/><br/>HTTP 404</div>
@@ -77,8 +78,9 @@
             <span>Return to<BR/>Index</span>
         </a>
     </div>
-        <noscript>
-        <style>
+    <noscript>
+        <audio src="/sound/ktv_popup.wav" autoplay="autoplay" preload="auto"></audio>
+        <style type="text/css">
             .ktvdialog_container {
                 display: none !important;
             }
@@ -164,6 +166,11 @@
                 height: 98px;
                 background-image: url("/images/dialogbtn_hover.png");
                 z-index: 10000000001;
+            }
+            
+            .noscript_dialog_button:active {
+                transform: translateX(-50%) scale(0.96);
+                background-image: url("/images/dialogbtn.png");
             }
         </style>
         <div class="noscript_dialog_container">

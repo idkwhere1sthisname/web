@@ -70,7 +70,9 @@
         <div class="ktvdialog_text" id="ktvdialog_save_main">Creating a save file<br>for the idkwhereisthis.name...</div>
     </div>
     <noscript>
-        <style>
+        <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
+        <audio src="/sound/ktv_popup.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
+        <style type="text/css">
             .ktvdialog_container {
                 display: none !important;
             }
@@ -156,6 +158,10 @@
                 height: 98px;
                 background-image: url("/images/dialogbtn_hover.png");
                 z-index: 10000000001;
+            }
+            .noscript_dialog_button:active {
+                transform: translateX(-50%) scale(0.96);
+                background-image: url("/images/dialogbtn.png");
             }
         </style>
         <div class="noscript_dialog_container">

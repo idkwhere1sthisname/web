@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en-us" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" version="-//IETF//DTD HTML 2.0//EN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <!--base href="https://idkwhereisthis.name" /-->
+    <meta name="msapplication-config" content="/cfg/browserconfig.xml" />
+    <meta name="msapplication-TileColor" content="#1b2eff" />
+    <meta property="og:image" content="https://idkwhereisthis.name/favicon.ico" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta property="og:image:alt" content="meow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="idkwhereisthis.name" />
+    <meta name="generator" content="Visual Studio Code" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="idkwhereisthis.name" />
+    <meta name="twitter:image" content="https://idkwhereisthis.name/favicon.ico" />
+    <meta name="twitter:title" content="idkwhereisthis.name" />
+    <meta name="twitter:description" content="epic fail" />
+    <meta name="title" content="idkwhereisthis.name" />
+    <meta name="description" content="epic fail" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <script type="text/javascript" language="JavaScript" src="/js/jquery.js"></script>
+    <script src="/js/main.js"></script>
+    <title>idkwhereisthis.name</title>
+    <style type="text/css">body { background-color: rgba(115,161,216,255) !important; }</style>
+    <link rel="stylesheet" href="/css/main.css" type="text/css" />
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto" style="display: none;"></audio>
+    <audio id="popup_ktv" src="/sound/ktv_popup.wav" preload="auto" style="display: none;"></audio>
+    <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $dialog = $('.ktvdialog_container');
+            var $overlay = $('.gradientforktvdialog');
+            var dialogSnd = document.getElementById("popup_ktv");
+
+
+            $overlay.fadeIn(300, function () {
+                dialogSnd.play();
+                $dialog.css('transform', 'translate(-50%, -50%)');
+
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        function slideToIndex(e) {
+            e.preventDefault();
+
+            var $dialog = $('.ktvdialog_container');
+            var $overlay = $('.gradientforktvdialog');
+
+            $dialog.css('transform', 'translate(-50%, -150%)');
+            document.getElementById("selsnd").play();
+
+            setTimeout(function () {
+                $dialog.hide();
+                $overlay.fadeOut(600);
+
+                window.location.href = '/';
+            }, 600);
+        }
+    </script>
+</head>
+<body>
+    <div class="gradientforktvdialog" id="gradientktvforoffline"></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining">
+        <img src="images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text" id="ktvdialog_save_main">Looks like you are offline... Please<br />check your internet connection, and<br />then try again.</div>
+        <a href="javascript:window.location.reload()" class="ktvdialog_button" onclick="slideToIndex(event);" onmouseover="document.getElementById('hvrsnd').currentTime=0;document.getElementById('hvrsnd').play();" onmouseout="document.getElementById('hvrsnd').stop;">
+            <span>Try again</span>
+        </a>
+    </div>
+    <noscript>
+        <audio src="/sound/ktv_popup.wav" autoplay="autoplay" preload="auto"></audio>
+        <style type="text/css">
+            .ktvdialog_container { display: none !important; }
+
+            .noscript_dialog_container {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 80vw;
+                max-width: 900px;
+                height: 80vh;
+                max-height: 100vh;
+                z-index: 99999999;
+                box-sizing: border-box;
+                background: transparent;
+                display: block;
+                transform: translate(-50%, -50%);
+            }
+
+            .noscript_dialog_image {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                overflow: auto;
+                display: block;
+            }
+
+            .noscript_dialog_text {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                text-align: center;
+                font-weight: normal;
+                font-family: 'FONT_KTV_NARROW';
+                font-size: 24px;
+                letter-spacing: 0.05em;
+                color: #65768d;
+                user-select: none;
+                font-weight: 600;
+            }
+
+            .noscript_dialog_button {
+                position: absolute;
+                bottom: clamp(2vh, 50%, 8vh);
+                left: 52%;
+                transform: translateX(-50%);
+                padding: 10px 20px;
+                display: block;
+                font-size: 16px;
+                font-family: 'FONT_KTV_NARROW', sans-serif;
+                font-weight: 700;
+                background-repeat: no-repeat;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                user-select: none;
+                z-index: 10000000000;
+                width: 248px;
+                height: 98px;
+                background-image: url("/images/dialogbtn.png");
+            }
+
+            .noscript_dialog_button span {
+                position: absolute;
+                top: 40%;
+                left: 43%;
+                transform: translate(-50%, -50%);
+                font-family: 'FONT_KTV_NARROW', sans-serif;
+                font-weight: 700;
+                font-size: 26px;
+                color: white;
+                line-height: 1.2;
+                pointer-events: none;
+                text-align: center;
+                white-space: pre-line;
+            }
+
+            .noscript_dialog_button:hover {
+                width: 248px;
+                height: 98px;
+                background-image: url("/images/dialogbtn_hover.png");
+                z-index: 10000000001;
+            }
+
+            .noscript_dialog_button:active {
+                transform: translateX(-50%) scale(0.96);
+                background-image: url("/images/dialogbtn.png");
+            }
+        </style>
+        <div class="noscript_dialog_container">
+            <img src="/images/Dialog.png" class="noscript_dialog_image" draggable="false" />
+            <div class="noscript_dialog_text">
+                An error has occurred while trying to<br/>navigate to this page.<br /><br />
+                Please enable JavaScript.<br/><br/>
+                no cool effects without that :(
+            </div>
+            <a href="https://www.enable-javascript.com/" class="noscript_dialog_button">
+                <span>Learn how<br />to</span>
+            </a>
+        </div>
+    </noscript>
+</body>
+</html>

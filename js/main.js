@@ -103,3 +103,13 @@ function jumpTo(url) { window.location.href=url; }
 
 function showMarquee() { document.getElementById("mq").style.display = ''; }
 function exitMarquee() { document.getElementById("mq").style.display = 'none'; }
+
+// offline stuff
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/serviceworker.js')
+      .then(reg => console.log('service worker: successfully registered\n', reg.scope))
+      .catch(err => console.error('service worker: registration has failed :(\n', err));
+  });
+}
