@@ -657,6 +657,13 @@ input {
     }
 }
 
+@media screen and (max-width:412px) {
+    .ktvdialog_text {
+        top: 44%;
+        font-size: 15px;
+    }
+}
+
 /*#endregion -----------------------KTV Dialog-----------------------*/
 
 .btns {
