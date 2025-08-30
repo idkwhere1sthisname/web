@@ -564,6 +564,7 @@ input {
     display: block;
 }
 
+#ktvdialog_save_main,
 .ktvdialog_text {
     position: absolute;
     top: 40%;
@@ -581,6 +582,10 @@ input {
 }
 
 .ktvdialog_button {
+    width: auto;
+    height: auto;
+    min-width: 248px;
+    min-height: 98px;
     position: absolute;
     bottom: clamp(2vh, 50%, 8vh);
     left: 52%;
@@ -621,6 +626,35 @@ input {
     height: 98px;
     background-image: url("/images/dialogbtn_hover.png");
     z-index: 10000000001;
+}
+
+@media screen and (max-width: 600px) {
+    .ktvdialog_button span {
+        top: 40%;
+    }
+
+    .ktvdialog_button {
+        left: 55%;
+        top: 52%;
+        min-width: 120px;
+        min-height: 49px;
+        transform: translateX(-50%);
+    }
+
+    .ktvdialog_text {
+        top: 45%;
+        font-size: 16px;
+    }
+
+    .ktvdialog_button span {
+        font-size: 21px;
+        line-height: 1.2;
+    }
+
+    #ktvdialog_save_main {
+        font-size: 17px;
+        top: 45%;
+    }
 }
 
 /*#endregion -----------------------KTV Dialog-----------------------*/
