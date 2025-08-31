@@ -240,3 +240,59 @@ function KTV_ShowAlert(
     })
     return "OK";
 }
+
+function KTV_ShowPersistentAlert(
+        dialogtext,
+        showtransparentgradient = true,
+        soundtype = "KTV_SND_PACK",
+        mimicogch = true,
+        dialogclassname = ".ktvdialog_container",
+        gradientclassname = '.gradientforktvdialog',
+    ) {
+    var $dialog = $(dialogclassname);
+    var $overlay = $(gradientclassname);
+    var dialogSnd = document.getElementById("dialogsnd");
+    var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
+    var okbtn_inner = document.getElementById("ktvdialog_innertext");
+    var okbtn_cnt = document.getElementsByClassName("ktvdialog_button")[0];
+
+    if ($dialog == null || $overlay == null) {
+        return undefined;
+    }
+
+    if (dialog_inner == undefined || okbtn_inner == undefined || okbtn_cnt == undefined) {
+        return undefined;
+    }
+
+    if (soundtype == "FLASHPLAYERSE") {
+        mimicogch = false;
+    }
+
+    dialog_inner.innerHTML = dialogtext;
+    okbtn_cnt.style.display = "block";
+    $dialog.show();
+    $overlay.show();
+    okbtn_cnt.style.display = "none";
+
+    if (showtransparentgradient) {
+        $overlay.addClass('transparentgradient_ktv');
+    } else {
+        $overlay.removeClass('transparentgradient_ktv')
+    }
+
+    if (soundtype == "KTV_SND_PACK") {
+        dialogSnd = document.getElementById("popup_ktv");
+    } else if (soundtype == "FLASHPLAYERSE") {
+        dialogSnd = document.getElementById("dialogsnd");    
+    }
+
+
+    $overlay.fadeIn(300, function () {
+        if (dialogSnd != null) {
+            dialogSnd.play();
+        }
+        $dialog.css('transform', 'translate(-50%, -50%)');
+    });
+
+    return "OK";
+}
