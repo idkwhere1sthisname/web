@@ -12,7 +12,6 @@ const cachedFiles = [
   '/sound/sel.wav',
   '/sound/save_amp.wav',
   '/font/KTV_NARROW.ttf',
-  '/cfg/browserconfig.xml',
   '/js/jquery.js',
   '/favicon.ico'
 ];
