@@ -13,7 +13,8 @@ const cachedFiles = [
   '/sound/save_amp.wav',
   '/font/KTV_NARROW.ttf',
   '/js/jquery.js',
-  '/favicon.ico'
+  '/favicon.ico',
+  '/images/favicon/frame_13.png'
 ];
 
 self.addEventListener('install', event => {
