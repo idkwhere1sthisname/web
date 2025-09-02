@@ -609,6 +609,7 @@ input {
     width: 248px;
     height: 98px;
     background-image: url("/images/dialogbtn.png");
+    transition: transform 0.1s ease-in-out;
 }
 
 .ktvdialog_button span {
@@ -626,17 +627,24 @@ input {
     white-space: pre-line;
 }
 
+.ktvdialog_button:hover span { font-size: 27px; }
+
 .ktvdialog_button:hover {
     width: 248px;
     height: 98px;
-    background-image: url("/images/dialogbtn_hover.png");
+    transform: translateX(-50%) scale(1.03);
+    background-image: url("/images/dialogbtn.png");
     z-index: 10000000001;
 }
 
 .ktvdialog_button:active {
     transform: translateX(-50%) scale(0.96);
-    background-image: url("/images/dialogbtn.png");
+    background-image: url("/images/dialogbtn_hover.png");
 }
+
+.ktvdialog_button:active span { font-size: 24px; }
+
+/* NOSCRIPT DIALOG */
 
 .noscript_dialog_container {
     position: fixed;
@@ -697,6 +705,7 @@ input {
     width: 248px;
     height: 98px;
     background-image: url("/images/dialogbtn.png");
+    transition: transform 0.1s ease-in-out;
 }
 
 .noscript_dialog_button span {
@@ -717,14 +726,18 @@ input {
 .noscript_dialog_button:hover {
     width: 248px;
     height: 98px;
-    background-image: url("/images/dialogbtn_hover.png");
+    transform: translateX(-50%) scale(1.03);
+    background-image: url("/images/dialogbtn.png");
     z-index: 10000000001;
 }
 
 .noscript_dialog_button:active {
     transform: translateX(-50%) scale(0.96);
-    background-image: url("/images/dialogbtn.png");
+    background-image: url("/images/dialogbtn_hover.png");
 }
+
+.noscript_dialog_button:active span { font-size: 24px; }
+.noscript_dialog_button:hover span { font-size: 27px; }
 
 @media screen and (max-width: 600px) {
     .ktvdialog_button span {

@@ -116,16 +116,17 @@ if ('serviceWorker' in navigator) {
 
 // don't call twice
 function KTV_ShowAlert(
-        dialogtext,
-        okbtntext,
-        okbtnaction,
-        okbtnhref,
-        showtransparentgradient = true,
-        soundtype = "KTV_SND_PACK",
-        mimicogch = true,
-        dialogclassname = ".ktvdialog_container",
-        gradientclassname = '.gradientforktvdialog',
-    ) {
+    dialogtext,
+    okbtntext,
+    okbtnaction,
+    okbtnhref,
+    showtransparentgradient = true,
+    soundtype = "KTV_SND_PACK",
+    mimicogch = true,
+    dowait = true,
+    dialogclassname = ".ktvdialog_container",
+    gradientclassname = '.gradientforktvdialog',
+) {
     var $dialog = $(dialogclassname);
     var $overlay = $(gradientclassname);
     var dialogSnd = document.getElementById("dialogsnd");
@@ -161,7 +162,7 @@ function KTV_ShowAlert(
     if (soundtype == "KTV_SND_PACK") {
         dialogSnd = document.getElementById("popup_ktv");
     } else if (soundtype == "FLASHPLAYERSE") {
-        dialogSnd = document.getElementById("dialogsnd");    
+        dialogSnd = document.getElementById("dialogsnd");
     }
 
 
@@ -173,22 +174,33 @@ function KTV_ShowAlert(
     });
 
     function doAction() {
-        var $dialog = $(dialogclassname);
-        var $overlay = $(gradientclassname);
-
-        $dialog.css('transform', 'translate(-50%, -150%)');
         if (soundtype == "KTV_SND_PACK") {
             document.getElementById("selsnd_ktv").play();
         } else if (soundtype == "FLASHPLAYERSE") {
             document.getElementById("selsnd").play();
         }
 
-        setTimeout(function () {
-            $dialog.hide();
-            $overlay.fadeOut(600);
+        if (dowait) {
+            setTimeout(function () {
+                $dialog.css('transform', 'translate(-50%, -150%)');
 
-            window.location.href = okbtnaction;
-        }, 600);
+                setTimeout(function () {
+                    $dialog.hide();
+                    $overlay.fadeOut(600);
+
+                    window.location.href = okbtnaction;
+                }, 600);
+            }, 300);
+        } else {
+            $dialog.css('transform', 'translate(-50%, -150%)');
+
+            setTimeout(function () {
+                $dialog.hide();
+                $overlay.fadeOut(600);
+
+                window.location.href = okbtnaction;
+            }, 600);
+        }
     }
 
     $('.ktvdialog_button').off('click').on('click', function (e) {
@@ -199,27 +211,31 @@ function KTV_ShowAlert(
 
             aud = document.getElementById("selsnd_ktv");
             aud.currentTime = 0;
-            aud.loop=false;
+            aud.loop = false;
             aud.play();
 
             if (mimicogch) {
                 // KTV_POPUP_EXIT
-                aud02.currentTime=0;
-                aud02.loop=false;
+                aud02.currentTime = 0;
+                aud02.loop = false;
+                var KTV_POPUP_EXIT_TIMEOUT = 50;
+                if (dowait) {
+                    KTV_POPUP_EXIT_TIMEOUT = 150;
+                }
                 setTimeout(() => {
                     aud02.play();
-                }, 50);
+                }, KTV_POPUP_EXIT_TIMEOUT);
             }
         } else if (soundtype == "FLASHPLAYERSE") {
             aud = document.getElementById("selsnd");
-            aud.currentTime=0;
-            aud.loop=false;
+            aud.currentTime = 0;
+            aud.loop = false;
             aud.play();
         }
         doAction();
     });
 
-    $('.ktvdialog_button').off('mouseover').on('mouseover', function(e) {
+    $('.ktvdialog_button').off('mouseover').on('mouseover', function (e) {
         e.preventDefault();
         var audio = null;
         if (soundtype == "KTV_SND_PACK") {
@@ -227,13 +243,13 @@ function KTV_ShowAlert(
                 var audio = null;
             } else {
                 var audio = document.getElementById("hvrsnd_ktv");
-                audio.loop=false;
-                audio.currentTime=0;
+                audio.loop = false;
+                audio.currentTime = 0;
                 audio.play();
             }
         } else if (soundtype == "FLASHPLAYERSE") {
             audio = document.getElementById("hvrsnd");
-            audio.loop=false;
+            audio.loop = false;
             audio.currentTime = 0;
             audio.play();
         }
@@ -242,13 +258,13 @@ function KTV_ShowAlert(
 }
 
 function KTV_ShowPersistentAlert(
-        dialogtext,
-        showtransparentgradient = true,
-        soundtype = "KTV_SND_PACK",
-        mimicogch = true,
-        dialogclassname = ".ktvdialog_container",
-        gradientclassname = '.gradientforktvdialog',
-    ) {
+    dialogtext,
+    showtransparentgradient = true,
+    soundtype = "KTV_SND_PACK",
+    mimicogch = true,
+    dialogclassname = ".ktvdialog_container",
+    gradientclassname = '.gradientforktvdialog',
+) {
     var $dialog = $(dialogclassname);
     var $overlay = $(gradientclassname);
     var dialogSnd = document.getElementById("dialogsnd");
@@ -283,7 +299,7 @@ function KTV_ShowPersistentAlert(
     if (soundtype == "KTV_SND_PACK") {
         dialogSnd = document.getElementById("popup_ktv");
     } else if (soundtype == "FLASHPLAYERSE") {
-        dialogSnd = document.getElementById("dialogsnd");    
+        dialogSnd = document.getElementById("dialogsnd");
     }
 
 
@@ -295,4 +311,14 @@ function KTV_ShowPersistentAlert(
     });
 
     return "OK";
+}
+
+function checkdialog(type, snd_type, dowait) {
+    if (type == "PERSISTANT") {
+        KTV_ShowPersistentAlert("dialogtext", false, snd_type, true);
+    } else if (type == "NORMAL") {
+        KTV_ShowAlert("dialogtext", "dialogbtntext", "javascript:void(0);", '', false, snd_type, true, dowait);
+    } else {
+        return undefined;
+    }
 }
