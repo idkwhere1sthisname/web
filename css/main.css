@@ -638,11 +638,11 @@ input {
 }
 
 .ktvdialog_button:active {
-    transform: translateX(-50%) scale(0.96);
+    transform: translateX(-50%) scale(1.09);
     background-image: url("/images/dialogbtn_hover.png");
 }
 
-.ktvdialog_button:active span { font-size: 24px; }
+.ktvdialog_button:active span { font-size: 29px; }
 
 /* NOSCRIPT DIALOG */
 
@@ -801,7 +801,7 @@ input {
 .btns {
     position: relative;
     bottom: 0;
-    width: 50%;
+    width: 75%;
     margin-left: 30px;
     height: 100%;
 }
