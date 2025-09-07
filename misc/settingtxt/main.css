@@ -1,5 +1,5 @@
 @charset "utf-8";
-@font-face { font-family: "FONT_MAIN"; src: url("https://idkwhereisthis.name/font/segoeui.ttf"); }
+@font-face { font-family: "FONT_MAIN"; src: url("/font/segoeui.ttf"); }
 * { font-family: "FONT_MAIN"; }
 code { font-family: monospace !important; font-size: 16px; }
 body { color: #FFF; }
