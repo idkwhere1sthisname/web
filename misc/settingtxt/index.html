@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en" version="-//IETF//DTD HTML 2.0//EN" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setting.txt decryptor/encryptor</title>
+    <script language="JavaScript" type="text/javascript" src="/js/main.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/main.css">
+    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta property="og:locale" content="en_US">
+    <meta name="description" content="decrypt setting.txt from your wii on your browser!! all of this uses javascript">
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png">
+    <meta property="og:image_secure" content="https://idkwhereisthis.name/images/favicon/frame_13.png">
+    <meta property="og:description" content="decrypt setting.txt from your wii on your browser!! all of this uses javascript">
+    <meta property="og:name" content="setting.txt decryption/encryption">
+    <meta name="title" content="idkwhereisthis.name">
+    <meta property="og:site_name" content="idkwhereisthis.name">
+    <meta name="HandheldFriendly" content="true">
+    <meta property="og:type" content="website">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Visual Studio Code" />
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color">
+</head>
+
+<body>
+    <h1 align="center">setting.txt encrypt/decrypt</h1>
+    <div align="center">
+
+        <form onchange="parseSetting()">
+            <input type="file" id="settingtxt" accept=".txt" /><br />
+            <button onclick="dlfile(true)">encrypt</button>
+            <button onclick="dlfile(false)">decrypt</button><br />
+        </form>
+        <br />
+        <span id="header">read contents:</span><br /><br />
+        <div id="parse">(upload a file to display the contents)</div><br />
+        <span id="instruction01_01"><code>setting.txt</code> is always in <code>/title/000001/000002/data/<br /></code></span>
+        
+        <footer>
+            <strong>made by <a href="https://idkwhereisthis.name">idkwhereisthisname</a> :3</strong><br />
+            <strong><a href="https://github.com/GaryOderNichts/vWii-Decaffeinator/blob/master/src/utils/setting_generator.c#L10-L29"><code>scrypt</code> funtion source</a></strong>
+        </footer>
+
+    </div>
+</body>
+</html>

@@ -53,17 +53,18 @@
             e.preventDefault();
 
             var $dialog = $('.ktvdialog_container');
-            var $overlay = $('.gradientktvoffline');
-
-            $dialog.css('transform', 'translate(-50%, -150%)');
+            var $overlay = $('.gradientforktvdialog');
             document.getElementById("selsnd").play();
-
             setTimeout(function () {
-                $dialog.hide();
-                $overlay.fadeOut(600);
+                $dialog.css('transform', 'translate(-50%, -150%)');
 
-                window.location.href = '/';
-            }, 600);
+                setTimeout(function () {
+                    $dialog.hide();
+                    $overlay.fadeOut(600);
+
+                    window.location.href = '/';
+                }, 600);
+            }, 150)
         }
     </script>
 </head>

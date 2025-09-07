@@ -1,0 +1,14 @@
+@charset "utf-8";
+@font-face { font-family: "FONT_MAIN"; src: url("https://idkwhereisthis.name/font/segoeui.ttf"); }
+* { font-family: "FONT_MAIN"; }
+code { font-family: monospace !important; font-size: 16px; }
+body { color: #FFF; }
+span, div { color: #000; }
+input[type="file"], ::-webkit-file-upload-button { color: #FFF; }
+
+@media (prefers-color-scheme:dark) {
+    span, div {color: #FFF;}
+    body { background-color: #2b2b2b; }
+    a { color: blue; }
+    a:visited { color: purple; }
+}
