@@ -68,13 +68,13 @@ function parseSetting() {
                 settingfields[key] = value;
 
                 if (key === "MODEL" && value.includes("RVT")) {
-                    notefield.push("<code>MODEL</code> field is intended for <a href=\"https://wiibrew.org/wiki/Revolution_Arcade\">RVA</a> units.");
+                    notefield.push("<code>MODEL</code> field is intended for <a href=\"https://wiibrew.org/wiki/Revolution_Arcade\" title=\"Revolution Arcade\">RVA</a> units.");
                 }
                 if (key === "DVD" && value === "1") {
                     notefield.push("<CODE>DVD</CODE> is set to <code>1</code>.");
                 }
                 if (key === "SERNO" && value === "98765432") {
-                    notefield.push("<CODE>SERNO</CODE> matches <a href=\"https://wiibrew.org/wiki/Revolution_Arcade\">RVA</a> serial: 98765432.");
+                    notefield.push("<CODE>SERNO</CODE> matches <a href=\"https://wiibrew.org/wiki/Revolution_Arcade\" title=\"Revolution Arcade\">RVA</a> serial: 98765432.");
                 }
             }
         }
