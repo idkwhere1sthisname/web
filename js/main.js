@@ -114,6 +114,13 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+function playsnd(file) {
+    var au = new Audio("/sound/"+file);
+    au.volume=1;
+    au.loop=false;
+    au.play();
+}
+
 // don't call twice
 function KTV_ShowAlert(
     dialogtext,
