@@ -1,19 +1,3 @@
-function copy() {
-    const text = "idkwhereisthisname";
-    let alertMsg = "username successfully copied to your clipboard!";
-    let errMsg = "failed to copy to clipboard, please try again";
-
-    navigator.clipboard.writeText(text).then(() => {
-        alert(alertMsg);
-    }).catch(err => {
-        alert(errMsg);
-    });
-};
-
-class Main {
-    constructor() { };
-}
-
 function getFormattedDate() {
     const date = new Date();
     const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -22,15 +6,12 @@ function getFormattedDate() {
 }
 
 function initClock() {
-    function checkTime(i) {
-        return i < 10 ? "0" + i : i;
-    }
-
     function startClockcmn() {
-        var el = document.getElementById("clockTextPlaceholder");
+        var el = document.getElementById("currTime");
         if (el) {
             el.style.color = "turquoise";
             el.style.fontWeight = "bold";
+            el.style.fontSize = "24px";
             const t = new Date();
             const opt = {
                 timeZone: "Europe/Rome",
@@ -41,7 +22,7 @@ function initClock() {
                 month: "2-digit",
                 day: "2-digit"
             };
-            const formatter = new Intl.DateTimeFormat("en-GB", opt);
+            const formatter = new Intl.DateTimeFormat("it-IT", opt);
             el.innerHTML = formatter.format(t);
             setTimeout(initClock, 1000);
         }
@@ -51,30 +32,23 @@ function initClock() {
 }
 
 function initFavicon(PATH, frames, interval) {
-    let uacheck = navigator.userAgent.toLowerCase().includes("firefox");
+    //let uacheck = navigator.userAgent.toLowerCase().includes("firefox");
     let ico = document.querySelector("link[rel='icon']") || document.createElement("link");
     ico.rel = "icon";
     ico.type = "image/x-icon"
 
-    if (!uacheck) {
+    //if (!uacheck) {
         var i = 0;
         setInterval(() => {
-            ico.href = `${PATH}frame_${i % frames}.png`;
+            ico.href = `${PATH}/frame_${i % frames}.png`;
             i++;
-        }, interval);
+        }, interval);/*
     } else {
         ico.href = "/images/favicon_ani.gif";
         ico.type = "image/gif";
-    }
+    }*/
 
     document.head.appendChild(ico);
-}
-
-function showSects(show, hide) {
-    document.getElementById(show).style.display = "block";
-    document.getElementById(hide).style.display = "none";
-
-    history.replaceState(null, null, window.location.pathname + window.location.search);
 }
 
 function setCookie(name, value, days) {
@@ -99,20 +73,7 @@ function getCookie(name) {
 }
 
 
-function jumpTo(url) { window.location.href = url; }
-
-function showMarquee() { document.getElementById("mq").style.display = ''; }
-function exitMarquee() { document.getElementById("mq").style.display = 'none'; }
-
-// offline stuff
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/serviceworker.js')
-            .then(reg => console.log('service worker: successfully registered\n', reg.scope))
-            .catch(err => console.error('service worker: registration has failed :(\n', err));
-    });
-}
+function jumpTo(url,type="url") { window.location.href = url; }
 
 function playsnd(file) {
     var au = new Audio("/sound/"+file);
@@ -121,7 +82,64 @@ function playsnd(file) {
     au.play();
 }
 
-// don't call twice
+/*
+    <script type="text/javascript">
+        <!--
+        function initPgCmn() { initFavicon("/images/favicon/", 19, 200); initClock(); }
+
+        $(document).ready(function () {
+            if (getCookie("hasrun") !== "true") {
+                var $dialog = $('.ktvdialog_container');
+                var $overlay = $('.gradientforktvdialog');
+                var dialogSnd = document.getElementById("dialogsnd");
+
+                $dialog.show();
+                $overlay.show();
+
+                $overlay.fadeIn(300);
+                $dialog.css('transform', 'translate(-50%, -50%)');
+                dialogSnd.loop = false;
+                dialogSnd.play();
+
+                setTimeout(function () {
+                    $dialog.css('transform', 'translate(-50%, -150%)');
+                    setTimeout(function () {
+                        $dialog.hide();
+                        $overlay.fadeOut(300);
+                    }, 300);
+                    setCookie("hasrun", "true", 3650);
+                }, 900);
+            } else {
+                $('.ktvdialog_container').hide();
+                $('.gradientforktvdialog').hide();
+            }
+        });
+        //<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        //-->
+    </script>
+*/
+/*
+    <noscript>
+        <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
+        <audio src="/sound/ktv_popup.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
+        <!--<audio src="/sound/break.ogg" preload="auto" autoplay="autoplay" id="errsnd"></audio>-->
+        <style type="text/css">.ktvdialog_container { display: none !important; } </style>
+        <div class="noscript_dialog_container">
+            <img src="images/Dialog.png" class="noscript_dialog_image" draggable="false" />
+            <div class="noscript_dialog_text">
+                An error has occurred while trying to<br />navigate to this page.<br /><br />
+                Please enable JavaScript.<br /><br />
+                no cool effects without that :(
+            </div>
+            <a href="https://www.enable-javascript.com/" class="noscript_dialog_button">
+                <span>Learn how<br />to</span>
+            </a>
+        </div>
+    </noscript>
+    //noscriptdialog
+*/
+
+/* don't call twice*/
 function KTV_ShowAlert(
     dialogtext,
     okbtntext,
@@ -329,3 +347,9 @@ function checkdialog(type, snd_type, dowait) {
         return undefined;
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    initFavicon("/images/favicon",20,200);
+    if (location.href.indexOf("about") != -1 || location.href.indexOf("about.html") != -1) {
+        initClock();
+    }
+})
