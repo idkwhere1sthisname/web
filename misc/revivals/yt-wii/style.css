@@ -1,0 +1,385 @@
+@charset "UTF-8";
+@font-face { src: url("/font/cat.ttf"); font-family: "Catmoji"; }
+@font-face { src: url("/font/font.ttf"); font-family: "ds"; }
+@font-face { src: url("/font/KTV_NORMAL.ttf"); font-family: "FONT_KTV_NORMAL"; }
+@font-face { src: url("/font/KTV_NARROW.ttf"); font-family: "FONT_KTV_NARROW"; }
+
+body {background-color: rgba(43,43,43,255);}
+* {font-family: "ds";}
+.catmoji {font-family: "Catmoji" !important;}
+a:visited {color:rgb(155, 5, 155)}
+
+.header {
+    font-size: 42px;
+    -webkit-user-select: none;
+    user-select: none;
+    color: yellow;
+}
+
+.word {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.miniheader {
+    font-size: 30px;
+    -webkit-user-select: none;
+    user-select: none;
+    color: blue;
+}
+
+.title {
+    text-align: center;
+    align-self: center;
+    align-content: center;
+}
+
+.box {
+    align-self: center;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: auto;
+    width: auto;
+    color: #fff;
+    border: 3px ridge#34beed;
+    padding-bottom: 20px;
+}
+
+.buttonbox {
+    border-top: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 1px;
+    padding-bottom: 20px;
+}
+
+.interactivebtn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.iconbak {
+    position: absolute;
+}
+
+.credit {color: #fff;font-size:22px}
+.item02 {font-size: 25px;}
+
+.box-notop {
+    overflow: hidden;
+    align-self: center;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: auto;
+    width: auto;
+    color: #fff;
+    border: 3px ridge#34beed;
+    border-bottom: 3px dotted#34beed;
+    border-top: none;
+}
+
+.box-nobottom {
+    overflow: hidden;
+    align-self: center;
+    text-align: center;
+    margin-left: 15%;
+    margin-right: 15%;
+    height: auto;
+    width: auto;
+    color: #fff;
+    border: 3px ridge#34beed;
+    border-bottom: 3px dotted#34beed;
+    padding-bottom: 0px;
+}
+
+.deftext {
+    color: #fff;
+    font-size: 26px;
+}
+
+/*left this because why not*/
+.dialogdiv {
+    position: fixed;
+    top: -500px;
+    left: 50%;
+    -webkit-user-select: none;
+    user-select: none;
+    transform: translateX(-50%);
+    width: 80vw;
+    max-width: 800px;
+    z-index: 99999999;
+    display: none;
+}
+
+.gradientforktvdialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    user-select: none;
+    -webkit-user-drag: none;
+    background: rgba(115, 161, 216, 255) !important;
+    z-index: 9999998;
+}
+
+#ktvdialognotfounderror,
+#gradientktvforoffline,
+.transparentgradient_ktv {
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+}
+
+.ktvdialog_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 100vh;
+    z-index: 99999999;
+    box-sizing: border-box;
+    background: transparent;
+    display: block;
+    transform: translate(-50%, -150%);
+    transition: transform 0.3s ease;
+}
+
+
+.ktvdialog {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: auto;
+    display: block;
+}
+
+#ktvdialog_save_main,
+.ktvdialog_text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'FONT_KTV_NARROW';
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: #65768d;
+    user-select: none;
+    font-weight: 600;
+}
+
+.ktvdialog_button {
+    width: auto;
+    height: auto;
+    min-width: 248px;
+    min-height: 98px;
+    position: absolute;
+    bottom: clamp(2vh, 50%, 8vh);
+    left: 52%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10000000000;
+    width: 248px;
+    height: 98px;
+    background-image: url("/images/dialogbtn.png");
+    transition: transform 0.1s ease-in-out;
+}
+
+.ktvdialog_button span {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+    line-height: 1.2;
+    pointer-events: none;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.ktvdialog_button:hover span { font-size: 27px; }
+
+.ktvdialog_button:hover {
+    width: 248px;
+    height: 98px;
+    transform: translateX(-50%) scale(1.03);
+    background-image: url("/images/dialogbtn.png");
+    z-index: 10000000001;
+}
+
+.ktvdialog_button:active {
+    transform: translateX(-50%) scale(1.09);
+    background-image: url("/images/dialogbtn_hover.png");
+}
+
+.ktvdialog_button:active span { font-size: 29px; }
+
+/* NOSCRIPT DIALOG */
+
+.noscript_dialog_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 80vw;
+    max-width: 900px;
+    height: 80vh;
+    max-height: 100vh;
+    z-index: 99999999;
+    box-sizing: border-box;
+    background: transparent;
+    display: block;
+    transform: translate(-50%, -50%);
+}
+
+.noscript_dialog_image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: auto;
+    display: block;
+}
+
+.noscript_dialog_text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-weight: normal;
+    font-family: 'FONT_KTV_NARROW';
+    font-size: 24px;
+    letter-spacing: 0.05em;
+    color: #65768d;
+    user-select: none;
+    font-weight: 600;
+}
+
+.noscript_dialog_button {
+    position: absolute;
+    bottom: clamp(2vh, 50%, 8vh);
+    left: 52%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    z-index: 10000000000;
+    width: 248px;
+    height: 98px;
+    background-image: url("/images/dialogbtn.png");
+    transition: transform 0.1s ease-in-out;
+}
+
+.noscript_dialog_button span {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    transform: translate(-50%, -50%);
+    font-family: 'FONT_KTV_NARROW', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: white;
+    line-height: 1.2;
+    pointer-events: none;
+    text-align: center;
+    white-space: pre-line;
+}
+
+.noscript_dialog_button:hover {
+    width: 248px;
+    height: 98px;
+    transform: translateX(-50%) scale(1.03);
+    background-image: url("/images/dialogbtn.png");
+    z-index: 10000000001;
+}
+
+.noscript_dialog_button:active {
+    transform: translateX(-50%) scale(0.96);
+    background-image: url("/images/dialogbtn_hover.png");
+}
+
+.noscript_dialog_button:active span { font-size: 24px; }
+.noscript_dialog_button:hover span { font-size: 27px; }
+
+@media screen and (max-width: 600px) {
+    .ktvdialog_button span {
+        top: 40%;
+    }
+
+    .ktvdialog_button {
+        left: 55%;
+        top: 52%;
+        min-width: 120px;
+        min-height: 49px;
+        transform: translateX(-50%);
+    }
+
+    .ktvdialog_text {
+        top: 45%;
+        font-size: 16px;
+    }
+
+    .ktvdialog_button span {
+        font-size: 21px;
+        line-height: 1.2;
+    }
+
+    #ktvdialog_save_main {
+        font-size: 17px;
+        top: 45%;
+    }
+}
+
+@media screen and (max-width:412px) {
+    .ktvdialog_text {
+        top: 44%;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:720px) {
+    .noscript_dialog_text,
+    .ktvdialog_text {
+        top: 45%;
+    }
+
+    .noscript_dialog_button,
+    .ktvdialog_button {
+        top: 55%;
+    }
+}
+
+@media screen and (min-width:1240px) {
+    .noscript_dialog_text,
+    #ktvdialog_save_main,
+    .ktvdialog_text {
+        top:41%;
+        font-size: 27px;
+    }
+}
