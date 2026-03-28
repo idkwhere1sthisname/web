@@ -2,7 +2,7 @@
 
 # This is the default rule, which allows search engines to crawl your site (recommended).
 User-agent: *
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-train=no,ai-input=no
 Allow: /
 
 # If you do not want AI bots to crawl your site, remove the # from the following lines:
@@ -46,4 +46,5 @@ User-agent: Timpibot
 User-agent: VelenPublicWebCrawler
 User-agent: Webzio-Extended
 User-agent: YouBot
+Content-Signal: search=yes,ai-train=no,ai-input=no
 Disallow: /
