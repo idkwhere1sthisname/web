@@ -2,7 +2,7 @@
 var words = [
   'fav. consoles: Wii, New3DSXL, Wii U',
   'pronouns: he/they',
-  'fav. games: Minecraft, Deltarune'
+  'fav. games: Minecraft (java), Deltarune'
 ],
     part,
     i = 0,
@@ -14,6 +14,8 @@ var words = [
     speed = 40;
 var wordflick = function () {
   setInterval(function () {
+    if (!words.length) return;
+    if (!words[i]) i = 0;
     if (forwards) {
       if (offset >= words[i].length) {
         ++skip_count;
@@ -22,30 +24,20 @@ var wordflick = function () {
           skip_count = 0;
         }
       }
-    }
-    else {
+    } else {
       if (offset == 0) {
         forwards = true;
-        i++;
+        i = (i + 1) % len;
         offset = 1;
-        if (i >= len) {
-          i = 0;
-        }
       }
     }
     part = words[i].substr(0, offset);
     if (skip_count == 0) {
-      if (forwards) {
-        offset++;
-      }
-      else {
-        offset--;
-      }
+      offset += forwards ? 1 : -1;
     }
     $('.word').text(part);
   },speed);
 };
-
 $(document).ready(function () {
   wordflick();
 });
