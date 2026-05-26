@@ -24,28 +24,50 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="generator" content="Visual Studio Code" />
     <meta content="#1B2EFF" data-react-helmet="true" name="theme-color">
+    <style type="text/css">button{font-size: 17px};</style>
 </head>
 
 <body>
     <script>NekoType="white"</script>
-    <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
-    <h1 align="center">setting.txt encrypt/decrypt</h1>
-    <div align="center">
+    <noscript>
+        <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
+        <audio src="/sound/save_amp.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
+        <style type="text/css">.ktvdialog_container { display: none !important; } </style>
+        <div class="noscript_dialog_container">
+            <img src="/images/Dialog.png" class="noscript_dialog_image" draggable="false" />
+            <div class="noscript_dialog_text">
+                An error has occurred while trying to<br />navigate to this page.<br /><br />
+                Please enable JavaScript.<br /><br />
+                no cool effects without that :(
+            </div>
+            <a href="https://www.enable-javascript.com/" class="noscript_dialog_button" draggable="false">
+                <span>Learn how<br />to</span>
+            </a>
+        </div>
+    </noscript>
+    <div class="title"><h1 class="header">setting.txt decrypt/encrypt</h1></div>
+    <div class="box">
+        <div class="iconbak">
+            <a onclick="playsnd('pw_cancel.wav');setTimeout(() => {location.href='/misc/'},150)" style="cursor: pointer;" title="Back">
+                <img src="/images/iconbak.png" width="40" height="40" onmouseover="playsnd('pw_sel.wav')" alt="iconbak" />
+            </a>
+        </div>
+        <div class="deftext">
+        <p></p>
         <form onchange="parseSetting()">
-            <input type="file" id="settingtxt" accept=".txt" /><br />
+            <input type="file" id="settingtxt" accept=".txt"/><br />
             <button onclick="dlfile(true)">encrypt</button>
             <button onclick="dlfile(false)">decrypt</button><br />
         </form>
         <br />
-        <span id="header">read contents:</span><br /><br />
+        <span id="header">read contents:</span><br />
         <div id="parse">(upload a file to display the contents)</div><br />
         <span id="instruction01_01"><code>setting.txt</code> is always in <code>/title/000001/000002/data/<br /></code></span>
-        
         <footer>
-            <strong>made by <a href="https://idkwhereisthis.name">idkwhereisthisname</a> :3</strong><br />
-            <strong><a href="https://github.com/GaryOderNichts/vWii-Decaffeinator/blob/master/src/utils/setting_generator.c#L10-L29"><code>scrypt</code> funtion source</a></strong>
+            <strong class="deftext">made by <a href="https://idkwhereisthis.name">idkwhereisthisname</a> :3</strong><br>
+            <strong class="deftext"><a href="https://github.com/GaryOderNichts/vWii-Decaffeinator/blob/master/src/utils/setting_generator.c#L10-L29"><code>scrypt</code> funtion source</a></strong>
         </footer>
-
+        </div>
     </div>
 </body>
 </html>

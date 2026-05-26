@@ -61,14 +61,20 @@
                 <img src="/images/iconbak.png" width="40" height="40" onmouseover="playsnd('pw_sel.wav')" alt="iconbak" />
             </a>
         </div>
-        <marquee id="mq" direction="down" behavior="scroll" scrollamount="3" loop="9999">
+        <marquee id="mq" direction="down" behavior="scroll" scrollamount="3" loop="9999" onmouseover="this.stop()" onmouseout="this.start()">
             <div align="center">
                 <span class="item02"><a href="#">You</a></span>
                 <p></p>
-                <span class="credit">for visiting this website :3</span><br><br><br>
+                <span class="credit">for visiting this website :3</span>
+                <br><br><br>
+                <span class="item02"><a href="https://img.idkwh.ct8.pl/lafter.png">Lafter</a></span>
+                <p></p>
+                <span class="credit">because he wanted to be on my site</span>
+                <!-- the css is not even on here anymore
                 <span class="item02"><a href="https://thewiiarchivist.github.io">TheWiiArchivist</a></span>
                 <p></p>
                 <span class="credit">for some css</span>
+                -->
             </div>
         </marquee>
     </div>

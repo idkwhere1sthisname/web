@@ -80,11 +80,11 @@ function parseSetting() {
         }
 
         const setting_HTMLinner = Object.entries(settingfields)
-            .map(([key, value]) => `<div><strong>${key}</strong>: ${value}</div>`)
+            .map(([key, value]) => `<div><strong class="deftext">${key}</strong>: ${value}</div>`)
             .join('');
 
         const note_HTMLinner = notefield.length
-            ? `<div style="margin-top:10px;color:red;"><strong>NOTE(s):</strong><br>${notefield.join("<br>")}</div>`
+            ? `<div style="margin-top:10px;color:red;"><strong class="deftext">NOTE(s):</strong><br>${notefield.join("<br>")}</div>`
             : "";
 
         document.getElementById("parse").innerHTML = setting_HTMLinner + note_HTMLinner;
