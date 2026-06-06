@@ -232,6 +232,9 @@ a:visited {color:rgb(155, 5, 155)}
 
 .ktvdialog_button:active span { font-size: 29px; }
 
+.ktv_btn_ok {left: 32%;transform: translateX(-50%);}
+.ktv_btn_cancel {left: 72%;transform: translateX(-50%);}
+
 /* NOSCRIPT DIALOG */
 
 .noscript_dialog_container {

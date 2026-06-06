@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="/css/main.css" />
     <script src="/js/main.js"></script>
     <script src="/js/swapImg.js"></script>
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
+    <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
     <style type="text/css">
         .button88x31 {
             image-rendering: auto;
@@ -53,6 +56,17 @@
             </a>
         </div>
     </noscript>
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
+        <a class="ktvdialog_button ktv_btn_ok">
+            <span id="ktvdialog_innertext"></span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_cancel">
+            <span id="ktvdialog_innertext_cancel"></span>
+        </a>
+    </div>
     <div class="title"><h1 class="header"><img src="/images/favicon_ani.gif"/>&nbsp;idkwhereisthis.name&nbsp;<img src="/images/favicon_ani.gif"/></h1></div>
     <div class="box-nobottom"><br>
         <span class="deftext">welcome to my site!! :3</span><br>
@@ -104,13 +118,13 @@
         <h1 style="color: yellow;-webkit-user-select:none;user-select:none">88x31 button collection</h1>
         <img border="0" src="buttons/iexplorer.gif" width="88" height="31" class="button88x31">
         <img border="0" src="buttons/imissxp.gif" width="88" height="31" class="button88x31">
-        <a href="https://neocities.org/" style="text-decoration: none">
+        <a onclick="jumpTo('https://neocities.org/')" style="text-decoration: none;cursor:pointer">
             <img border="0" src="buttons/neocities3.gif" width="97" height="31" class="button88x31">
         </a>
-        <a href="https://tag.rc24.xyz" style="text-decoration: none">
+        <a onclick="nosite('https://tag.rc24.xyz')" style="text-decoration: none;cursor:pointer">
             <img border="0" src="buttons/riitag.png" width="88" height="31" class="button88x31">
         </a>
-        <a href="https://www.mozilla.org/firefox/new" style="text-decoration:none">
+        <a onclick="jumpTo('https://www.mozilla.org/firefox/new')" style="text-decoration:none;cursor:pointer">
             <img border="0" src="buttons/firefoxget.gif" title="based browser!" width="88" height="31" class="button88x31">
         </a>
         <a href="https://discord.gg/hc4Pu55xHz" style="text-decoration:none">
@@ -164,7 +178,7 @@
         <img src="images/roblox.webp" width="88" height="31" title="RòBL0X" class="button88x31">
         <img src="images/vs-code.gif" width="88" height="31" class="button88x31">
         <img src="buttons/w7-boot.gif" width="88" height="31" style="text-decoration:none" class="button88x31" /><a
-            href="javascript:jumpTo('https://github.com/idkwhere1sthisname')" onmouseover="snd.playSE(1)"
+            href="https://github.com/idkwhere1sthisname" onmouseover="snd.playSE(1)"
             style="text-decoration: none">
             <img src="buttons/github.png" width="88" height="31" class="button88x31" />
         </a><img src="buttons/gamecube.png" width="88" height="31" class="button88x31" />
@@ -173,15 +187,17 @@
         <img src="buttons/ezgif.com-resize.gif" title="So Retro!" class="button88x31" />
         <img src="buttons/chicken-jockey.gif" title="CHICKEN JOCKEY" width="88" height="31" class="button88x31" />
         <img src="buttons/mail.png" onclick="playsnd('pw_cancel.wav')" onmouseover="playsnd('pw_sel.wav');" width="88" height="31" style="cursor:url('/images/DFLTN.png'),alias" class="button88x31" />
-        <a href="javascript:jumpTo('https://thewiiarchivist.github.io', 'url')" onmouseover="snd.playSE(1)"
+        <a href="javascript:nosite('https://thewiiarchivist.github.io', 'url')" onmouseover="snd.playSE(1)"
             style="text-decoration: none;">
             <img src="buttons/thewiiarchivist.github.io.gif" width="88" height="31" class="button88x31">
         </a><a href="javascript:jumpTo('https://gemdation.com')" onmouseover="snd.playSE(1)">
             <img src="buttons/gemdation.com.gif" width="88" height="31" class="button88x31" /></a><a
             href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none" onmouseover="snd.playSE(1)">
             <img border="0" src="buttons/emsite.png" width="88" height="31" class="button88x31">
-        </a><a href="https://yourtooslow.com" onmouseover="playsnd('pw_sel.wav')">
+        </a><a onclick="nosite('https://yourtooslow.com')" onmouseover="playsnd('pw_sel.wav')" style="cursor:pointer">
             <img src="buttons/ezgif-2eb8057e700d39.gif" width="88" height="31" class="button88x31" />
+        </a><a onclick="jumpTo('https://cutebardnumber1.github.io')" style="cursor: pointer;" onmouseover="playsnd('pw_sel.wav')">
+            <img class="button88x31" src="/buttons/cutebard.gif" width="88" height="31" />
         </a>
         <img src="/buttons/powered-by-nwfc.gif" width="88" height="31" class="button88x31" />
         <img src="/buttons/OperaAni.gif" width="88" height="31" class="button88x31" />

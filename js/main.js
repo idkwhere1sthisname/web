@@ -72,9 +72,6 @@ function getCookie(name) {
     return null;
 }
 
-
-function jumpTo(url,type="url") { window.location.href = url; }
-
 function playsnd(file) {
     var au = new Audio("/sound/"+file);
     au.volume=1;
@@ -158,6 +155,12 @@ function KTV_ShowAlert(
     var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
     var okbtn_inner = document.getElementById("ktvdialog_innertext");
     var okbtn_cnt = document.getElementsByClassName("ktvdialog_button")[0];
+    var cbtn = document.getElementsByClassName("ktv_btn_cancel")[0];
+    var kbtn = document.getElementsByClassName("ktv_btn_ok")[0];
+    if (cbtn && kbtn) {
+        cbtn.style.display = "none";
+        kbtn.style.display = "none";
+    }
 
     if ($dialog == null || $overlay == null) {
         return undefined;
@@ -338,11 +341,105 @@ function KTV_ShowPersistentAlert(
     return "OK";
 }
 
+function KTV_ShowDoubleBtnAlert(
+    dialogtext,
+    okbtntext,
+    okbtnhref,
+    canceltext,
+    cancelhref,
+    showtransparentgradient = true,
+    soundtype = "KTV_SND_PACK",
+    mimicogch = true,
+    dowait = true,
+    dialogclassname = ".ktvdialog_container",
+    gradientclassname = '.gradientforktvdialog'
+) {
+    var $dialog = $(dialogclassname);
+    var $overlay = $(gradientclassname);
+    var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
+    var okbtn_inner = document.getElementById("ktvdialog_innertext");
+    var cancelbtn_inner = document.getElementById("ktvdialog_innertext_cancel");
+    var $okBtn = $('.ktv_btn_ok');
+    var $cancelBtn = $('.ktv_btn_cancel');
+    if (!$dialog.length || !$overlay.length) return;
+    dialog_inner.innerHTML = dialogtext;
+    okbtn_inner.innerHTML = okbtntext;
+    cancelbtn_inner.innerHTML = canceltext;
+    $dialog.show();
+    $overlay.show();
+    if (showtransparentgradient) {$overlay.addClass('transparentgradient_ktv');}
+    else {$overlay.removeClass('transparentgradient_ktv');}
+    $dialog.css('transform', 'translate(-50%, -50%)');
+    $okBtn.off('click').on('click', function (e) {
+        e.preventDefault();
+        ac(okbtnhref);
+    });
+    $cancelBtn.off('click').on('click', function (e) {
+        e.preventDefault();
+        ac(cancelhref);
+    });
+    $('.ktvdialog_button').off('mouseover').on('mouseover', function (e) {
+        e.preventDefault();
+        var audio = null;
+        if (soundtype == "KTV_SND_PACK") {
+            if (!mimicogch) {
+                var audio = null;
+            } else {
+                var audio = document.getElementById("hvrsnd_ktv");
+                audio.loop = false;
+                audio.currentTime = 0;
+                audio.play();
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            audio = document.getElementById("hvrsnd");
+            audio.loop = false;
+            audio.currentTime = 0;
+            audio.play();
+        }
+    })
+    var sndinit;
+    if (soundtype == "FLASHPLAYERSE") {sndinit = document.getElementById("dialogsnd");}
+    else {sndinit = document.getElementById("ktv_popup")}
+    if (sndinit) {
+        sndinit.volume = 1.0;
+        sndinit.currentTime = 0;
+        sndinit.loop = false;
+        sndinit.play();
+    }
+    function ac(target) {
+        if (soundtype == "KTV_SND_PACK") {
+            var snd = document.getElementById("selsnd_ktv");
+            if (snd) {
+                snd.currentTime = 0;
+                snd.play();
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            var snd = document.getElementById("selsnd");
+            if (snd) {
+                snd.currentTime = 0;
+                snd.play();
+            }
+        }
+        $dialog.css('transform', 'translate(-50%, -150%)');
+        setTimeout(function () {
+            $dialog.hide();
+            $overlay.fadeOut(600);
+
+            if (target && target !== "#") {
+                window.location.href = target;
+            }
+        }, dowait?600:0);
+    }
+    return "OK";
+}
+
 function checkdialog(type, snd_type, dowait) {
     if (type == "PERSISTANT") {
         KTV_ShowPersistentAlert("dialogtext", false, snd_type, true);
     } else if (type == "NORMAL") {
         KTV_ShowAlert("dialogtext", "dialogbtntext", "javascript:void(0);", '', false, snd_type, true, dowait);
+    } else if (type == "DOUBLE") {
+        KTV_ShowDoubleBtnAlert("dialogtext","okText","#","cancelText","#",true,snd_type,true,dowait)
     } else {
         return undefined;
     }
@@ -353,3 +450,14 @@ document.addEventListener("DOMContentLoaded", function () {
         initClock();
     }
 })
+function jumpTo(url,type="str") {
+    var prot = url.substring(0,5);
+    KTV_ShowDoubleBtnAlert("wait! you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE")
+}
+function jumpToWCancel(url,type="str") {
+    var prot = url.substring(0,5);
+    KTV_ShowDoubleBtnAlertWithCancel("you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE")
+}
+function nosite(u) {
+    KTV_ShowDoubleBtnAlert("this site isn't up anymore. rip.","i don't care",u,"OK, go back","#",false,"FLASHPLAYERSE",false,true)
+}

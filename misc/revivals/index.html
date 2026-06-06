@@ -25,6 +25,10 @@
     <script src="/js/swapImg.js"></script>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/sel.css" />
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
+    <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
+    <audio id="cancelsnd" src="SND/CANCEL.wav" preload="auto" style="display: none;"></audio>
     <script type="text/javascript">
         var mp3p_played = false;
         var theater_played = false;
@@ -32,10 +36,136 @@
         var ipl_hasplayed = false;
         var fbtwl_hasplayed = false;
     </script>
+    <script type="text/javascript" language="JavaScript">
+        function setminnasound() {
+            var d = document;
+            function i(f) {return d.getElementById(f)}
+            i('dialogsnd').src = "SND/OK3.wav"
+            i('hvrsnd').src = "SND/CURSOR3.wav"
+            i('selsnd').src = 'SND/OK1.wav'
+        }
+        function unsetminnasounds() {
+            var d = document;
+            function i(f) {return d.getElementById(f);};
+            i('dialogsnd').src = "/sound/save_amp.wav";
+            i('hvrsnd').src = "/sound/hvr.wav";
+            i('selsnd').src = '/sound/sel.wav'
+        }
+    </script>
+    <script type="text/javascript" language="JavaScript">
+        function KTV_ShowDoubleBtnAlertWithCancel(
+            dialogtext,
+            okbtntext,
+            okbtnhref,
+            canceltext,
+            cancelhref,
+            showtransparentgradient = true,
+            soundtype = "KTV_SND_PACK",
+            mimicogch = true,
+            dowait = true,
+            dialogclassname = ".ktvdialog_container",
+            gradientclassname = '.gradientforktvdialog'
+        ) {
+            var $dialog = $(dialogclassname);
+            var $overlay = $(gradientclassname);
+            var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
+            var okbtn_inner = document.getElementById("ktvdialog_innertext");
+            var cancelbtn_inner = document.getElementById("ktvdialog_innertext_cancel");
+            var $okBtn = $('.ktv_btn_ok');
+            var $cancelBtn = $('.ktv_btn_cancel');
+            if (!$dialog.length || !$overlay.length) return;
+            dialog_inner.innerHTML = dialogtext;
+            okbtn_inner.innerHTML = okbtntext;
+            cancelbtn_inner.innerHTML = canceltext;
+            $dialog.show();
+            $overlay.show();
+            if (showtransparentgradient) {$overlay.addClass('transparentgradient_ktv');}
+            else {$overlay.removeClass('transparentgradient_ktv');}
+            $dialog.css('transform', 'translate(-50%, -50%)');
+
+            $okBtn.off('click').on('click', function (e) {
+                e.preventDefault();
+                ac(okbtnhref,false);
+            });
+            $cancelBtn.off('click').on('click', function (e) {
+                e.preventDefault();
+                ac(cancelhref,true);
+            });
+            $('.ktvdialog_button').off('mouseover').on('mouseover', function (e) {
+                e.preventDefault();
+                var audio = null;
+                if (soundtype == "KTV_SND_PACK") {
+                    if (!mimicogch) {
+                        var audio = null;
+                    } else {
+                        var audio = document.getElementById("hvrsnd_ktv");
+                        audio.loop = false;
+                        audio.currentTime = 0;
+                        audio.play();
+                    }
+                } else if (soundtype == "FLASHPLAYERSE") {
+                    audio = document.getElementById("hvrsnd");
+                    audio.loop = false;
+                    audio.currentTime = 0;
+                    audio.play();
+                }
+            })
+            var sndinit;
+            if (soundtype == "FLASHPLAYERSE") {sndinit = document.getElementById("dialogsnd");}
+            else {sndinit = document.getElementById("ktv_popup")}
+            if (sndinit) {
+                sndinit.volume = 1.0;
+                sndinit.currentTime = 0;
+                sndinit.loop = false;
+                sndinit.play();
+            }
+            function ac(target, isCancel) {
+                var snd = null;
+                if (soundtype == "KTV_SND_PACK") {
+                    if (isCancel) {
+                        snd = document.getElementById("cancelsnd_ktv");
+                    } else {
+                        snd = document.getElementById("selsnd_ktv");
+                    }
+                } else if (soundtype == "FLASHPLAYERSE") {
+                    if (isCancel) {
+                        snd = document.getElementById("cancelsnd");
+                    } else {
+                        snd = document.getElementById("selsnd");
+                    }
+                }
+                if (snd) {
+                    snd.currentTime = 0;
+                    snd.play();
+                }
+                $dialog.css('transform', 'translate(-50%, -150%)');
+                setTimeout(function () {
+                    $dialog.hide();
+                    $overlay.fadeOut(600);
+
+                    if (target && target !== "#") {
+                        window.location.href = target;
+                    }
+                }, dowait ? 600 : 0);
+            }
+            return "OK";
+        }
+    </script>
 </head>
-<body>
+<body onload="unsetminnasounds()">
     <script>NekoType="white"</script>
     <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
+        <a class="ktvdialog_button ktv_btn_ok">
+            <span id="ktvdialog_innertext"></span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_cancel">
+            <span id="ktvdialog_innertext_cancel"></span>
+        </a>
+    </div>
     <noscript>
         <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
         <audio src="/sound/save_amp.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
@@ -129,7 +259,7 @@
                 </div>
             </div>
             <h3>other revivals i was involved in</h3>
-            <div class="link" onmousedown="playrevsnd('OK1.wav');setTimeout(()=>{location.href='https://wii-stream.github.io'},900);theater_hasplayed=true" style="cursor: pointer;"
+            <div class="link" onmousedown="setminnasound();jumpToWCancel('https://wii-stream.github.io');" style="cursor: pointer;"
                 onmouseenter="document.getElementById('theater').style.outline='3px solid #34beed';if(!theater_hasplayed){playrevsnd('CURSOR3.wav');theater_hasplayed=true;}"
                 onmouseleave="document.getElementById('theater').style.outline='0px';theater_hasplayed=false;">
                 <div class="wrapper">
