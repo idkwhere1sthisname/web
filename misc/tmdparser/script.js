@@ -53,7 +53,7 @@ function checkForTMDs() {
                 { id: "titleVersion",      label: "title version",          value: tmddat.titleVersion },
                 { id: "contentIdNum",      label: "number of contents",     value: tmddat.contentIdNum },
                 { id: "bootIdx",           label: "boot index",             value: tmddat.bootIdx },
-                { id: "titleVersionMin",   label: "title Version (minor)",  value: tmddat.titleVersionMin }
+                { id: "titleVersionMin",   label: "title version (minor)",  value: tmddat.titleVersionMin }
             ];
             renderATmd(objs,tmddat.contents);
         } catch (e) {
