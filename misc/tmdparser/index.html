@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <!--base href="https://idkwhereisthis.name" /-->
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image:alt" content="meow" />
+    <meta name="author" content="idkwhereisthisname">
+    <meta property="og:title" content="idkwhereisthis.name" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="idkwhereisthis.name" />
+    <meta name="title" content="idkwhereisthis.name" />
+    <meta name="description" content="idkwh's silly website" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>idkwhereisthis.name</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/main.js"></script>
+    <script src="/js/swapImg.js"></script>
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
+    <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+        function initPage() {
+            checkForTMDs();
+        }
+    </script>
+</head>
+
+<body onload="initPage()">
+    <div class="title"><h1 class="header">Wii/DSi TMD parser</h1></div>
+    <div class="box">
+        <div class="iconbak">
+            <a onclick="playsnd('pw_cancel.wav');setTimeout(() => {location.href='/misc/'},150)" style="cursor: pointer;" title="Back">
+                <img src="/images/iconbak.png" width="40" height="40" onmouseover="playsnd('pw_sel.wav')" alt="iconbak" />
+            </a>
+        </div>
+        <div class="deftext">
+            <p></p>
+            <form id="theForm">
+                <input type="file" accept=".tmd" id="tmdin" />
+            </form>
+            <div style="display: none;" id="tmdDATADONOTDELETE">
+                <span id="signType"></span><br>
+                <span id="signature" style="display:none;opacity:0" visibility="hidden"></span>
+                <span id="version"></span><br>
+                <span id="issuer"></span><br>
+                <span id="caCrlVersion"></span><br>
+                <span id="signerCrlVer"></span><br>
+                <span id="isCompat"></span><br>
+                <span id="titleId"></span><br>
+                <span id="titleType"></span><br>
+                <span id="groupId"></span><br>
+                <span id="region"></span><br>
+                <span id="accessRight"></span><br>
+                <span id="titleVersion"></span><br>
+                <span id="contentIdNum"></span><br>
+                <span id="bootIdx"></span><br>
+                <span id="titleVersionMin"></span><br><br>
+                <span align="center" id="contentW">Contents table</span><br><br>
+                <div align="center">
+                    <table id="contents" style="border: 3px dotted #34beed;width:20% !important;height:20% !important">
+                        <thead>
+                            <tr style="border: 3px dotted #34beed;">
+                                <th style="width:10%">index</th>
+                                <th style="width:10%">content ID</th>
+                                <th style="width:15%">content type</th>
+                                <th style="width:20%">size in bytes</th>
+                                <th style="width:30%;">SHA1 hash</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contentss"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
