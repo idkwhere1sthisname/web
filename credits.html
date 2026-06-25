@@ -30,7 +30,13 @@
             border-right:0;
             border-bottom:0;
             border-top:0;
-            margin-left: 41px;
+            margin-left: 49px;
+        }
+        input[type="button"] {
+            color:#34beed;
+            background-color: #000;
+            font-size:16px;
+            border-color:#34beed;
         }
     </style>
 </head>
@@ -60,8 +66,12 @@
             <a onclick="playsnd('pw_cancel.wav');setTimeout(() => {location.href='/'},150)" style="cursor: pointer;" title="Back">
                 <img src="/images/iconbak.png" width="40" height="40" onmouseover="playsnd('pw_sel.wav')" alt="iconbak" />
             </a>
+            <br><br>
+            <div align="center">
+                &nbsp;&nbsp;<input type="button" onclick="onstop();" id="stopmq" value="stop" />
+            </div>
         </div>
-        <marquee id="mq" direction="down" behavior="scroll" scrollamount="3" loop="9999" onmouseover="this.stop()" onmouseout="this.start()">
+        <marquee id="mq" direction="down" behavior="scroll" scrollamount="3" loop="9999">
             <div align="center">
                 <span class="item02"><a href="#">You</a></span>
                 <p></p>
@@ -78,5 +88,19 @@
             </div>
         </marquee>
     </div>
+    <script language="JavaScript" type="text/javascript">
+        var mq = document.getElementById('mq');
+        var input = document.getElementById('stopmq');
+        function onstop() {
+            mq.stop();
+            input.value = "start";
+            input.onclick = onstart;
+        }
+        function onstart() {
+            mq.start();
+            input.value = "stop";
+            input.onclick = onstop;
+        }
+    </script>
 </body>
 </html>
