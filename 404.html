@@ -25,9 +25,9 @@
     <script type="text/javascript">function runonload(){initFavicon("/images/favicon/",19,200);}</script>
     <script src="/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <audio id="dialogsnd" src="/sound/break.ogg" preload="auto"></audio>
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
     <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
-    <audio id="selsnd" src="/sound/13.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
     <style type="text/css">
         #tnsbutton {
             cursor: url("/images/DFLTN.png"),pointer;
@@ -38,8 +38,9 @@
 </head>
 
 <body onload="runonload();">
-    <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <h1 id="nl"><div style="z-index:2"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></div></h1>
     <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
     <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
         <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
         <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
@@ -54,7 +55,7 @@
         <a href="/" class="deftext" onmouseover="playsnd('pw_sel.wav')">Return to home page</a>
         <div align="right" id="tnsbtndiv" draggable="false">
             <script type="text/javascript">
-                function showSurpriseIn404() { KTV_ShowAlert('wrong button gng 🙏','Ok','#','#',false,'FLASHPLAYERSE');document.getElementById('tnsbtndiv').remove(); }
+                function showSurpriseIn404() { KTV_ShowAlertWithDialogGradient('wrong button gng 🙏','Ok','#','#','FLASHPLAYERSE');document.getElementById('tnsbtndiv').remove(); }
             </script>
             <button type="button" id="tnsbutton" onmouseover="playsnd('KTV_HOVER.wav')" title="??" onclick="showSurpriseIn404();"></button>
         </div>

@@ -118,6 +118,7 @@ function playsnd(file) {
 /*
     <noscript>
         <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
+        <div class="othergradient" id="gradientktvOTHER" style="display: none;"></div>
         <audio src="/sound/ktv_popup.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
         <!--<audio src="/sound/break.ogg" preload="auto" autoplay="autoplay" id="errsnd"></audio>-->
         <style type="text/css">.ktvdialog_container { display: none !important; } </style>
@@ -137,6 +138,7 @@ function playsnd(file) {
 */
 
 /* don't call twice*/
+// these are better on a 1024x768 monitor tbh 
 function KTV_ShowAlert(
     dialogtext,
     okbtntext,
@@ -180,12 +182,157 @@ function KTV_ShowAlert(
     okbtn_cnt.style.display = "block";
     $dialog.show();
     $overlay.show();
+    $("body").css({"overflow":"hidden"});
+    $("html").css({"overflow":"hidden"});
 
     if (showtransparentgradient) {
         $overlay.addClass('transparentgradient_ktv');
     } else {
         $overlay.removeClass('transparentgradient_ktv')
     }
+
+    if (soundtype == "KTV_SND_PACK") {
+        dialogSnd = document.getElementById("popup_ktv");
+    } else if (soundtype == "FLASHPLAYERSE") {
+        dialogSnd = document.getElementById("dialogsnd");
+    }
+
+
+    $overlay.fadeIn(300, function () {
+        if (dialogSnd != null) {
+            dialogSnd.play();
+        }
+        $dialog.css('transform', 'translate(-50%, -50%)');
+    });
+
+    function doAction() {
+        if (soundtype == "KTV_SND_PACK") {
+            document.getElementById("selsnd_ktv").play();
+        } else if (soundtype == "FLASHPLAYERSE") {
+            document.getElementById("selsnd").play();
+        }
+
+        if (dowait) {
+            setTimeout(function () {
+                $dialog.css('transform', 'translate(-50%, -150%)');
+
+                setTimeout(function () {
+                    $dialog.hide();
+                    $overlay.fadeOut(600);
+
+                    window.location.href = okbtnaction;
+                }, 600);
+            }, 300);
+        } else {
+            $dialog.css('transform', 'translate(-50%, -150%)');
+
+            setTimeout(function () {
+                $dialog.hide();
+                $overlay.fadeOut(600);
+                $("body").css({"overflow":"auto"});
+                $("html").css({"overflow":"auto"});
+                window.location.href = okbtnaction;
+            }, 600);
+        }
+    }
+
+    $('.ktvdialog_button').off('click').on('click', function (e) {
+        e.preventDefault();
+        var aud = null;
+        if (soundtype == "KTV_SND_PACK") {
+            var aud02 = document.getElementById("popup_ktv_exit");
+
+            aud = document.getElementById("selsnd_ktv");
+            aud.currentTime = 0;
+            aud.loop = false;
+            aud.play();
+
+            if (mimicogch) {
+                // KTV_POPUP_EXIT
+                aud02.currentTime = 0;
+                aud02.loop = false;
+                var KTV_POPUP_EXIT_TIMEOUT = 50;
+                if (dowait) {
+                    KTV_POPUP_EXIT_TIMEOUT = 150;
+                }
+                setTimeout(() => {
+                    aud02.play();
+                }, KTV_POPUP_EXIT_TIMEOUT);
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            aud = document.getElementById("selsnd");
+            aud.currentTime = 0;
+            aud.loop = false;
+            aud.play();
+        }
+        doAction();
+    });
+
+    $('.ktvdialog_button').off('mouseover').on('mouseover', function (e) {
+        e.preventDefault();
+        var audio = null;
+        if (soundtype == "KTV_SND_PACK") {
+            if (!mimicogch) {
+                var audio = null;
+            } else {
+                var audio = document.getElementById("hvrsnd_ktv");
+                audio.loop = false;
+                audio.currentTime = 0;
+                audio.play();
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            audio = document.getElementById("hvrsnd");
+            audio.loop = false;
+            audio.currentTime = 0;
+            audio.play();
+        }
+    })
+    return "OK";
+}
+
+function KTV_ShowAlertWithDialogGradient(
+    dialogtext,
+    okbtntext,
+    okbtnaction,
+    okbtnhref,
+    soundtype = "KTV_SND_PACK",
+    mimicogch = true,
+    dowait = true,
+    dialogclassname = ".ktvdialog_container",
+    gradientclassname = '.othergradient',
+) {
+    var $dialog = $(dialogclassname);
+    var $overlay = $(gradientclassname);
+    var dialogSnd = document.getElementById("dialogsnd");
+    var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
+    var okbtn_inner = document.getElementById("ktvdialog_innertext");
+    var okbtn_cnt = document.getElementsByClassName("ktvdialog_button")[0];
+    var cbtn = document.getElementsByClassName("ktv_btn_cancel")[0];
+    var kbtn = document.getElementsByClassName("ktv_btn_ok")[0];
+    if (cbtn && kbtn) {
+        cbtn.style.display = "none";
+        kbtn.style.display = "none";
+    }
+
+    if ($dialog == null || $overlay == null) {
+        return undefined;
+    }
+
+    if (dialog_inner == undefined || okbtn_inner == undefined || okbtn_cnt == undefined) {
+        return undefined;
+    }
+
+    if (soundtype == "FLASHPLAYERSE") {
+        mimicogch = false;
+    }
+
+    dialog_inner.innerHTML = dialogtext;
+    okbtn_inner.innerHTML = okbtntext;
+    document.querySelector('.ktvdialog_button').setAttribute("href", okbtnhref);
+    okbtn_cnt.style.display = "block";
+    $dialog.show();
+    $overlay.show();
+    $overlay.addClass('othergradient');
 
     if (soundtype == "KTV_SND_PACK") {
         dialogSnd = document.getElementById("popup_ktv");
@@ -367,6 +514,8 @@ function KTV_ShowDoubleBtnAlert(
     cancelbtn_inner.innerHTML = canceltext;
     $dialog.show();
     $overlay.show();
+    $("body").css({"overflow":"hidden"});
+    $("html").css({"overflow":"hidden"});
     if (showtransparentgradient) {$overlay.addClass('transparentgradient_ktv');}
     else {$overlay.removeClass('transparentgradient_ktv');}
     $dialog.css('transform', 'translate(-50%, -50%)');
@@ -424,7 +573,102 @@ function KTV_ShowDoubleBtnAlert(
         setTimeout(function () {
             $dialog.hide();
             $overlay.fadeOut(600);
+            $("body").css({"overflow":"auto"});
+            $("html").css({"overflow":"auto"});
+            if (target && target !== "#") {
+                window.location.href = target;
+            }
+        }, dowait?600:0);
+    }
+    return "OK";
+}
 
+function KTV_ShowDoubleBtnAlertWithOtherGradient(
+    dialogtext,
+    okbtntext,
+    okbtnhref,
+    canceltext,
+    cancelhref,
+    showtransparentgradient = true,
+    soundtype = "KTV_SND_PACK",
+    mimicogch = true,
+    dowait = true,
+    dialogclassname = ".ktvdialog_container",
+    gradientclassname = '.othergradient'
+) {
+    var $dialog = $(dialogclassname);
+    var $overlay = $(gradientclassname);
+    var dialog_inner = document.getElementsByClassName("ktvdialog_text")[0];
+    var okbtn_inner = document.getElementById("ktvdialog_innertext");
+    var cancelbtn_inner = document.getElementById("ktvdialog_innertext_cancel");
+    var $okBtn = $('.ktv_btn_ok');
+    var $cancelBtn = $('.ktv_btn_cancel');
+    if (!$dialog.length || !$overlay.length) return;
+    dialog_inner.innerHTML = dialogtext;
+    okbtn_inner.innerHTML = okbtntext;
+    cancelbtn_inner.innerHTML = canceltext;
+    $dialog.show();
+    $overlay.show();
+    $("body").css({"overflow":"hidden"});
+    $("html").css({"overflow":"hidden"});
+    $overlay.addClass('othergradient')
+    $dialog.css('transform', 'translate(-50%, -50%)');
+    $okBtn.off('click').on('click', function (e) {
+        e.preventDefault();
+        ac(okbtnhref);
+    });
+    $cancelBtn.off('click').on('click', function (e) {
+        e.preventDefault();
+        ac(cancelhref);
+    });
+    $('.ktvdialog_button').off('mouseover').on('mouseover', function (e) {
+        e.preventDefault();
+        var audio = null;
+        if (soundtype == "KTV_SND_PACK") {
+            if (!mimicogch) {
+                var audio = null;
+            } else {
+                var audio = document.getElementById("hvrsnd_ktv");
+                audio.loop = false;
+                audio.currentTime = 0;
+                audio.play();
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            audio = document.getElementById("hvrsnd");
+            audio.loop = false;
+            audio.currentTime = 0;
+            audio.play();
+        }
+    })
+    var sndinit;
+    if (soundtype == "FLASHPLAYERSE") {sndinit = document.getElementById("dialogsnd");}
+    else {sndinit = document.getElementById("ktv_popup")}
+    if (sndinit) {
+        sndinit.volume = 1.0;
+        sndinit.currentTime = 0;
+        sndinit.loop = false;
+        sndinit.play();
+    }
+    function ac(target) {
+        if (soundtype == "KTV_SND_PACK") {
+            var snd = document.getElementById("selsnd_ktv");
+            if (snd) {
+                snd.currentTime = 0;
+                snd.play();
+            }
+        } else if (soundtype == "FLASHPLAYERSE") {
+            var snd = document.getElementById("selsnd");
+            if (snd) {
+                snd.currentTime = 0;
+                snd.play();
+            }
+        }
+        $dialog.css('transform', 'translate(-50%, -150%)');
+        setTimeout(function () {
+            $dialog.hide();
+            $overlay.fadeOut(600);
+            $("html").css({"overflow":"auto"});
+            $("body").css({"overflow":"auto"});
             if (target && target !== "#") {
                 window.location.href = target;
             }
@@ -453,6 +697,10 @@ document.addEventListener("DOMContentLoaded", function () {
 function jumpTo(url,type="str") {
     var prot = url.substring(0,5);
     KTV_ShowDoubleBtnAlert("wait! you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE")
+}
+function jumpToWithOtherGradient(url,type="str") {
+    var prot = url.substring(0,5);
+    KTV_ShowDoubleBtnAlertWithOtherGradient("wait! you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE")
 }
 function jumpToWCancel(url,type="str") {
     var prot = url.substring(0,5);
