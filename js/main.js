@@ -704,7 +704,7 @@ function jumpToWithOtherGradient(url,type="str") {
 }
 function jumpToWCancel(url,type="str") {
     var prot = url.substring(0,5);
-    KTV_ShowDoubleBtnAlertWithCancel("you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE")
+    KTV_ShowDoubleBtnAlertWithCancel("you're about to go to <br>"+url+"<br>is this ok?","yeah sure",url,"nah","#",true,"FLASHPLAYERSE",true,true,".ktvdialog_container",".othergradient")
 }
 function nosite(u) {
     KTV_ShowDoubleBtnAlert("this site isn't up anymore. rip.","i don't care",u,"OK, go back","#",false,"FLASHPLAYERSE",false,true)

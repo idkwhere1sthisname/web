@@ -79,6 +79,8 @@
             cancelbtn_inner.innerHTML = canceltext;
             $dialog.show();
             $overlay.show();
+            $("html").css({"overflow":"hidden"})
+            $("body").css({"overflow":"hidden"})
             if (showtransparentgradient) {$overlay.addClass('transparentgradient_ktv');}
             else {$overlay.removeClass('transparentgradient_ktv');}
             $dialog.css('transform', 'translate(-50%, -50%)');
@@ -142,7 +144,8 @@
                 setTimeout(function () {
                     $dialog.hide();
                     $overlay.fadeOut(600);
-
+                    $("html").css({"overflow":"auto"})
+                    $("body").css({"overflow":"auto"})
                     if (target && target !== "#") {
                         window.location.href = target;
                     }
@@ -156,6 +159,7 @@
     <script>NekoType="white"</script>
     <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
     <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
     <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
         <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
         <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
