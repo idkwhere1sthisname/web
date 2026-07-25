@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <!--base href="https://idkwhereisthis.name" /-->
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image:alt" content="meow" />
+    <meta name="author" content="idkwhereisthisname">
+    <meta property="og:title" content="idkwhereisthis.name" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="idkwhereisthis.name" />
+    <meta name="title" content="idkwhereisthis.name" />
+    <meta name="description" content="idkwh's silly website" />
+    <meta name="keywords" content="idkwhereisthisname, idkwh" />
+    <meta content="#1B2EFF" data-react-helmet="true" name="theme-color" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>about</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <script src="/js/main.js"></script>
+    <script src="/js/swapImg.js"></script>
+    <script src="/js/words.js"></script>
+    <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
+    <audio id="selsnd_ktv" src="/sound/KTV_CLICK.wav" preload="auto"></audio>
+    <audio id="popup_ktv" src="/sound/ktv_popup.wav" preload="auto"></audio>
+    <audio id="popup_ktv_exit" src="/sound/ktv_popup_leave.wav" preload="auto"></audio>
+    <audio id="hvrsnd_ktv" src="/sound/KTV_HOVER.wav" preload="auto"></audio>
+    <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
+    <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
+    <style type="text/css">.red{color:rgba(255,0,0,1)}.green{color:rgba(10,231,10,1)}</style>
+    <link rel="stylesheet" href="/css/newdialog.css" type="text/css" id="newdialog" />
+</head>
+
+<body onload="KTV_ShowAlertWithDialogGradient('sigma sigma on the wall...<br>who\'s the skibidiest of them all','OK','#','#','FLASHPLAYERSE')">
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;" draggable="false"><img src="/images/bgdialognew.png" id="ytgradientEU" draggable="false" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/dialognew.png" class="dialognew" draggable="false" />
+        <div class="ktvdialog_text newdialogtext" id="newdialog_savemain" draggable="false"></div>
+        <a href class="ktvdialog_button newdialog_button" style="display: none;" hidden="hidden" draggable="false">
+            <span id="ktvdialog_innertext"></span>
+            <a class="ktvdialog_button newdialog_button newdialog_btn_ok">
+                <span id="ktvdialog_innertext">No</span>
+            </a>
+            <a class="ktvdialog_button newdialog_button newdialog_btn_cancel">
+                <span id="ktvdialog_innertext_cancel">Yes</span>
+            </a>
+        </a>
+    </div>
+    <!--<div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
+        <a href class="ktvdialog_button" style="display: none;" hidden="hidden" draggable="false">
+            <span id="ktvdialog_innertext"></span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_ok">
+            <span id="ktvdialog_innertext">No</span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_cancel">
+            <span id="ktvdialog_innertext_cancel">Yes</span>
+        </a>
+    </div>-->
+</body>
+</html>

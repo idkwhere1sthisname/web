@@ -677,6 +677,91 @@ function KTV_ShowDoubleBtnAlertWithOtherGradient(
     return "OK";
 }
 
+function initOtherDialog() {
+    HEAD = document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml","head")[0]
+    HEAD.innerHTML += `\n    <link rel="stylesheet" type="text/css" href="/css/newdialog.css" id="newdialog" />`
+}
+function deInitOtherDialog() {
+    el = document.getElementById("newdialog")
+    if (el) { el.remove(); }
+}
+
+function changedialogcss(newdialog=false) {
+    if (!newdialog) {
+        deInitOtherDialog()
+        document.getElementById("ytgradientEU").src = "/images/DialogBg.png";
+        var dialog = document.getElementsByClassName("dialognew")[0];
+        dialog.classList = "ktvdialog";
+        dialog.src = "/images/Dialog.png";
+        var savemain = document.getElementById("newdialog_savemain")
+        if (savemain) {
+            savemain.id = "ktvdialog_save_main";
+            savemain.classList = "ktvdialog_text";
+        };
+        var btn = document.querySelectorAll(".ktvdialog_button");
+        btn.forEach((Btn)=>{Btn.className = "ktvdialog_button";})
+        var btnOk = document.querySelectorAll(".newdialog_btn_ok");
+        if (btnOk.length>0) {
+            btnOk.forEach((f)=>{f.classList="ktvdialog_button ktv_btn_ok"})
+        }
+        var btnCancel = document.querySelectorAll(".newdialog_btn_cancel");
+        if (btnCancel.length>0) {
+            btnCancel.forEach((f)=>{f.classList="ktvdialog_button ktv_btn_cancel"});
+        }
+    } else {
+        initOtherDialog();
+        document.getElementById("ytgradientEU").src = "/images/bgdialognew.png"
+        var ktvdialog = document.getElementsByClassName("ktvdialog")[0];
+        ktvdialog.classList = "dialognew";
+        ktvdialog.src = "/images/dialognew.png";
+        var dialogtext = document.getElementsByClassName("ktvdialog_text")[0];
+        dialogtext.classList = "ktvdialog_text newdialogtext";
+        dialogtext.id = "newdialog_savemain";
+        var btn = document.querySelectorAll(".ktvdialog_button");
+        btn.forEach((Btn)=>{Btn.className = "ktvdialog_button newdialog_button";})
+        var btnOk = document.querySelectorAll(".ktv_btn_ok");
+        if (btnOk.length>0) {
+            btnOk.forEach((f)=>{f.classList="ktvdialog_button newdialog_btn_ok newdialog_button"})
+        }
+        var btnCancel = document.querySelectorAll(".ktv_btn_cancel");
+        if (btnCancel.length>0) {
+            btnCancel.forEach((f)=>{f.classList="ktvdialog_button newdialog_button newdialog_btn_cancel"});
+        }
+    }
+}
+
+/*
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;" draggable="false"><img src="/images/bgdialognew.png" id="ytgradientEU" draggable="false" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/dialognew.png" class="dialognew" draggable="false" />
+        <div class="ktvdialog_text newdialogtext" id="newdialog_savemain" draggable="false"></div>
+        <a href class="ktvdialog_button newdialog_button" style="display: none;" hidden="hidden" draggable="false">
+            <span id="ktvdialog_innertext"></span>
+            <a class="ktvdialog_button newdialog_button newdialog_btn_ok">
+                <span id="ktvdialog_innertext"></span>
+            </a>
+            <a class="ktvdialog_button newdialog_button newdialog_btn_cancel">
+                <span id="ktvdialog_innertext_cancel"></span>
+            </a>
+        </a>
+    </div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
+    <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
+        <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
+        <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>
+        <a href class="ktvdialog_button" style="display: none;" hidden="hidden" draggable="false">
+            <span id="ktvdialog_innertext"></span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_ok">
+            <span id="ktvdialog_innertext"></span>
+        </a>
+        <a class="ktvdialog_button ktv_btn_cancel">
+            <span id="ktvdialog_innertext_cancel"></span>
+        </a>
+    </div>
+*/
 function checkdialog(type, snd_type, dowait) {
     if (type == "PERSISTANT") {
         KTV_ShowPersistentAlert("dialogtext", false, snd_type, true);

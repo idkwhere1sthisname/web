@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+.dialognew {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    overflow: auto;
+    display: block;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.newdialogtext {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    font-weight: lighter !important;
+    font-family: Arial !important;
+    font-size: 30px !important;
+    letter-spacing: 0.05em;
+    color: #fff !important;
+    -webkit-user-select: none;
+    user-select: none;
+    line-height: 1.3em !important;
+}
+
+.newdialog_button {
+    width: auto;
+    height: auto;
+    min-width: 248px;
+    min-height: 98px;
+    position: absolute;
+    bottom: clamp(2vh, 50%, 8vh);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    display: block;
+    font-size: 16px;
+    font-family: Arial !important;
+    font-weight: 700;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 5px;
+    background-size: 100%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 10000000000;
+    width: 248px;
+    height: 98px;
+    background-image: url("/images/ButtonBaseColor.tpl.png") !important;
+    transition: transform 0.1s ease-in-out;
+    top:75%
+}
+
+.newdialog_button span {
+    position: absolute;
+    top: 26% !important;
+    left: 48.3% !important; /*does this even work?*/
+    transform: translate(-50%, -50%);
+    font-family: Arial !important;
+    font-weight: 700;
+    font-size: 23px !important;
+    color: white;
+    line-height: 1.2;
+    pointer-events: none;
+    text-align: center;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: pre-line;
+    font-weight: lighter !important;
+    text-shadow:0px 1px 1px #000
+}
+
+.newdialog_button:hover span { font-size: 27px; }
+
+.newdialog_button:hover {
+    width: 248px;
+    height: 98px;
+    transform: translateX(-50%) scale(1.03);
+    background-image: url("/images/ButtonBaseColor.tpl.png") !important;
+    z-index: 10000000001;
+}
+
+.newdialog_button:active {
+    transform: translateX(-50%) scale(1.09);
+    background-image: url("/images/ButtonBaseColor.tpl.png") !important;
+}
+
+.newdialog_button:active span { font-size: 29px; }
+
+.newdialog_btn_ok {left: 32%;transform: translateX(-50%);}
+.newdialog_btn_cancel {left: 72%;transform: translateX(-50%);}
+
+@media screen and (max-width:412px) {
+    .newdialogtext {
+        top: 44% !important;
+        font-size: 15px !important;
+    }
+}
+@media screen and (max-width:720px) {
+    .newdialogtext {
+        top: 45% !important;
+    }
+    .newdialog_button {
+        top: 55% !important;
+    }
+}
+@media screen and (min-width:1240px) {
+    #newdialog_savemain,
+    .newdialogtext {
+        top:41% !important;
+        font-size: 27px !important;
+    }
+    .newdialog_button {
+        top:71% !important
+    }
+}
