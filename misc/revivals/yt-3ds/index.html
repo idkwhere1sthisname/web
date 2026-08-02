@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <!--base href="https://idkwhereisthis.name" /-->
-    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
-    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
     <meta property="og:image:alt" content="meow" />
     <meta name="author" content="idkwhereisthisname">
     <meta property="og:title" content="idkwhereisthis.name" />
@@ -24,10 +24,44 @@
     <script src="/js/swapImg.js"></script>
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="../yt-wii/style.css" />
+    <link rel="stylesheet" href="../loader.css" />
+    <script type="text/javascript" language="JavaScript">
+        function checkiframeloaded(id,src) {
+            return new Promise(res=>{
+                const $frame = $("#"+id);
+                if ($frame.length===0) {
+                    res();
+                    return;
+                }
+                $frame.css("visibility","hidden");
+                var finish;
+                finish = false;
+                function ondone() {
+                    if (!finish) {
+                        finish = true;
+                        $frame.css("visibility","visible");
+                        console.log("frame OK");
+                        res();
+                    }
+                }
+                $frame.one("load",ondone);
+                $frame.attr("src",src);
+                setTimeout(ondone,15000);
+            });
+        }
+        async function initPage() {
+            await Promise.all([
+                checkiframeloaded("video","https://www.youtube.com/embed/LB2bKQBIINg"),
+                checknekoloaded(function(){console.log("neko OK")}),
+            ])
+            hideSpinner();
+        }
+    </script>
 </head>
-<body>
+<body onload="initPage()">
     <script>NekoType="white"</script>
     <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <div id="innerspinner"><img src="/images/tex1_spinner.png" draggable="false" alt="Loading" /></div>
     <noscript>
         <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
         <audio src="/sound/save_amp.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
@@ -54,9 +88,9 @@
     <div class="deftext">
         <span id="description">a revival of the actual 3DS YouTube app</span>
         <br><br>
-        <iframe width="640" height="480" src="https://www.youtube.com/embed/LB2bKQBIINg" title="" frameBorder="0"
+        <iframe width="640" height="480" title="" frameBorder="0" id="video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen></iframe>
+            allowFullScreen="allowFullScreen" style="visibility: hidden;"></iframe>
         <br>
     </div>
         <span style="color: grey;" id="caution">(very early footage)</span>

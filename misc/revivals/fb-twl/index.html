@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <!--base href="https://idkwhereisthis.name" /-->
-    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
-    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
     <meta property="og:image:alt" content="meow" />
     <meta name="author" content="idkwhereisthisname">
     <meta property="og:title" content="idkwhereisthis.name" />
@@ -23,10 +23,46 @@
     <link rel="stylesheet" href="/css/main.css" />
     <script src="/js/main.js"></script>
     <script src="/js/swapImg.js"></script>
+    <link rel="stylesheet" href="../loader.css" />
+    <script type="text/javascript" language="JavaScript">
+        function checkimgload() {
+            return new Promise(res=>{
+                const imgs = Array.from(document.querySelectorAll("img"));
+                if (imgs.length===0){
+                    res();
+                    return;
+                }
+                var load;
+                load = 0;
+                function ondone() {
+                    load++;
+                    if (load==imgs.length) {
+                        res();
+                    }
+                }
+                imgs.forEach(img=>{
+                    if (img.complete&&img.naturalWidth>0) {
+                        ondone();
+                    } else {
+                        img.addEventListener("load",ondone,{"once":true});
+                        img.addEventListener("error",ondone,{"once":true});
+                    }
+                })
+            })
+        }
+        async function initPage() {
+            await Promise.all([
+                checknekoloaded(function(){console.log("neko ok")}),
+                checkimgload()
+            ]);
+            hideSpinner();
+        }
+    </script>
 </head>
-<body>
+<body onload="initPage()">
     <script>NekoType="white"</script>
     <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <div id="innerspinner"><img src="/images/tex1_spinner.png" draggable="false" alt="Loading" /></div>
     <noscript>
         <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
         <audio src="/sound/save_amp.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>
@@ -54,6 +90,7 @@
     <div id="description01-01" class="deftext">revival of the Facebook Integration for the DSi Camera</div><br>
     <img src="https://img.idkwh.ct8.pl/fb_twl/img1.jpg" width="320" height="240" />&nbsp;<img src="https://img.idkwh.ct8.pl/fb_twl/img2.jpg" width="320" height="240" /><br/>
     <img src="https://img.idkwh.ct8.pl/fb_twl/img3.jpg" width="320" height="240" />&nbsp;<img src="https://img.idkwh.ct8.pl/fb_twl/log1.png" width="320" height="240" />
+    <BR>
     <span class="deftext"><a href="https://github.com/idkwhere1sthisname/dsicamera-fb-revival">repository</a></span>
     </div>
 </body>

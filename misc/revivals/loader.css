@@ -1,0 +1,23 @@
+@charset "UTF-8";
+#innerspinner {
+    position:absolute;
+    left:42px;
+    z-index:200;
+    width:21px;
+    height:21px;
+    animation:spin 1s linear infinite;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor:url("/images/tex1_wk_cursor.png"),none;
+}
+#innerspinner img {
+    width: 100%;
+    height: 100%;
+    animation: spin 1s linear infinite;
+    transform-origin: center center;
+    display: block;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);};
+    to {transform:rotate(360deg);};
+}

@@ -5,14 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>setting.txt decryptor/encryptor</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="/js/main.js"></script>
     <link type="text/css" rel="stylesheet" href="/css/main.css">
     <script type="text/javascript" src="main.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
     <meta property="og:locale" content="en_US">
     <meta name="description" content="decrypt setting.txt from your wii on your browser!! all of this uses javascript">
-    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png">
-    <meta property="og:image_secure" content="https://idkwhereisthis.name/images/favicon/frame_13.png">
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon_ani.gif">
+    <meta property="og:image_secure" content="https://idkwhereisthis.name/images/favicon_ani.gif">
+    <meta property="og:image:url" content="https://idkwhereisthis.name/images/favicon.ani.gif">
     <meta property="og:description" content="decrypt setting.txt from your wii on your browser!! all of this uses javascript">
     <meta property="og:name" content="setting.txt decryption/encryption">
     <meta name="title" content="idkwhereisthis.name">
@@ -27,8 +29,10 @@
     <style type="text/css">button{font-size: 17px};</style>
 </head>
 
-<body>
+<body onload="checknekoloaded(function(){hideSpinner()})">
     <script>NekoType="white"</script>
+    <h1 id="nl"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></h1>
+    <div id="innerspinner"><img src="/images/tex1_spinner.png" draggable="false" alt="Loading" /></div>
     <noscript>
         <div class="gradientforktvdialog" id="ktvdialognotfounderror"></div>
         <audio src="/sound/save_amp.wav" preload="auto" autoplay="autoplay" id="errsnd"></audio>

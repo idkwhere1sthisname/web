@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <!--base href="https://idkwhereisthis.name" /-->
-    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
-    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
     <meta property="og:image:alt" content="meow" />
     <meta name="author" content="idkwhereisthisname">
     <meta property="og:title" content="idkwhereisthis.name" />
@@ -22,9 +22,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>idkwhereisthis.name</title>
     <link rel="stylesheet" href="/css/main.css" />
-    <script src="/js/main.js"></script>
     <script src="/js/swapImg.js"></script>
     <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
+    <script src="/js/main.js"></script>
     <audio id="selsnd_ktv" src="/sound/KTV_CLICK.wav" preload="auto"></audio>
     <audio id="popup_ktv" src="/sound/ktv_popup.wav" preload="auto"></audio>
     <audio id="popup_ktv_exit" src="/sound/ktv_popup_leave.wav" preload="auto"></audio>
@@ -38,13 +38,61 @@
             image-rendering: crisp-edges;
             image-rendering: pixelated;
         }
-        #riitag {
+        #riitagimg {
             cursor: pointer;
             border: 3px #34be34;
             border-style: ridge;
         }
     </style>
-    <script type="text/javascript" language="JavaScript">var snd = {playSE:function(id){return undefined}}</script>
+    <script type="text/javascript" language="JavaScript">
+        var imgsrc;
+        async function checkuptime() {
+            const abort = new AbortController();
+            const timeout = setTimeout(()=>{
+                abort.abort("timeout exceeded");
+                return false;
+            },10000);
+            showSpinnerWithoutBackground();
+            try {
+                // hope this actually works 🤞
+                const resp = await fetch("https://api.idkwh.ct8.pl/cgi-bin/rc24tag.cgi",{signal:abort.signal});
+                clearTimeout(timeout);
+                console.log("recv status: "+resp.status);
+                if (parseInt(resp.status) == parseInt("200")) {
+                    imgsrc = await resp.text()
+                    return true;
+                }
+                return false;
+            } catch (e) {
+                console.error("oops! "+e)
+                return false;
+            }
+        }
+        checkuptime().then(isup=>{
+            initPage(isup);
+        })
+        function initPage(isup) {
+            showSpinnerWithoutBackground();
+            const $frame = $("#incrementbadge");
+            $frame.one("load",function() {
+                $(this).css("visibility","visible");
+            });
+            $frame.attr("src","https://incr.easrng.net/badge?key=idkwh");
+            const img0 = document.getElementById("riitagimg");
+            const id   = document.getElementById("riitagdiv");
+            const tex0 = document.getElementById("riitagtext");
+            if (id&&tex0&&img0) {
+                if (isup) {
+                    img0.src=imgsrc;
+                    tex0.innerText="my riitag";
+                } else {
+                    id.remove();
+                    tex0.innerText="this is where my riitag would show up, but apparently the service is down. sorry!";
+                }
+            }
+            checknekoloaded(function() {hideSpinner();} );
+        }
+    </script>
 </head>
 
 <body>
@@ -66,7 +114,8 @@
             </a>
         </div>
     </noscript>
-    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div id="innerspinner"><img src="/images/tex1_spinner.png" draggable="false" alt="Loading" /></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" draggable="false" /></div>
     <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
     <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
         <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
@@ -179,7 +228,7 @@
         <img border="0" src="buttons/minecraft.gif" width="88" height="31" onmouseover="playsnd('pw_sel.wav')" onclick="location.href='https://minecraft.net'" style="cursor:pointer;" class="button88x31">
         <img border="0" src="buttons/winxp2.gif" width="88" height="31" alt="window xp" class="button88x31">
         <img src="buttons/idkwh.gif" width="88" height="31" border="0" onmousedown="playsnd('sel.wav')" class="site" title="feel free to put this button on your website!!" class="button88x31">
-        <iframe src="//incr.easrng.net/badge?key=idkwh" title="increment badge" width="88" height="31" frameborder="0" ></iframe>
+        <iframe title="increment badge" width="88" height="31" frameborder="0" id="incrementbadge" style="visibility: hidden;"></iframe>
         <img src="images/html-5.gif" width="88" height="31" title="based" class="button88x31">
         <img src="images/kris-where-tf.webp" width="88" height="31" class="button88x31">
         <img src="images/wii-shop.gif" width="88" height="31" class="button88x31">
@@ -191,7 +240,7 @@
         <img src="images/roblox.webp" width="88" height="31" title="RòBL0X" class="button88x31">
         <img src="images/vs-code.gif" width="88" height="31" class="button88x31">
         <img src="buttons/w7-boot.gif" width="88" height="31" style="text-decoration:none" class="button88x31" /><a
-            href="https://github.com/idkwhere1sthisname" onmouseover="snd.playSE(1)"
+            href="https://github.com/idkwhere1sthisname" onmouseover="playsnd('pw_sel.wav')"
             style="text-decoration: none">
             <img src="buttons/github.png" width="88" height="31" class="button88x31" />
         </a><img src="buttons/gamecube.png" width="88" height="31" class="button88x31" />
@@ -200,12 +249,12 @@
         <img src="buttons/ezgif.com-resize.gif" title="So Retro!" class="button88x31" />
         <img src="buttons/chicken-jockey.gif" title="CHICKEN JOCKEY" width="88" height="31" class="button88x31" />
         <img src="buttons/mail.png" onclick="playsnd('pw_cancel.wav')" onmouseover="playsnd('pw_sel.wav');" width="88" height="31" style="cursor:url('/images/DFLTN.png'),alias" class="button88x31" />
-        <a href="javascript:nosite('https://thewiiarchivist.github.io', 'url')" onmouseover="snd.playSE(1)"
+        <a href="javascript:nosite('https://thewiiarchivist.github.io', 'url')" onmouseover="playsnd('pw_sel.wav')"
             style="text-decoration: none;">
             <img src="buttons/thewiiarchivist.github.io.gif" width="88" height="31" class="button88x31">
-        </a><a href="javascript:jumpTo('https://gemdation.com')" onmouseover="snd.playSE(1)">
+        </a><a href="javascript:jumpTo('https://gemdation.com')" onmouseover="playsnd('pw_sel.wav')">
             <img src="buttons/gemdation.com.gif" width="88" height="31" class="button88x31" /></a><a
-            href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none" onmouseover="snd.playSE(1)">
+            href="javascript:jumpTo('https://donut.eu.org')" style="text-decoration: none" onmouseover="playsnd('pw_sel.wav')">
             <img border="0" src="buttons/emsite.png" width="88" height="31" class="button88x31">
         </a><a onclick="nosite('https://yourtooslow.com')" onmouseover="playsnd('pw_sel.wav')" style="cursor:pointer">
             <img src="buttons/ezgif-2eb8057e700d39.gif" width="88" height="31" class="button88x31" />
@@ -217,14 +266,15 @@
         <img src="/buttons/pngnow.gif" width="88" height="31" class="button88x31" />
         <img src="/buttons/catscapeloader.gif" width="88" height="31" class="button88x31" />
         <img src="/buttons/typhrakromer.gif" width="88" height="31" class="button88x31" />
+        <img src="/buttons/ublock-now.png" width="88" height="31" class="button88x31" />
         <br /><br />
         <img src="/buttons/m_se.gif" onclick="playsnd('pw_cancel.wav')" onmouseover="playsnd('pw_sel.wav')" style="cursor:url('/images/DFLTN.png'),alias;" class="button88x31" />&nbsp;<a target="_blank" href="https://web.archive.org/web/20091126114254id_/http://theaterwii.jp/" onmouseover="playsnd('pw_sel.wav')"><img src="/buttons/theaterwii.gif" /></a>
         <br/><span style="color: gray;font-size:small">some buttons might be interactive!</span>
     </div>
     <div class="box buttonbox" style="background:url('/images/bgalt2.gif');">
         <h1 style="color: yellow;-webkit-user-select:none;user-select:none">other stuff</h1>
-        <a onclick="javascript:jumpToWithOtherGradient('https://riitag.t0g3pii.de/user/876190978065719326')" onmouseover="playsnd('pw_sel.wav')"><img src="https://riitag.t0g3pii.de/876190978065719326/tag.png" id="riitag" alt="RiiTag" /></a>
-        <BR><span class="deftext">my riitag</span>
+        <a onclick="javascript:jumpToWithOtherGradient('https://riitag.t0g3pii.de/user/876190978065719326')" onmouseover="playsnd('pw_sel.wav')" id="riitagdiv"><img src id="riitagimg" alt="RiiTag" /><BR/></a>
+        <span class="deftext" id="riitagtext">my riitag</span>
     </div>
 </body>
 </html>

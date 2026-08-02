@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0" />
     <meta name="robots" content="index, follow" />
     <!--base href="https://idkwhereisthis.name" /-->
-    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
-    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon/frame_13.png" />
+    <meta property="og:image" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
+    <meta property="og:image:url" content="http://idkwhereisthis.name/images/favicon_ani.gif" />
     <meta property="og:image:alt" content="meow" />
     <meta name="author" content="idkwhereisthisname">
     <meta property="og:title" content="idkwhereisthis.name" />
@@ -22,7 +22,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>idkwhereisthis.name</title>
     <link rel="stylesheet" href="/css/main.css" />
-    <script type="text/javascript">function runonload(){initFavicon("/images/favicon/",19,200);}</script>
+    <script type="text/javascript">function runonload(){initFavicon("/images/favicon/",19,200);checknekoloaded(function(){hideSpinner()})}</script>
     <script src="/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <audio id="dialogsnd" src="/sound/save_amp.wav" preload="auto"></audio>
@@ -39,8 +39,9 @@
 
 <body onload="runonload();">
     <h1 id="nl"><div style="z-index:2"><script src="https://webneko.net/n20171213.js"></script><a href="https://webneko.net">Neko</a></div></h1>
+    <div id="innerspinner"><img src="/images/tex1_spinner.png" draggable="false" alt="Loading" /></div>
     <div class="gradientforktvdialog" id="gradientktv" style="display: none;"></div>
-    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" style="position:fixed;top:0;left:0;opacity:0.7;z-index:1001;width:100vw;height:100vh"/></div>
+    <div class="othergradient" id="gradientktvOTHER" style="display: none;"><img src="/images/DialogBg.png" id="ytgradientEU" draggable="false" /></div>
     <div class="ktvdialog_container" id="ktvdialogcontaining" style="display: none;">
         <img src="/images/Dialog.png" class="ktvdialog" draggable="false" />
         <div class="ktvdialog_text" id="ktvdialog_save_main" draggable="false"></div>

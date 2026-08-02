@@ -147,7 +147,6 @@ a:visited {color:rgb(155, 5, 155)}
     transition: transform 0.3s ease;
 }
 
-
 .ktvdialog {
     position: relative;
     width: 100%;
@@ -155,6 +154,8 @@ a:visited {color:rgb(155, 5, 155)}
     object-fit: contain;
     overflow: auto;
     display: block;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 #ktvdialog_save_main,
@@ -234,6 +235,17 @@ a:visited {color:rgb(155, 5, 155)}
 
 .ktv_btn_ok {left: 32%;transform: translateX(-50%);}
 .ktv_btn_cancel {left: 72%;transform: translateX(-50%);}
+
+#ytgradientEU {
+    position:fixed;
+    top:0;left:0;
+    opacity:0.7;
+    z-index:1001;
+    width:100vw;
+    height:100vh;
+    -webkit-user-select:none;
+    user-select:none;
+}
 
 /* NOSCRIPT DIALOG */
 
@@ -385,4 +397,27 @@ a:visited {color:rgb(155, 5, 155)}
         top:41%;
         font-size: 27px;
     }
+}
+
+#innerspinner {
+    position:absolute;
+    left:42px;
+    z-index:200;
+    width:21px;
+    height:21px;
+    animation:spin 1s linear infinite;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor:url("/images/tex1_wk_cursor.png"),none;
+}
+#innerspinner img {
+    width: 100%;
+    height: 100%;
+    animation: spin 1s linear infinite;
+    transform-origin: center center;
+    display: block;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);};
+    to {transform:rotate(360deg);};
 }

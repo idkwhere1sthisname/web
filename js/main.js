@@ -1,3 +1,22 @@
+// spinner stuff
+function showSpinnerWithoutBackground() { $("#innerspinner").show() }
+function hideSpinner() { $("#innerspinner").hide(); }
+
+function checknekoloaded(cb) {
+    if (document.getElementById("layerNeko0")) {
+        cb();
+        return;
+    }
+    const obs = new MutationObserver(function() {
+        if (document.getElementById("layerNeko0")) {
+            obs.disconnect();
+            cb();
+        }
+    });
+    obs.observe(document.body,{childList:true,subtree:true});
+}
+
+
 function getFormattedDate() {
     const date = new Date();
     const month = String(date.getMonth() + 1).padStart(2, '0');
