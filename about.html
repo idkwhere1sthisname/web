@@ -25,7 +25,20 @@
     <script src="/js/main.js"></script>
     <script src="/js/swapImg.js"></script>
     <script src="/js/words.js"></script>
-    <style type="text/css">.red{color:rgba(255,0,0,1)}.green{color:rgba(10,231,10,1)}</style>
+    <style type="text/css">
+        .red {
+            color: rgb(255, 0, 0);
+        }
+        .lightgreen {
+            color: rgb(153, 255, 0);
+        }
+        .green {
+            color: rgb(10, 231, 10);
+        }
+        .red_dark {
+            color: rgb(119, 7, 7);
+        }
+    </style>
 </head>
 
 <body onload="checknekoloaded(function(){hideSpinner()})">
@@ -55,20 +68,25 @@
                 <img src="/images/iconbak.png" width="40" height="40" onmouseover="playsnd('pw_sel.wav')" alt="iconbak" />
             </a>
         </div>
-        <div class="deftext">
+        <div class="deftext" style="padding-left:50px;padding-right:50px">
             <div class="word miniheader"></div>
-            hi!! i'm idkwhereisthisname (idkwh for short), i like old tech and programming.
-            <br>
-            I mainly use Python and C (for Wii apps), I also use Java sometimes.
-            <br>
-            I also like PHP
+            hiiii!! i'm idkwhereisthisname (idkwh for short)<br><br>
+            i'm a tech and programming nerd, i've spent countless of hours learning <s>(or procastinating)</s> how to code, and a LOT more!!!! (i genuinely have no idea what to write for now tbh)<br>
+            i can speak <span class="Catmoji">🇮🇹</span> Italian (native) - <span class="catmoji">🇺🇸/🇬🇧</span> English - <span class="catmoji">🇪🇸</span> Spanish (learned years ago) - <span class="catmoji">🇯🇵</span> Japanese (learning)
             <br><br>
-            <span class="green">loves: programming, videogames</span><br>
-            <span class="red">hates: self</span>
+            <span class="lightgreen"><b>likes</b>: minecraft pvp (I main netherite SMP), math</span><br>
+            <span class="green"><b>loves</b>: programming, tech in general, reverse engineering, cats, nintendo homebrew (mostly wii/dsi), vocaloid/utauloid, dr/ut</span><br>
+            <span class="red"><b>hates</b>: self, javascript, pirate shop token</span>
             <div id="divclock">
                 <br>
-                <img src="/images/calendar.png" id="inlinecalendar"/>&nbsp;it is currently <span id="currTime" style="user-select: none;-webkit-user-select:none"></span> for me.
+                <img src="/images/calendar.png" id="inlinecalendar" draggable="false" style="user-select: none;-webkit-user-select: none;" />&nbsp;it is currently <span id="currTime" style="user-select: none; -webkit-user-select:none"></span> for me.
             </div>
+        </div>
+        <div class="decorTR">
+            <img src="https://media.tenor.com/SBXNl1cJf6IAAAAd/miku-hi.gif" draggable="false" width="100" class="rotTL" />
+        </div>
+        <div class="decorBL">
+            <img src="/images/decor/smp.svg" draggable="false" width="40" class="rotBR" />
         </div>
     </div>
 </body>

@@ -202,7 +202,6 @@ function KTV_ShowAlert(
     $dialog.show();
     $overlay.show();
     $("body").css({"overflow":"hidden"});
-    $("html").css({"overflow":"hidden"});
 
     if (showtransparentgradient) {
         $overlay.addClass('transparentgradient_ktv');
@@ -249,7 +248,6 @@ function KTV_ShowAlert(
                 $dialog.hide();
                 $overlay.fadeOut(600);
                 $("body").css({"overflow":"auto"});
-                $("html").css({"overflow":"auto"});
                 window.location.href = okbtnaction;
             }, 600);
         }
@@ -534,7 +532,6 @@ function KTV_ShowDoubleBtnAlert(
     $dialog.show();
     $overlay.show();
     $("body").css({"overflow":"hidden"});
-    $("html").css({"overflow":"hidden"});
     if (showtransparentgradient) {$overlay.addClass('transparentgradient_ktv');}
     else {$overlay.removeClass('transparentgradient_ktv');}
     $dialog.css('transform', 'translate(-50%, -50%)');
@@ -593,7 +590,6 @@ function KTV_ShowDoubleBtnAlert(
             $dialog.hide();
             $overlay.fadeOut(600);
             $("body").css({"overflow":"auto"});
-            $("html").css({"overflow":"auto"});
             if (target && target !== "#") {
                 window.location.href = target;
             }
@@ -629,7 +625,6 @@ function KTV_ShowDoubleBtnAlertWithOtherGradient(
     $dialog.show();
     $overlay.show();
     $("body").css({"overflow":"hidden"});
-    $("html").css({"overflow":"hidden"});
     $overlay.addClass('othergradient')
     $dialog.css('transform', 'translate(-50%, -50%)');
     $okBtn.off('click').on('click', function (e) {
@@ -686,7 +681,6 @@ function KTV_ShowDoubleBtnAlertWithOtherGradient(
         setTimeout(function () {
             $dialog.hide();
             $overlay.fadeOut(600);
-            $("html").css({"overflow":"auto"});
             $("body").css({"overflow":"auto"});
             if (target && target !== "#") {
                 window.location.href = target;

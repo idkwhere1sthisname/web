@@ -29,10 +29,18 @@
     <audio id="hvrsnd" src="/sound/hvr.wav" preload="auto" style="display: none;"></audio>
     <audio id="selsnd" src="/sound/sel.wav" preload="auto" style="display: none;"></audio>
     <style type="text/css">
-        #tnsbutton {
-            cursor: url("/images/DFLTN.png"),pointer;
-            border-color: #34beed;
-            background-color: rgb(115, 161, 216);
+        .rotM { transform: rotate(0deg); }
+        :is(.decorM), :is(.decorM) img {
+            display: block;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .decorM {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            z-index: 250034;
+            transform: translate(-50%,50%);
         }
     </style>
 </head>
@@ -49,18 +57,15 @@
             <span id="ktvdialog_innertext"></span>
         </a>
     </div>
-    <div class="box">
-        <h1 class="header">not found</h1>
+    <div class="title"><h1 class="header">uh oh! an error!!</h1></div>
+    <div class="box" style="padding-bottom: 60px;">
+        <div class="word miniheader"></div>
         <span class="subtitle deftext">404 page not found :c</span>
         <br><br>
         <a href="/" class="deftext" onmouseover="playsnd('pw_sel.wav')">Return to home page</a>
-        <div align="right" id="tnsbtndiv" draggable="false">
-            <script type="text/javascript">
-                function showSurpriseIn404() { KTV_ShowAlertWithDialogGradient('wrong button gng 🙏','Ok','#','#','FLASHPLAYERSE');document.getElementById('tnsbtndiv').remove(); }
-            </script>
-            <button type="button" id="tnsbutton" onmouseover="playsnd('KTV_HOVER.wav')" title="??" onclick="showSurpriseIn404();"></button>
+        <div class="decorM">
+            <img src="https://img.idkwh.ct8.pl/hatsune-miku-leekspin.gif" draggable="false" width="100" class="rotM" />
         </div>
     </div>
-    <SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">if (Math.floor(Math.random()*10)==Math.floor(Math.random()*10)){changedialogcss(true)};</SCRIPT>
 </body>
 </html>

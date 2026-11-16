@@ -55,16 +55,15 @@
             showSpinnerWithoutBackground();
             try {
                 // hope this actually works 🤞
+                // it does
                 const resp = await fetch("https://api.idkwh.ct8.pl/cgi-bin/rc24tag.cgi",{signal:abort.signal});
                 clearTimeout(timeout);
-                console.log("recv status: "+resp.status);
                 if (parseInt(resp.status) == parseInt("200")) {
                     imgsrc = await resp.text()
                     return true;
                 }
                 return false;
             } catch (e) {
-                console.error("oops! "+e)
                 return false;
             }
         }
@@ -128,7 +127,14 @@
         </a>
     </div>
     <div class="title"><h1 class="header"><img src="/images/favicon_ani.gif"/>&nbsp;idkwhereisthis.name&nbsp;<img src="/images/favicon_ani.gif"/></h1></div>
-    <div class="box-nobottom"><br>
+    <div class="box-nobottom">
+        <div class="decorTL">
+            <img src="/images/decor/Miku.gif" draggable="false" width="90" class="rotTR" />
+        </div>
+        <div class="decorTR">
+            <img src="/images/decor/Teto.gif" draggable="false" width="90" class="rotTL" />
+        </div>
+        <br>
         <span class="deftext">welcome to my site!! :3</span><br>
         <div class="interactivebtn" style="user-select: none;">
             <a href="/about.html" draggable="false">
@@ -206,7 +212,6 @@
         </a>
         <img border="0" src="buttons/directxnow.gif" width="88" height="31" class="button88x31">
         <img border="0" src="buttons/winxp.gif" width="88" height="31" class="button88x31">
-        <img border="0" src="buttons/bestviewedcomp.gif" width="88" height="31" class="button88x31">
         <img border="0" src="buttons/office97.gif" width="88" height="31" class="button88x31">
         <a href="https://youtu.be/xvFZjo5PgG0?si=4Q5dgK2HcpEyQfG_" onmouseover="playsnd('pw_sel.wav')" onclick="playsnd('pw_cancel.wav')">
             <img border="0" src="buttons/clickhere_red.gif" width="88" height="31" class="button88x31" />
@@ -278,6 +283,9 @@
         <h1 style="color: yellow;-webkit-user-select:none;user-select:none">other stuff</h1>
         <a onclick="javascript:jumpToWithOtherGradient('https://riitag.t0g3pii.de/user/876190978065719326')" onmouseover="playsnd('pw_sel.wav')" id="riitagdiv"><img src id="riitagimg" alt="RiiTag" /><BR/></a>
         <span class="deftext" id="riitagtext">my riitag</span>
+        <div class="decorBL">
+            <img src="/images/android-chrome-192x192.png" draggable="false" width="50" class="rotBL" />
+        </div>
     </div>
 </body>
 </html>

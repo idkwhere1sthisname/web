@@ -1,8 +1,10 @@
 // https://codepen.io/alvarotrigo/pen/ZEJgqLN
 var words = [
-  'fav. consoles: Wii, New3DSXL, Wii U',
+  'fav. consoles: Wii, DSi, 3DS, Wii U',
   'pronouns: he/they',
-  'fav. games: Minecraft (java), Deltarune'
+  'fav. games: Minecraft (java), Deltarune',
+  'i can put literally anything here isnt that cool',
+  ':3'
 ],
     part,
     i = 0,
